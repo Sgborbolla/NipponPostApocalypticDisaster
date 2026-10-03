@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&amp;family=Space+Grotesk:wght@600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-tertiary-fixed": "#271900", "primary-fixed": "#7df4ff", "on-secondary-fixed-variant": "#095300", "surface-dim": "#101319", "error-container": "#93000a", "surface-container-highest": "#32353b", "on-surface-variant": "#b9cacb", "surface-variant": "#32353b", "surface-container": "#1d2025", "on-secondary-container": "#0f6d00", "surface-container-low": "#191c21", "tertiary-fixed": "#ffdea8", "surface-container-high": "#272a30", "on-primary-fixed": "#002022", "background": "#101319", "secondary-container": "#2ff801", "on-primary-container": "#006970", "on-error": "#690005", "surface": "#101319", "tertiary": "#fff4e8", "secondary-fixed": "#79ff5b", "tertiary-fixed-dim": "#ffba20", "secondary": "#d7ffc5", "on-tertiary-fixed-variant": "#5e4200", "primary": "#dbfcff", "on-primary": "#00363a", "tertiary-container": "#ffd386", "inverse-surface": "#e1e2ea", "primary-container": "#00f0ff", "on-surface": "#e1e2ea", "surface-tint": "#00dbe9", "error": "#ffb4ab", "inverse-primary": "#006970", "on-tertiary-container": "#7d5800", "on-secondary-fixed": "#022100", "primary-fixed-dim": "#00dbe9", "surface-container-lowest": "#0b0e13", "outline-variant": "#3b494b", "on-secondary": "#053900", "on-error-container": "#ffdad6", "outline": "#849495", "inverse-on-surface": "#2d3036", "secondary-fixed-dim": "#2ae500", "on-tertiary": "#412d00", "surface-bright": "#36393f", "on-primary-fixed-variant": "#004f54", "on-background": "#e1e2ea" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2.5rem", "margin": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xs": "0.25rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "margin-desktop": "2rem", "space-lg": "1.5rem" }, fontFamily: { "label-lg": ["JetBrains Mono"], "headline-sm": ["Space Grotesk"], "body-sm": ["Space Mono"], "body-lg": ["Space Mono"], "headline-md": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "headline-xl": ["Space Grotesk"], "headline-xl-mobile": ["Space Grotesk"], "label-sm": ["JetBrains Mono"], "body-md": ["Space Mono"], "headline-lg-mobile": ["Space Grotesk"], "headline-lg": ["Space Grotesk"] }, fontSize: { "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0.02em", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.14em", "fontWeight": "600" }], "headline-xl": ["48px", { "lineHeight": "52px", "letterSpacing": "0.08em", "fontWeight": "700" }], "headline-xl-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-sm": ["9px", { "lineHeight": "12px", "letterSpacing": "0.18em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "0.06em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-50 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,14,19,0.7)_100%)] opacity-80"></div><div class="pointer-events-none fixed inset-0 z-50 bg-[repeating-linear-gradient(0deg,rgba(0,0,0,0.35)_0px,rgba(0,0,0,0.35)_1px,transparent_1px,transparent_2px)]"></div><header class="fixed top-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.6)]"><div class="w-full h-16 px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 bg-error animate-pulse"></span><span class="font-label-lg text-label-lg text-primary tracking-widest">NPAD // TOKYO-03</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-0.5 bg-surface-container-high rounded"><span class="font-label-sm text-label-sm text-error">DEFCON-1</span><span class="text-on-surface-variant font-label-sm text-label-sm">[RAD: 44.2 mSv]</span></div></div><nav class="hidden lg:flex items-center gap-space-xs overflow-x-auto py-1" data-active-classes="bg-primary-container text-on-primary-container font-bold"><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="seleccion-de-heroes" href="#">[1. SELECCIÓN DE HÉROES]</a><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="bestiario-arquetipos" href="#">[2. BESTIARIO: ARQUETIPOS]</a><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="sala-de-subjefes" href="#">[3. SALA DE SUBJEFES]</a><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="los-6-jefes-del-ward" href="#">[4. LOS 6 JEFES DEL WARD]</a><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="sistema-de-combate-2-botones" href="#">[5. SISTEMA DE COMBATE (2 BOTONES)]</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex flex-col text-right"><span class="font-label-sm text-label-sm text-primary">TAC_OPERATOR_08</span><span class="font-label-sm text-label-sm text-on-surface-variant">SYNC_RATE: 99.4%</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Tactical Ribbon: Operational Telemetry Bar -->
+<section class="w-full bg-surface-container-lowest px-gutter-desktop py-space-sm shadow-md">
+<div class="w-full flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary">TERMINAL: TOKYO_03 // RECRUIT_SYNC</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant tracking-wider">
+          PROTOCOL: <span class="text-primary font-bold">4 INSTANTES (HÉROES DESPLEGABLES)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">COMBAT ENGINE:</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">2-BUTTON DUAL CADENCE</span>
+</div>
+<div class="bg-surface-container-high px-space-sm py-0.5 rounded text-error font-label-sm text-label-sm">
+          BIO-READOUT: 4 VIGILANTES REGISTRADOS
+        </div>
+</div>
+</div>
+</section>
+<!-- Main Hero Hub: Bento Overview with Full Squad Graphic -->
+<section class="w-full px-gutter-desktop py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Squad Canvas Panorama (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-lg p-space-md relative overflow-hidden flex flex-col justify-between shadow-xl">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">emergency_recording</span>
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">NPAD // THE 4 INSTANTS ROSTER</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">CODEC: [SEC_99_OVERVIEW]</span>
+</div>
+<div class="relative w-full aspect-[16/9] overflow-hidden rounded bg-surface-container-lowest my-space-xs">
+<img alt="NPAD 4 Instants Character Roster" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1XkOxVxUb072doLI2SNDxgL0QBMFRGuBS21vbgniGKooXtMPx6oZPCtKhKCiSLbc7t-PH98epHF5gamdHN-3VbH0TsIhWucHMiUR1FycmTOghe_f4srUhDnMCKGfliPuGou5mHpmCZwPcW7witQagjRojaaCAkvLtQOVdSMtK9oTpvDZormjcWnAB6GU8UGMEZuc6AcJdZiHmnJvWgo0ePgIPUhJbMkKSwQv7s7ZSFBCCY0sksuVJvndthf"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80 pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 flex flex-wrap gap-space-xs">
+<span class="bg-surface-container-highest/90 text-primary font-label-sm text-label-sm px-space-xs py-0.5 rounded">01 // RIKA</span>
+<span class="bg-surface-container-highest/90 text-tertiary-fixed-dim font-label-sm text-label-sm px-space-xs py-0.5 rounded">02 // GORO</span>
+<span class="bg-surface-container-highest/90 text-secondary-fixed font-label-sm text-label-sm px-space-xs py-0.5 rounded">03 // REN</span>
+<span class="bg-surface-container-highest/90 text-error font-label-sm text-label-sm px-space-xs py-0.5 rounded">04 // YUI</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span>DESPLIEGUE EN FRACTURA TEMPORAL: DISPONIBLE</span>
+<span class="font-label-sm text-label-sm text-primary">SELECT_FREQ: 144.82 MHz</span>
+</div>
+</div>
+<!-- Quick Selector Terminal Matrix (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-space-sm bg-surface-container-low rounded-lg p-space-md shadow-xl">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-lg text-label-lg text-primary tracking-wider">[ INTERFAZ DE CONEXIÓN NEURAL ]</span>
+<span class="font-label-sm text-label-sm text-secondary animate-pulse">SYSTEM READY</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Seleccione un operador para transferir la sincronización neural. Cada unidad altera la física de desplazamiento (Dash) y la curva de daño de los 2 botones operativos.
+        </p>
+<!-- 4 Hero Select Buttons -->
+<div class="grid grid-cols-1 gap-space-xs mt-space-xs" id="hero-selector-group">
+<!-- Button 1: Rika -->
+<button class="hero-tab-btn active-tab w-full text-left p-space-sm rounded bg-surface-container-high transition-all flex items-center justify-between group" id="btn-rika" onclick="selectHero('rika')">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-lg text-label-lg text-primary group-hover:text-primary-container">01</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight font-bold">RIKA TSUKIMI</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">«LA HOJA» // KATANA DE CORTE RÁPIDO</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-primary font-bold">420 HP</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2 DASH</div>
+</div>
+</button>
+<!-- Button 2: Goro -->
+<button class="hero-tab-btn w-full text-left p-space-sm rounded bg-surface-container transition-all flex items-center justify-between group hover:bg-surface-container-high" id="btn-goro" onclick="selectHero('goro')">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-lg text-label-lg text-tertiary-fixed-dim group-hover:text-tertiary">02</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight font-bold">GORO ARASHI</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">«EL YUNQUE» // MAZA INDUSTRIAL &amp; ESCUDO</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim font-bold">690 HP</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">1 DASH (3x)</div>
+</div>
+</button>
+<!-- Button 3: Ren -->
+<button class="hero-tab-btn w-full text-left p-space-sm rounded bg-surface-container transition-all flex items-center justify-between group hover:bg-surface-container-high" id="btn-ren" onclick="selectHero('ren')">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-lg text-label-lg text-secondary-fixed group-hover:text-secondary">03</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight font-bold">REN HAYASHI</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">«EL RELÁMPAGO» // DAGAS GEMELAS #FFC400</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-secondary-fixed font-bold">310 HP</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">3 DASH (INF)</div>
+</div>
+</button>
+<!-- Button 4: Yui -->
+<button class="hero-tab-btn w-full text-left p-space-sm rounded bg-surface-container transition-all flex items-center justify-between group hover:bg-surface-container-high" id="btn-yui" onclick="selectHero('yui')">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-lg text-label-lg text-error group-hover:text-error-container">04</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight font-bold">YUI NAKAMURA</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">«LA DISTANCIA» // RIFLE CERROJO &amp; TRAZADOR</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-error font-bold">420 HP</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2 TELE-DASH</div>
+</div>
+</button>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded flex items-center justify-between mt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">CONFIRMACIÓN DE PILOTO:</span>
+<span class="font-label-md text-label-md text-primary font-bold">READY TO ENGAGE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Dossier Section (Swapped Dynamically via Script) -->
+<section class="w-full px-gutter-desktop py-space-md">
+<!-- HERO 1: RIKA TSUKIMI (DEFAULT ACTIVE) -->
+<div class="hero-dossier block space-y-space-md" id="dossier-rika">
+<!-- Dossier Header Strip -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<span class="text-primary font-label-lg text-label-lg px-space-sm py-1 bg-surface-container-highest rounded">ID: 01 // INSTANTE PRIMERO</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">RIKA TSUKIMI <span class="text-primary font-normal text-headline-md font-headline-md">«LA HOJA»</span></h2>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-md text-label-md">
+<span>EDAD: <strong class="text-on-surface">24 AÑOS</strong></span>
+<span>ARMA: <strong class="text-primary">KATANA FRACTURANTE</strong></span>
+<span>ESTADO: <strong class="text-secondary font-bold">ACTIVO</strong></span>
+</div>
+</div>
+<!-- Main Dossier Content Grid: Visual Turnaround + Stats + Lore + Combat System -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left: Character Sheet & Turnaround (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">FICHA TÉCNICA // COMBAT PROFILE</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SHEET: VER_2.4.9</span>
+</div>
+<div class="relative w-full aspect-[16/9] rounded overflow-hidden bg-surface-container-lowest">
+<img alt="Rika Tsukimi Character Sheet Turnaround" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1XSq_mMfkeeBoGcqlX2g2JH5h2DM4jI3hhr6WsN1aemDtC4wF6oVAV7_463fj-WD75O8aOZLCABkjjfDZHk4NmoZOo7yivrxJnN_XdDZBMOzi5FOpJLfSVUslUBF8V-QHfKX5c-kLJ_p4GSM4K9LoOOF56uz-wpnJgVloYONZujJceoTw2061PGaIo9gQLbO_s_lt6FTNRuWEDf7yyObb9ZKgx_cmlrkpSBYLaSDIRZF1cjonn36d-BKCHy"/>
+<div class="absolute top-2 right-2 bg-surface-container-highest/90 px-space-xs py-0.5 rounded font-label-sm text-label-sm text-primary">
+                HITSTOP: 8 FRAMES
+              </div>
+</div>
+</div>
+<!-- Color & Asset Diagnostics -->
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-sm space-y-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>PALETA ASIGNADA:</span>
+<span class="text-on-surface">HAORI HUESO (#E8E2EE) // CABELLO CARMESÍ (#E04A5A)</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>TOLERANCIA RADIAL:</span>
+<span class="text-secondary">ALTA (SECTOR RESIDENCIAL 09)</span>
+</div>
+</div>
+</div>
+<!-- Center: Radar & Segmented Attribute LED Banks (3 Cols) -->
+<div class="lg:col-span-3 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-primary uppercase font-bold">ATRIBUTOS TÁCTICOS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SCALE 1-10</span>
+</div>
+<!-- Segmented Stat Bars -->
+<div class="space-y-space-sm my-space-xs">
+<!-- HP -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VITALIDAD (HP)</span>
+<span class="text-primary font-bold">420 HP [MEDIO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Velocidad -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VELOCIDAD / AGILIDAD</span>
+<span class="text-secondary font-bold">8.5 / 10 [ALTA]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Alcance -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">ALCANCE DE COMBATE</span>
+<span class="text-tertiary-fixed-dim font-bold">5.0 / 10 [CUERPO A CUERPO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Control Hordas -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">CONTROL DE HORDAS</span>
+<span class="text-primary font-bold">7.0 / 10 [FILO TRANSVERSAL]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Evasión -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">I-FRAMES / EVASIÓN</span>
+<span class="text-secondary font-bold">9.0 / 10 [DESPLAZAMIENTO PURO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+</div>
+<!-- Radar Summary Badge -->
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase block font-bold">ESTILO OPERATIVO:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Duelista de precisión con prioridad en atravesar masas enemigas y castigar vulnerabilidades de jefes con hitstop exacto.</span>
+</div>
+</div>
+<!-- Right: 2-Button Mechanics & Lore Log (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col justify-between gap-space-sm bg-surface-container-low rounded-lg p-space-md shadow-xl">
+<!-- Lore Terminal Window -->
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-primary tracking-wider uppercase">[ EXPEDIENTE MILITAR // LORE ]</span>
+<span class="font-label-sm text-label-sm text-error">ARCHIVE_CONFIDENTIAL</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<p class="mb-space-xs text-on-surface">
+                «Evacuaba a civiles durante el colapso del Silencio. No alcanzó el convoy de extracción por asegurar el último búnker.»
+              </p>
+<p>
+                Sube a través de los escombros de Shinjuku con un único objetivo sin registrar: localizar a su hermana menor, vista por última vez dentro del Ward Noveno antes de que las compuertas blindadas sellaran el perímetro.
+              </p>
+</div>
+</div>
+<!-- 2-Button System Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">MECÁNICA DUAL [2 BOTONES]</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">COMBAT_INPUT_V1</span>
+</div>
+<!-- Button [J] -->
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">[J] ATAQUE: ACERO FRACTURADO</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3-HIT CADENCE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Combo de 3 cortes diagonales de katana. El 3er golpe produce empuje y micro-aturdimiento (hitstop de 8 frames).</p>
+</div>
+<!-- Button [K] -->
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary font-bold">[K] DASH: FRACTURA ACTIVA</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">2 CARGAS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dash ofensivo que inflige daño cortante a todo enemigo atravesado en su trayectoria. Genera 14 i-frames limpios.</p>
+</div>
+<!-- Ruptura Definitiva -->
+<div class="bg-surface-container-high p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-error font-bold">RUPTURA: DESGARRO CEGADOR</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">HOLD [J] TRAS 3 GOLPES</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mantiene pulsado [J] tras el tercer corte para desenvainar un tajo horizontal a 360° que desintegra escudos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- HERO 2: GORO ARASHI -->
+<div class="hero-dossier hidden space-y-space-md" id="dossier-goro">
+<!-- Dossier Header Strip -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<span class="text-tertiary-fixed-dim font-label-lg text-label-lg px-space-sm py-1 bg-surface-container-highest rounded">ID: 02 // INSTANTE SEGUNDO</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">GORO ARASHI <span class="text-tertiary-fixed-dim font-normal text-headline-md font-headline-md">«EL YUNQUE»</span></h2>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-md text-label-md">
+<span>EDAD: <strong class="text-on-surface">41 AÑOS (195 CM)</strong></span>
+<span>ARMA: <strong class="text-tertiary-fixed-dim">MAZA INDUSTRIAL &amp; ESCUDO</strong></span>
+<span>ESTADO: <strong class="text-secondary font-bold">OPERATIVO</strong></span>
+</div>
+</div>
+<!-- Main Dossier Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left: Visual Profile & Overview (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-tertiary-fixed-dim tracking-widest uppercase">REGISTRO FÍSICO // HEAVY CHASSIS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">UNIT: GORO-41</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">MASA CORPORAL / ALTURA</span>
+<span class="font-headline-sm text-headline-sm text-tertiary-fixed-dim font-bold">132 KG // 195 CM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Hombre de complexión masiva con armadura oxidada reforzada con remaches industriales. Lleva a la espalda un escudo antidisturbios pesado similar a una puerta de búnker y un guantelete con ascuas de horno incandescente (#FF8A3D).
+              </p>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="bg-surface-container p-space-xs rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">SUPERARMOR</span>
+<span class="font-label-md text-label-md text-tertiary-fixed-dim font-bold">INQUEBRANTABLE</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">MITIGACIÓN DAÑO</span>
+<span class="font-label-md text-label-md text-primary font-bold">-45% FRONTAL</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-sm space-y-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>COLOR DE ENERGÍA:</span>
+<span class="text-tertiary-fixed-dim">ASCUAS DE FORJA (#FF8A3D)</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>VINCULACIÓN PREVIA:</span>
+<span class="text-on-surface">CUERPO DE GUARDIA DE COMPUERTAS</span>
+</div>
+</div>
+</div>
+<!-- Center: Stats (3 Cols) -->
+<div class="lg:col-span-3 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-tertiary-fixed-dim uppercase font-bold">ATRIBUTOS TÁCTICOS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SCALE 1-10</span>
+</div>
+<div class="space-y-space-sm my-space-xs">
+<!-- HP -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VITALIDAD (HP)</span>
+<span class="text-tertiary-fixed-dim font-bold">690 HP [MÁXIMO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+</div>
+</div>
+<!-- Velocidad -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VELOCIDAD / AGILIDAD</span>
+<span class="text-error font-bold">3.0 / 10 [PESADO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Alcance -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">ALCANCE DE COMBATE</span>
+<span class="text-tertiary-fixed-dim font-bold">4.0 / 10 [CERCANO IMPACTO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Control Hordas -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">CONTROL DE HORDAS</span>
+<span class="text-secondary font-bold">9.5 / 10 [ONDA DE CHOQUE]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-secondary rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Evasión -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">I-FRAMES / EVASIÓN</span>
+<span class="text-on-surface-variant font-bold">4.0 / 10 [PASO DIRECTO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-xs">
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim uppercase block font-bold">ESTILO OPERATIVO:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Tanque de control de masas con superarmadura. Absorbe golpes pesados mientras derriba grupos enteros.</span>
+</div>
+</div>
+<!-- Right: 2-Buttons & Lore (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col justify-between gap-space-sm bg-surface-container-low rounded-lg p-space-md shadow-xl">
+<!-- Lore Terminal -->
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-tertiary-fixed-dim tracking-wider uppercase">[ EXPEDIENTE MILITAR // LORE ]</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim">GUILT_LEVEL_CRITICAL</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<p class="mb-space-xs text-on-surface">
+                «Él fue el guardia que accionó la palanca manual y bajó las compuertas de hormigón sellando a miles en el exterior durante la Catástrofe.»
+              </p>
+<p>
+                No busca redención ni perdón. Su única misión autoimpuesta es ascender por la aguja central del Ward para encontrar cara a cara al oficial superior que transmitió la orden de ejecución del protocolo de aislamiento.
+              </p>
+</div>
+</div>
+<!-- Combat mechanics -->
+<div class="bg-surface-container-lowest p-space-sm rounded space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim font-bold">MECÁNICA DUAL [2 BOTONES]</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">COMBAT_INPUT_V1</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-tertiary-fixed-dim font-bold">[J] ATAQUE: MAZA SÍSMICA</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">HEAVY STRIKES</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Impactos lentos y demoledores. Cada golpe tiene hiperarmadura activa e interrumpe las animaciones enemigas.</p>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary font-bold">[K] DASH: PASO DE CARGA</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">1 CARGA (3x DISTANCIA)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Un único salto largo de ariete que cubre el triple de distancia regular, arrollando y derribando a enemigos pequeños.</p>
+</div>
+<div class="bg-surface-container-high p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-error font-bold">RUPTURA: COLAPSO DE BÚNKER</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">HOLD [J] TRAS 3 GOLPES</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Planta el escudo en el suelo y descarga la maza sobre él, provocando una onda de choque sísmica que aturde a toda la sala.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- HERO 3: REN HAYASHI -->
+<div class="hero-dossier hidden space-y-space-md" id="dossier-ren">
+<!-- Dossier Header Strip -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<span class="text-secondary-fixed font-label-lg text-label-lg px-space-sm py-1 bg-surface-container-highest rounded">ID: 03 // INSTANTE TERCERO</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">REN HAYASHI <span class="text-secondary-fixed font-normal text-headline-md font-headline-md">«EL RELÁMPAGO»</span></h2>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-md text-label-md">
+<span>EDAD: <strong class="text-on-surface">19 AÑOS (PARADOJA TEMPORAL)</strong></span>
+<span>ARMA: <strong class="text-secondary-fixed">DAGAS GEMELAS DE ALTA FRECUENCIA</strong></span>
+<span>ESTADO: <strong class="text-secondary font-bold">HIPERACTIVO</strong></span>
+</div>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left: Profile & Visual Overview (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-secondary-fixed tracking-widest uppercase">PERFIL AGILIDAD // FAST-TWITCH SPECS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">UNIT: REN-CHRONO</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">INDUMENTARIA / DISTINTIVO</span>
+<span class="font-headline-sm text-headline-sm text-secondary-fixed font-bold">CHAQUETA AMARILLA #FFC400</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Joven ágil de rostro juvenil con silueta desproporcionada por su chaqueta streetwear oversize color amarillo señal (#FFC400). Muñecas vendadas y zapatillas de running de alto rendimiento. Empuña dos dagas con estelas luminosas de velocidad.
+              </p>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="bg-surface-container p-space-xs rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">CADENCIA GOLPE</span>
+<span class="font-label-md text-label-md text-secondary-fixed font-bold">4.2 GOLPES/SEG</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">REGULADOR DASH</span>
+<span class="font-label-md text-label-md text-primary font-bold">AUTO-RECARGA INF</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-sm space-y-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>COLOR DE ENERGÍA:</span>
+<span class="text-secondary-fixed">AMARILLO SEÑAL (#FFC400)</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>AMNESIA RETRÓGRADA:</span>
+<span class="text-error font-bold">TOTAL // 3 AÑOS PERDIDOS</span>
+</div>
+</div>
+</div>
+<!-- Center: Stats (3 Cols) -->
+<div class="lg:col-span-3 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-secondary-fixed uppercase font-bold">ATRIBUTOS TÁCTICOS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SCALE 1-10</span>
+</div>
+<div class="space-y-space-sm my-space-xs">
+<!-- HP -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VITALIDAD (HP)</span>
+<span class="text-error font-bold">310 HP [FRÁGIL]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Velocidad -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VELOCIDAD / AGILIDAD</span>
+<span class="text-secondary-fixed font-bold">10.0 / 10 [MÁXIMO ABSOLUTO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+</div>
+</div>
+<!-- Alcance -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">ALCANCE DE COMBATE</span>
+<span class="text-on-surface-variant font-bold">2.5 / 10 [ULTRA-CORTO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Control Hordas -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">CONTROL DE HORDAS</span>
+<span class="text-tertiary-fixed-dim font-bold">5.0 / 10 [MULTI-OBJETIVO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-tertiary-fixed-dim rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Evasión -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">I-FRAMES / EVASIÓN</span>
+<span class="text-secondary-fixed font-bold">10.0 / 10 [FLUIDEZ TEMPORAL]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+<span class="bg-secondary-fixed rounded-xs"></span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-xs">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase block font-bold">ESTILO OPERATIVO:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Asesino ultraveloz tipo 'glass cannon'. Movilidad perpetua y encadenamiento continuo de golpes críticos.</span>
+</div>
+</div>
+<!-- Right: Mechanics & Lore (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col justify-between gap-space-sm bg-surface-container-low rounded-lg p-space-md shadow-xl">
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-secondary-fixed tracking-wider uppercase">[ EXPEDIENTE MILITAR // LORE ]</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed">ANOMALY_RECORD</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<p class="mb-space-xs text-on-surface">
+                «Entró a una fractura temporal con 16 años durante la primera detonación cuántica de Shinjuku. Emergió 3 años después con 19 años biológicos sin recuerdo alguno de lo transcurrido.»
+              </p>
+<p>
+                Posee una sincronización cinestésica anormal: su cuerpo reacciona a los ataques antes de que el cerebro procese el estímulo visual, como si viviese medio segundo en el futuro.
+              </p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary-fixed font-bold">MECÁNICA DUAL [2 BOTONES]</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">COMBAT_INPUT_V1</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary-fixed font-bold">[J] ATAQUE: RAFAGA GEMELA</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">HYPER-FLURRY</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cadena ultrarrápida de 5 micro-estocadas continuas. Aplica sangrado acumulativo a objetivos individuales.</p>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary-fixed font-bold">[K] DASH: DESLIZAMIENTO DE TIEMPO</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed font-bold">3 CARGAS (RECARGA INF)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">3 dashes consecutivos. Cada golpe acertado con [J] descuenta 0.8s del tiempo de recarga, permitiendo evasión casi infinita.</p>
+</div>
+<div class="bg-surface-container-high p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-error font-bold">RUPTURA: BORRADO CINÉTICO</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">HOLD [J] TRAS 3 GOLPES</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Desaparece del espectro visual y ejecuta 8 tajos instantáneos que golpean a todos los enemigos en un radio de 6 metros.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- HERO 4: YUI NAKAMURA -->
+<div class="hero-dossier hidden space-y-space-md" id="dossier-yui">
+<!-- Dossier Header Strip -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<span class="text-error font-label-lg text-label-lg px-space-sm py-1 bg-surface-container-highest rounded">ID: 04 // INSTANTE CUARTO</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">YUI NAKAMURA <span class="text-error font-normal text-headline-md font-headline-md">«LA DISTANCIA»</span></h2>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-md text-label-md">
+<span>EDAD: <strong class="text-on-surface">31 AÑOS</strong></span>
+<span>ARMA: <strong class="text-error">RIFLE DE CERROJO &amp; TRAZADOR #FF2D6F</strong></span>
+<span>ESTADO: <strong class="text-secondary font-bold">PRECISIÓN FRÍA</strong></span>
+</div>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left: Profile & Visual Overview (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-error tracking-widest uppercase">REGISTRO FRANCOTIRADOR // SNIPER TRACE</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">UNIT: YUI-31</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">POSTURA / UNIFORME</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold">GRIS AZULADO (#5A6472)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Postura rígida y alta, moño militar pulcro, chaleco táctico de guardia sobre uniforme gris pizarra (#5A6472). Empuña un rifle de precisión de cerrojo pesado con una línea de haz trazador magenta-rojo brillante (#FF2D6F).
+              </p>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="bg-surface-container p-space-xs rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">PENETRACIÓN BLINDAJE</span>
+<span class="font-label-md text-label-md text-error font-bold">CLASE 5 (ANTI-MATERIA)</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">DISPERSIÓN TELEPORT</span>
+<span class="font-label-md text-label-md text-primary font-bold">FASE CUÁNTICA CORTA</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-sm space-y-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>COLOR DE TRAZADOR:</span>
+<span class="text-error">MAGENTA RADIACIÓN (#FF2D6F)</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>HISTORIAL CLÍNICO:</span>
+<span class="text-on-surface">MÉDICA DE TRIAJE EN FRONTERA CERO</span>
+</div>
+</div>
+</div>
+<!-- Center: Stats (3 Cols) -->
+<div class="lg:col-span-3 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between shadow-xl">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-error uppercase font-bold">ATRIBUTOS TÁCTICOS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SCALE 1-10</span>
+</div>
+<div class="space-y-space-sm my-space-xs">
+<!-- HP -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VITALIDAD (HP)</span>
+<span class="text-primary font-bold">420 HP [MEDIO]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Velocidad -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">VELOCIDAD / AGILIDAD</span>
+<span class="text-on-surface-variant font-bold">6.0 / 10 [TÁCTICA]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Alcance -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">ALCANCE DE COMBATE</span>
+<span class="text-error font-bold">10.0 / 10 [PANTALLA COMPLETA]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+<span class="bg-error rounded-xs"></span>
+</div>
+</div>
+<!-- Control Hordas -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">CONTROL DE HORDAS</span>
+<span class="text-on-surface-variant font-bold">4.0 / 10 [PERFORACIÓN LINEAL]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-on-surface-variant rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+<!-- Evasión -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">I-FRAMES / EVASIÓN</span>
+<span class="text-primary font-bold">8.5 / 10 [TELE-FASE]</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-primary rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+<span class="bg-surface-container-highest rounded-xs"></span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded mt-space-xs">
+<span class="font-label-sm text-label-sm text-error uppercase block font-bold">ESTILO OPERATIVO:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Zoner de alta precisión y letalidad a distancia. Mantiene a raya a jefes y aniquila objetivos en línea recta.</span>
+</div>
+</div>
+<!-- Right: Mechanics & Lore (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col justify-between gap-space-sm bg-surface-container-low rounded-lg p-space-md shadow-xl">
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-md text-label-md text-error tracking-wider uppercase">[ EXPEDIENTE MILITAR // LORE ]</span>
+<span class="font-label-sm text-label-sm text-error">TRIAGE_DECISION_BURDEN</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<p class="mb-space-xs text-on-surface">
+                «Antigua médica de triaje apostada en el puesto de control fronterizo del Ward durante la gran conmoción biológica.»
+              </p>
+<p>
+                Tuvo en sus manos la lista con los sellos rojos y verdes: decidió quién cruzaba los tornos hacia la seguridad del complejo y quién era retenido en cuarentena. Conoce cada nombre de aquellos a los que negó la entrada.
+              </p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error font-bold">MECÁNICA DUAL [2 BOTONES]</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">COMBAT_INPUT_V1</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-error font-bold">[J] DISPARO: CERROJO PERFORANTE</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">LINEAR PIERCE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Disparo de alta potencia que atraviesa a todos los enemigos en línea recta con un retardo de recarga de cerrojo.</p>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">[K] DASH: FASE DE POCOS METROS</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">2 TELE-DASH</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Teletransportación instantánea de corto alcance sin tiempo de viaje. Permite escapar de proyectiles rodeados.</p>
+</div>
+<div class="bg-surface-container-high p-space-xs rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-error font-bold">RUPTURA: RAYO DE CUARENTENA</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">HOLD [J] TRAS 3 GOLPES</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Carga un rayo trazador sostenido durante 1.8 segundos que calcina blindajes y deja un rastro de daño corrosivo en el suelo.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Combat Mechanics Architecture Reference Section -->
+<section class="w-full px-gutter-desktop py-space-md">
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-xl">
+<div class="flex flex-wrap items-center justify-between pb-space-md gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest block">ESQUEMA DE CONTROL GLOBAL</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">EL SISTEMA DE 2 BOTONES DE NPAD</h3>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded">
+<span class="font-label-sm text-label-sm text-secondary">FRAME BUFFER:</span>
+<span class="font-label-sm text-label-sm text-on-surface">3 FRAMES INPUT WINDOW</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Module 1: Boton [J] -->
+<div class="bg-surface-container-lowest p-space-md rounded flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">[J] ATAQUE PRINCIPAL</span>
+<span class="bg-primary/20 text-primary font-label-sm text-label-sm px-space-xs rounded">TAP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Genera cadenas de daño adaptadas a cada operador (corte rápido, golpe demoledor, ráfaga dual o cerrojo). Al presionar en ritmo exacto, cancela la animación de recuperación (recovery frames).
+            </p>
+</div>
+<div class="mt-space-sm pt-space-xs border-t-0 font-label-sm text-label-sm text-primary">
+            » PROPIEDAD: Hitstop de impacto y bloqueo de avance enemigo.
+          </div>
+</div>
+<!-- Module 2: Boton [K] -->
+<div class="bg-surface-container-lowest p-space-md rounded flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">[K] DASH &amp; EVASIÓN</span>
+<span class="bg-secondary/20 text-secondary font-label-sm text-label-sm px-space-xs rounded">TRIGGER</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Mecanismo universal de reposicionamiento con propiedades radicalmente distintas por operador: fractura cortante para Rika, embestida triple para Goro, recarga por golpe para Ren y teletransporte para Yui.
+            </p>
+</div>
+<div class="mt-space-sm pt-space-xs border-t-0 font-label-sm text-label-sm text-secondary">
+            » PROPIEDAD: Otorga i-frames e invulnerabilidad a proyectiles cinéticos.
+          </div>
+</div>
+<!-- Module 3: Hold [J] Ruptura -->
+<div class="bg-surface-container-lowest p-space-md rounded flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-error font-bold">HOLD [J] TRAS 3 GOLPES</span>
+<span class="bg-error/20 text-error font-label-sm text-label-sm px-space-xs rounded">BURST</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              La Habilidad Definitiva 'Ruptura' no consume barra de energía externa, sino sincronización de ritmo: tras conectar con éxito el tercer impacto de [J], mantener el botón presionado activa la técnica devastadora.
+            </p>
+</div>
+<div class="mt-space-sm pt-space-xs border-t-0 font-label-sm text-label-sm text-error">
+            » PROPIEDAD: Rompe la guardia de subjefes y despeja enjambres.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Terminal Switcher Logic -->
+<script>
+    function selectHero(heroId) {
+      // Hide all dossiers
+      const dossiers = document.querySelectorAll('.hero-dossier');
+      dossiers.forEach(d => {
+        d.classList.add('hidden');
+        d.classList.remove('block');
+      });
+
+      // Show selected dossier
+      const target = document.getElementById('dossier-' + heroId);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('block');
+      }
+
+      // Reset button styles
+      const buttons = document.querySelectorAll('.hero-tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-surface-container-high', 'shadow-md');
+        btn.classList.add('bg-surface-container');
+      });
+
+      // Set active button
+      const activeBtn = document.getElementById('btn-' + heroId);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-surface-container');
+        activeBtn.classList.add('bg-surface-container-high', 'shadow-md');
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-lg"><div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-primary font-bold">NPAD ARCHIVE PROTOCOL</span><span class="font-body-sm text-body-sm">// ARCHIVAL SECTOR SHINJUKU WARD</span></div><div class="flex items-center gap-space-md font-label-sm text-label-sm"><span>CORE: ONLINE</span><span>LINK: ENCRYPTED (E-256)</span><span>DATA STREAM: SYNCHRONIZED</span></div><div class="font-body-sm text-body-sm text-outline">© 2095 NPAD DEFENSE ARCHIVES. POST-CATACLYSM OPERATIONAL COMMAND.</div></div></footer></body></html>

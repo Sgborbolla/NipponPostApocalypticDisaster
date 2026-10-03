@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&amp;family=Space+Grotesk:wght@600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-tertiary-fixed": "#271900", "primary-fixed": "#7df4ff", "on-secondary-fixed-variant": "#095300", "surface-dim": "#101319", "error-container": "#93000a", "surface-container-highest": "#32353b", "on-surface-variant": "#b9cacb", "surface-variant": "#32353b", "surface-container": "#1d2025", "on-secondary-container": "#0f6d00", "surface-container-low": "#191c21", "tertiary-fixed": "#ffdea8", "surface-container-high": "#272a30", "on-primary-fixed": "#002022", "background": "#101319", "secondary-container": "#2ff801", "on-primary-container": "#006970", "on-error": "#690005", "surface": "#101319", "tertiary": "#fff4e8", "secondary-fixed": "#79ff5b", "tertiary-fixed-dim": "#ffba20", "secondary": "#d7ffc5", "on-tertiary-fixed-variant": "#5e4200", "primary": "#dbfcff", "on-primary": "#00363a", "tertiary-container": "#ffd386", "inverse-surface": "#e1e2ea", "primary-container": "#00f0ff", "on-surface": "#e1e2ea", "surface-tint": "#00dbe9", "error": "#ffb4ab", "inverse-primary": "#006970", "on-tertiary-container": "#7d5800", "on-secondary-fixed": "#022100", "primary-fixed-dim": "#00dbe9", "surface-container-lowest": "#0b0e13", "outline-variant": "#3b494b", "on-secondary": "#053900", "on-error-container": "#ffdad6", "outline": "#849495", "inverse-on-surface": "#2d3036", "secondary-fixed-dim": "#2ae500", "on-tertiary": "#412d00", "surface-bright": "#36393f", "on-primary-fixed-variant": "#004f54", "on-background": "#e1e2ea" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2.5rem", "margin": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xs": "0.25rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "margin-desktop": "2rem", "space-lg": "1.5rem" }, fontFamily: { "label-lg": ["JetBrains Mono"], "headline-sm": ["Space Grotesk"], "body-sm": ["Space Mono"], "body-lg": ["Space Mono"], "headline-md": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "headline-xl": ["Space Grotesk"], "headline-xl-mobile": ["Space Grotesk"], "label-sm": ["JetBrains Mono"], "body-md": ["Space Mono"], "headline-lg-mobile": ["Space Grotesk"], "headline-lg": ["Space Grotesk"] }, fontSize: { "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0.02em", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.14em", "fontWeight": "600" }], "headline-xl": ["48px", { "lineHeight": "52px", "letterSpacing": "0.08em", "fontWeight": "700" }], "headline-xl-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-sm": ["9px", { "lineHeight": "12px", "letterSpacing": "0.18em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "0.06em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-50 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,14,19,0.7)_100%)] opacity-80"></div><div class="pointer-events-none fixed inset-0 z-50 bg-[repeating-linear-gradient(0deg,rgba(0,0,0,0.35)_0px,rgba(0,0,0,0.35)_1px,transparent_1px,transparent_2px)]"></div><header class="fixed top-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.6)]"><div class="w-full h-16 px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 bg-error animate-pulse"></span><span class="font-label-lg text-label-lg text-primary tracking-widest">NPAD // TOKYO-03</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-0.5 bg-surface-container-high rounded"><span class="font-label-sm text-label-sm text-error">DEFCON-1</span><span class="text-on-surface-variant font-label-sm text-label-sm">[RAD: 44.2 mSv]</span></div></div><nav class="hidden lg:flex items-center gap-space-xs overflow-x-auto py-1" data-active-classes="bg-primary-container text-on-primary-container font-bold"><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="seleccion-de-heroes" href="#">[1. SELECCIÓN DE HÉROES]</a><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="bestiario-arquetipos" href="#">[2. BESTIARIO: ARQUETIPOS]</a><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="sala-de-subjefes" href="#">[3. SALA DE SUBJEFES]</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap bg-primary-container text-on-primary-container font-bold" data-path="los-6-jefes-del-ward" href="#">[4. LOS 6 JEFES DEL WARD]</a><a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md px-space-sm py-1.5 transition-colors uppercase whitespace-nowrap" data-path="sistema-de-combate-2-botones" href="#">[5. SISTEMA DE COMBATE (2 BOTONES)]</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex flex-col text-right"><span class="font-label-sm text-label-sm text-primary">TAC_OPERATOR_08</span><span class="font-label-sm text-label-sm text-on-surface-variant">SYNC_RATE: 99.4%</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- SECTION: SUB-HEADER TELEMETRY STRIP -->
+<section class="w-full bg-surface-container-lowest px-gutter-desktop py-space-sm flex flex-wrap items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs text-error font-bold tracking-wider">
+<span class="w-2 h-2 bg-error animate-ping inline-block"></span>
+<span>SECTOR: WARD NOVENO</span>
+</div>
+<span class="hidden md:inline text-outline-variant">|</span>
+<span class="text-primary font-mono tracking-widest uppercase">RAD-INDEX: CRITICAL [CLASSIFIED ALPHA]</span>
+<span class="hidden md:inline text-outline-variant">|</span>
+<span class="text-on-surface-variant">HOSTILES DETECTED: 06 APEX ANOMALIES</span>
+</div>
+<div class="flex items-center gap-space-sm font-mono text-label-sm">
+<span class="text-on-surface-variant">TELEMETRY SYNC:</span>
+<span class="text-secondary-fixed bg-surface-container px-2 py-0.5 font-bold">100% OPERATIONAL</span>
+<span class="text-error bg-surface-container-highest px-2 py-0.5">EST. FATALITY RATE: 89.4%</span>
+</div>
+</section>
+<!-- SECTION: PANORAMIC DOSSIER STAGE -->
+<section class="w-full bg-surface-container-lowest p-gutter-desktop relative overflow-hidden">
+<div class="max-w-[1720px] mx-auto flex flex-col gap-space-lg">
+<!-- TITLE & THREAT BANNER -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md bg-surface-container-low p-space-lg relative">
+<div class="flex flex-col gap-space-xs z-10">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 bg-error text-on-error font-label-sm text-label-sm font-bold uppercase tracking-wider">THREAT LEVEL // APEX-0</span>
+<span class="font-label-md text-label-md text-primary tracking-widest">TACTICAL ENCOUNTER LOG #09</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight font-bold uppercase">
+            ANOMALÍAS MAYORES // LOS 6 JEFES DE LA TORRE FRACTURADA
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+            Protocolo de incursión en el Ward Noveno. Parámetros cinéticos, patrones de telégrafo espectral y vulnerabilidades de los seis guardianes colosales identificados por los satélites de reconocimiento militar de NPAD.
+          </p>
+</div>
+<!-- FAST COMBAT STAT HUD -->
+<div class="flex items-center gap-space-sm shrink-0 z-10 bg-surface-container-lowest/80 p-space-md">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">ENFOQUE DE CONTROL</span>
+<span class="font-headline-sm text-headline-sm text-primary-container uppercase font-bold">2 BOTONES [ATAQUE / DASH]</span>
+</div>
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[24px]">sports_esports</span>
+</div>
+</div>
+</div>
+<!-- MAIN LINEUP VIEWPORT WITH IMAGE_37 -->
+<div class="relative w-full aspect-[16/9] lg:aspect-[1.79/1] max-h-[720px] bg-surface-container-lowest overflow-hidden shadow-2xl group">
+<!-- RASTER GRID OVERLAY EFFECT -->
+<div class="absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(to_right,rgba(0,240,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,240,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+<img alt="Epic 2D anime action video game final boss showcase of the 6 Final Bosses for NPAD" class="w-full h-full object-cover object-center filter saturate-110 contrast-125 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoQacfS2vqA7gxoeCHTL2XoiaHKU27oXiKaBPwgeTKyZ-o_irqAxc1yakLhsbZEpBeOMnXz17bL41g5KJm79Scgws8SodzZ81eqjKLDaMQuiBg-NGugjSn6ZOG7QK8du2X26Gb-lvXiEHaKnRoDNoRj3w3OCJQOyY_TkjOyF4XxO_mNA0c93MZGVQlq7ckTmUu22C4-QFC2J2y_HaQH_o8z4gbVnE97C9SJLn1Adp3j_UWzCKqlWwBvA"/>
+<!-- FLOATING SCAN DATA CADENCE -->
+<div class="absolute top-4 left-4 z-20 flex flex-col gap-1 bg-surface-container-lowest/90 backdrop-blur-md p-space-sm font-label-sm text-label-sm text-primary">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span>LIVE SCAN // ARCHIVE COMPOSITION</span>
+</div>
+<span class="text-on-surface-variant font-mono">OPTICAL SENSORS: 6 SIGNALS CONFIRMED</span>
+</div>
+<div class="absolute bottom-4 right-4 z-20 flex items-center gap-space-sm bg-surface-container-lowest/90 backdrop-blur-md px-space-md py-space-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">biotech</span>
+<span class="font-label-sm text-label-sm tracking-widest text-primary uppercase">RADAR SPECTRUM: ENHANCED CYBER-ANIME RENDER</span>
+</div>
+<!-- QUICK BOSS QUICKJUMP BAR OVER PHOTO -->
+<div class="absolute bottom-0 left-0 right-0 z-20 bg-surface-container-lowest/95 backdrop-blur-sm p-space-xs hidden md:flex items-center justify-around font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1 px-2 uppercase" href="#jefe-1">[01. EL PORTERO]</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1 px-2 uppercase" href="#jefe-2">[02. LOS GEMELOS]</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1 px-2 uppercase" href="#jefe-3">[03. LA CALDERA]</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1 px-2 uppercase" href="#jefe-4">[04. EL ESCRIBANO]</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1 px-2 uppercase" href="#jefe-5">[05. LA CIRUJANA]</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1 px-2 uppercase" href="#jefe-6">[06. EL NÚCLEO]</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: 2-BUTTON TACTICAL COMBAT HUD RULES -->
+<section class="w-full bg-surface-container py-space-xl px-gutter-desktop">
+<div class="max-w-[1720px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div>
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">// MANUAL DE CAMPO</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase font-bold">
+            SISTEMA DE COMBATE MINIMALISTA // 2 BOTONES
+          </h2>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-high px-space-md py-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed">shield</span>
+<span class="font-label-sm text-label-sm text-on-surface">i-FRAMES ESTÁNDAR: <strong class="text-secondary-fixed">0.24 SECS (14 FRAMES)</strong></span>
+</div>
+</div>
+<!-- 3 TELEMETRY MATRIX CARDS -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- BUTTON 1: ATTACK / PUNISH -->
+<div class="bg-surface-container-low p-space-lg flex flex-col justify-between relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">[ACCION 01]</span>
+<span class="px-space-xs py-0.5 bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold">BOTÓN A</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">GOLPE DE FRACTURA</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Ataque directo de alta inercia. Corta micro-animaciones enemigas y drena escudos cinéticos. Si se presiona durante una ventana de castigo, desencadena un multiplicador x2.2.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container p-space-sm flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-outline">FRAME STARTUP:</span>
+<span class="text-on-surface font-mono">6 FRAMES</span>
+</div>
+</div>
+<!-- BUTTON 2: OMNI DASH / i-FRAMES -->
+<div class="bg-surface-container-low p-space-lg flex flex-col justify-between relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary-fixed font-bold">[ACCION 02]</span>
+<span class="px-space-xs py-0.5 bg-secondary text-on-secondary font-label-sm text-label-sm font-bold">BOTÓN B</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-secondary font-bold">DASH DE TRASLACIÓN</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Desplazamiento vectorial omnidireccional con invulnerabilidad pura (<em class="text-on-surface not-italic">i-Frames</em>). Permite atravesar ondas expansivas radiales y proyectiles magmáticos.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container p-space-sm flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-outline">COOLDOWN TÁCTICO:</span>
+<span class="text-secondary-fixed font-mono">0.45 SECS</span>
+</div>
+</div>
+<!-- TELEGRAPH LOGS -->
+<div class="bg-surface-container-low p-space-lg flex flex-col justify-between relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error font-bold">[LECTURA DE TELÉGRAFOS]</span>
+<span class="px-space-xs py-0.5 bg-error text-on-error font-label-sm text-label-sm font-bold">SCAN SHAPES</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-error font-bold">RADAR VISUAL DE DAÑO</h3>
+<div class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="inline-block w-3 h-3 bg-white"></span>
+<span><strong>Conos Blancos:</strong> Embestidas lineales. Salir lateralmente.</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-block w-3 h-3 rounded-full bg-error"></span>
+<span><strong>Aros Radiales:</strong> Impactos de suelo. Traspasar con Dash.</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-block w-3 h-3 bg-tertiary-fixed-dim"></span>
+<span><strong>Charcos Magma:</strong> Zonas de daño perenne en terreno.</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container p-space-sm flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-outline">LATENCIA RECONOCIMIENTO:</span>
+<span class="text-primary-fixed-dim font-mono">&lt; 10 MS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: DETAILED DOSSIER - THE 6 APEX BOSSES -->
+<section class="w-full bg-surface py-space-xl px-gutter-desktop">
+<div class="max-w-[1720px] mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-md text-label-md text-error font-bold tracking-widest uppercase">// ARCHIVO ANALÍTICO DE COMBATE</span>
+<h2 class="font-headline-xl text-headline-xl text-primary font-bold uppercase tracking-tight">
+            DOSSIER MILITAR DE LOS 6 JEFES
+          </h2>
+</div>
+<span class="font-mono font-label-sm text-label-sm text-on-surface-variant">ORDEN DE ASALTO ASIGNADO // TIER ASCENDENTE</span>
+</div>
+<!-- BOSS GRID -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- ================= BOSS 1 ================= -->
+<article class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md relative overflow-hidden group" id="jefe-1">
+<div class="flex flex-col gap-space-md">
+<!-- Header Meta -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-error font-bold">01</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">EL PORTERO</span>
+<span class="font-label-sm text-label-sm text-outline">LOC: VESTÍBULO DEL WARD</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-2 py-0.5 bg-surface-container-highest text-primary">52 PX</span>
+<span class="px-2 py-0.5 bg-error text-on-error font-bold">1 FASE</span>
+</div>
+</div>
+<!-- Profile Summary & Red Core Special Notice -->
+<div class="flex items-start gap-space-md bg-surface-container p-space-md">
+<div class="w-12 h-12 bg-surface-container-lowest shrink-0 flex items-center justify-center relative">
+<span class="w-6 h-6 rounded-full bg-[#ff2d6f] shadow-[0_0_12px_#ff2d6f] animate-pulse"></span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-[#ff2d6f] font-bold">NÚCLEO BALÍSTICO: HEX #ff2d6f</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Titán mecha bípede blindado con placa de compuerta antiexplosiones. Movilidad lenta pero alcance masivo de corte hidráulico.
+                </p>
+</div>
+</div>
+<!-- Attack Patterns -->
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">[PATRÓN DE ASALTO TELEGRAFIADO]</span>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Embestida Horizontal:</strong> Proyección de cono blanco (1.0s de telegrafiado antes del choque frontal).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Pisotón Hidráulico:</strong> Círculo de choque expansivo de 360° en rango corto.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Barrido de Blindaje:</strong> Arco frontal de 180° que cubre media arena de combate.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Punishment Window & Tactical Tips -->
+<div class="mt-space-sm bg-surface-container-highest/60 p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary-fixed font-bold uppercase tracking-wider">VENTANA DE CASTIGO:</span>
+<span class="text-on-surface font-mono font-bold bg-surface-container px-2 py-0.5">1.2 SECS TRAS ATAQUE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong>Consejo de Build 2 Botones:</strong> Esquivar la embestida con Dash perpendicular. Durante su letargo de 1.2s, conectar una cadena completa de 3 Golpes de Fractura directo a su núcleo rojo.
+            </p>
+</div>
+</article>
+<!-- ================= BOSS 2 ================= -->
+<article class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md relative overflow-hidden group" id="jefe-2">
+<div class="flex flex-col gap-space-md">
+<!-- Header Meta -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-error font-bold">02</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">LOS GEMELOS SUPREMOS</span>
+<span class="font-label-sm text-label-sm text-outline">LOC: MARKET ROTO</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-2 py-0.5 bg-surface-container-highest text-primary">30 PX × 2</span>
+<span class="px-2 py-0.5 bg-error text-on-error font-bold">1 FASE</span>
+</div>
+</div>
+<!-- Profile Summary -->
+<div class="flex items-start gap-space-md bg-surface-container p-space-md">
+<div class="w-12 h-12 bg-surface-container-lowest shrink-0 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[28px]">group_work</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary font-bold">UNIDADES SINCRO: ALFA Y OMEGA</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Androides duales equipados con cuchillas gemelas de plasma carmesí. Operan en trayectorias de choque cruzadas coordinadas.
+                </p>
+</div>
+</div>
+<!-- Attack Patterns -->
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">[PATRÓN DE ASALTO TELEGRAFIADO]</span>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Embestidas Cruzadas:</strong> Ambos jefes activan un cono doble convergente hacia el centro de la habitación.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Reacción Por Muerte:</strong> Al destruir a uno, el superviviente absorbe los datos de combate del gemelo caído.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Modo Frenesí:</strong> Velocidad de movimiento y ataque duplicada (+100%), pero defensa reducida en un 50%.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Punishment Window & Tactical Tips -->
+<div class="mt-space-sm bg-surface-container-highest/60 p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary-fixed font-bold uppercase tracking-wider">ESTRATEGIA RECOMENDADA:</span>
+<span class="text-on-surface font-mono font-bold bg-surface-container px-2 py-0.5">DAÑO EQUILIBRADO</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong>Consejo de Build 2 Botones:</strong> Bajar la vida de ambos gemelos por igual. No mates a uno de inmediato; liquida al segundo inmediatamente después del primero antes de que su aceleración se vuelva incontrolable.
+            </p>
+</div>
+</article>
+<!-- ================= BOSS 3 ================= -->
+<article class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md relative overflow-hidden group" id="jefe-3">
+<div class="flex flex-col gap-space-md">
+<!-- Header Meta -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-error font-bold">03</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">LA CALDERA MAGMÁTICA</span>
+<span class="font-label-sm text-label-sm text-outline">LOC: REFINERÍA TÉRMICA</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-2 py-0.5 bg-surface-container-highest text-primary">44 PX</span>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container font-bold">2 FASES</span>
+</div>
+</div>
+<!-- Profile Summary & Hex Notice -->
+<div class="flex items-start gap-space-md bg-surface-container p-space-md">
+<div class="w-12 h-12 bg-surface-container-lowest shrink-0 flex items-center justify-center relative">
+<span class="w-6 h-6 rounded-full bg-[#ff8a3d] shadow-[0_0_12px_#ff8a3d]"></span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-[#ff8a3d] font-bold">EMISIÓN TÉRMICA: HEX #ff8a3d</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Esfera colosal de incineración industrial suspendida en conductos de vapor presurizado. Inundador de magma del ward.
+                </p>
+</div>
+</div>
+<!-- Attack Patterns / 2 Phases -->
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">[DESGLOSE DE LAS 2 FASES]</span>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="text-tertiary-fixed font-bold font-mono">1▸</span>
+<span><strong>Fase 1:</strong> Dispara charcos incandescentes #ff8a3d temporales que restringen el movimiento en la arena.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-error font-bold font-mono">2▸</span>
+<span><strong>Fase 2:</strong> Los charcos se vuelven PERMANENTES hasta el final de la batalla y añade una onda expansiva de aro radial.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Válvula de Escape:</strong> Ventilación de gases tóxicos a corta distancia cada 8 segundos.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Punishment Window & Tactical Tips -->
+<div class="mt-space-sm bg-surface-container-highest/60 p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary-fixed font-bold uppercase tracking-wider">GESTIÓN DEL TERRENO:</span>
+<span class="text-on-surface font-mono font-bold bg-surface-container px-2 py-0.5">CRUCE CON DASH</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong>Consejo de Build 2 Botones:</strong> Reservar siempre el Dash (Botón B) exclusivamente para atravesar el aro radial sin pisar los charcos #ff8a3d permanentes. Mantener el combate pegado a las esquinas limpias.
+            </p>
+</div>
+</article>
+<!-- ================= BOSS 4 ================= -->
+<article class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md relative overflow-hidden group" id="jefe-4">
+<div class="flex flex-col gap-space-md">
+<!-- Header Meta -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-error font-bold">04</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">EL ESCRIBANO DE SOMBRAS</span>
+<span class="font-label-sm text-label-sm text-outline">LOC: ARCHIVO CENTRAL</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-2 py-0.5 bg-surface-container-highest text-primary">34 PX</span>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container font-bold">2 FASES</span>
+</div>
+</div>
+<!-- Profile Summary & Meta Identity -->
+<div class="flex items-start gap-space-md bg-surface-container p-space-md">
+<div class="w-12 h-12 bg-surface-container-lowest shrink-0 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[28px]">fingerprint</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary font-bold">META-JEFE // CLON ESPECULAR</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Entidad de tinta oscura que asimila en tiempo real tu arma, ritmo de movimiento y cadencia de botones.
+                </p>
+</div>
+</div>
+<!-- Attack Patterns / 2 Phases -->
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">[DESGLOSE DE LAS 2 FASES]</span>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="text-tertiary-fixed font-bold font-mono">1▸</span>
+<span><strong>Fase 1:</strong> Replica exactamente tu arma equipada y copia tu tiempo de respuesta con 0.2s de retraso.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-error font-bold font-mono">2▸</span>
+<span><strong>Fase 2:</strong> Duplica sus ataques simultáneos y cuenta con TUS MISMOS i-frames de dash (14 frames de intangibilidad).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Castigo de Reflejo:</strong> Si golpeas durante sus i-frames, contraataca instantáneamente.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Punishment Window & Tactical Tips -->
+<div class="mt-space-sm bg-surface-container-highest/60 p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary-fixed font-bold uppercase tracking-wider">CONTRAMEDIDA TÁCTICA:</span>
+<span class="text-on-surface font-mono font-bold bg-surface-container px-2 py-0.5">BAITING DE DASH</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong>Consejo de Build 2 Botones:</strong> Oblígalo a consumir su dash amagando una aproximación. En cuanto termine sus 0.24s de invulnerabilidad, castiga con Golpe de Fractura inmediato.
+            </p>
+</div>
+</article>
+<!-- ================= BOSS 5 ================= -->
+<article class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md relative overflow-hidden group" id="jefe-5">
+<div class="flex flex-col gap-space-md">
+<!-- Header Meta -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-error font-bold">05</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">LA CIRUJANA ASESINA</span>
+<span class="font-label-sm text-label-sm text-outline">LOC: CLÍNICA DE NEURO-CIRUGÍA</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-2 py-0.5 bg-surface-container-highest text-primary">34 PX</span>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container font-bold">2 FASES</span>
+</div>
+</div>
+<!-- Profile Summary & Special Nullification Threat -->
+<div class="flex items-start gap-space-md bg-surface-container p-space-md">
+<div class="w-12 h-12 bg-surface-container-lowest shrink-0 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[28px]">medical_services</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-error font-bold tracking-wider">PELIGRO CRÍTICO: ANULACIÓN DE DASH</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Deidad médica levitante con brazos quirúrgicos biomecánicos. Capaz de cancelar la matriz de intangibilidad del operador.
+                </p>
+</div>
+</div>
+<!-- Attack Patterns / 2 Phases -->
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">[DESGLOSE DE LAS 2 FASES]</span>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="text-tertiary-fixed font-bold font-mono">1▸</span>
+<span><strong>Agujas Quirúrgicas en Abanico:</strong> Cono de proyectiles de alta velocidad de 9 vías de dispersión.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-error font-bold font-mono">2▸</span>
+<span><strong>Barrera de Supresión Horizontal:</strong> Láser que viaja por la arena y <strong class="text-error">ANULA COMPLETAMENTE LOS i-FRAMES DEL DASH</strong>.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary font-bold font-mono">▸</span>
+<span><strong>Fase 2 Berserk:</strong> Teletransportación súbita tras de ti seguida de una incisión vertical instantánea.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Punishment Window & Tactical Tips -->
+<div class="mt-space-sm bg-surface-container-highest/60 p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary-fixed font-bold uppercase tracking-wider">ADVERTENCIA MORTAL:</span>
+<span class="text-error font-mono font-bold bg-surface-container px-2 py-0.5">NO ATRAVESAR LA BARRERA</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong>Consejo de Build 2 Botones:</strong> Contra la barrera de supresión, el Botón B NO te salvará. Debes usar posicionamiento espacial puro para rodear la línea antes de conectar el ataque de castigo.
+            </p>
+</div>
+</article>
+<!-- ================= BOSS 6 ================= -->
+<article class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md relative overflow-hidden group lg:col-span-2" id="jefe-6">
+<div class="flex flex-col gap-space-md">
+<!-- Header Meta -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-error font-bold">06</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">EL NÚCLEO DE LA FRACTURA // APEX FINAL</span>
+<span class="font-label-sm text-label-sm text-outline">LOC: CIMA DE LA TORRE FRACTURADA</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-2 py-0.5 bg-surface-container-highest text-primary">56 PX</span>
+<span class="px-2 py-0.5 bg-error text-on-error font-bold">3 FASES EXTREMAS</span>
+</div>
+</div>
+<!-- Profile Summary -->
+<div class="flex flex-col md:flex-row items-start gap-space-md bg-surface-container p-space-md">
+<div class="w-16 h-16 bg-surface-container-lowest shrink-0 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-primary text-[36px] animate-pulse">visibility</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary font-bold">OCULAR TITANIC BIOMECHANICAL CORE</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  El epicentro de distorsión espacio-temporal que fracturó Neo-Tokyo. Monstruosidad vertical biomecánica con iris fotónico que reconfigura la arquitectura del piso en cada fase de combate.
+                </p>
+</div>
+</div>
+<!-- 3 Phases Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Phase 1 -->
+<div class="bg-surface-container p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">FASE 01 // PULSO</span>
+<span class="text-on-surface-variant font-mono font-label-sm text-label-sm">100% - 70% HP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Aro radial expansivo recurrente combinado con conos frontales dirigidos al jugador. Ritmo de esquiva predecible pero con poco margen de error.
+                </p>
+</div>
+<!-- Phase 2 -->
+<div class="bg-surface-container p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim font-bold">FASE 02 // ENJAMBRE</span>
+<span class="text-on-surface-variant font-mono font-label-sm text-label-sm">70% - 30% HP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Invocación continua e ininterrumpida de Embestidores biomecánicos secundarios mientras el ojo principal dispara haces de alta cadencia.
+                </p>
+</div>
+<!-- Phase 3 -->
+<div class="bg-surface-container p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error font-bold">FASE 03 // CATACLISMO</span>
+<span class="text-on-surface-variant font-mono font-label-sm text-label-sm">&lt; 30% HP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  El suelo entero se transforma en magma fluido. Ataques combinados de aros + conos triples sin respiro. Ventana de victoria de menos de 45 segundos.
+                </p>
+</div>
+</div>
+</div>
+<!-- Punishment Window & Tactical Tips -->
+<div class="mt-space-sm bg-surface-container-highest/60 p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary-fixed font-bold uppercase tracking-wider">PROTOCOLO DE VICTORIA ABSOLUTA // 2 BOTONES</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                En Fase 3, encadena Dash (B) a través de cada aro para aterrizar exactamente en el radio de Golpe (A) del Iris. No gastes tiempo eliminando los esbirros menores; concéntrate exclusivamente en infligir daño de choque al Núcleo.
+              </p>
+</div>
+<div class="shrink-0 flex items-center gap-space-sm">
+<a class="px-space-md py-space-sm bg-primary-container text-on-primary-container font-label-md text-label-md font-bold uppercase hover:bg-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                INICIAR SIMULACIÓN APEX
+              </a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- SECTION: HEALTH BARS & TELEGRAPH VISUALIZER REFERENCE -->
+<section class="w-full bg-surface-container-lowest py-space-xl px-gutter-desktop">
+<div class="max-w-[1720px] mx-auto flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">// ESQUEMAS VISUALES</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">
+            BARRAS DE VIDA POR FASES &amp; FORMAS TELEGRAFIADAS
+          </h2>
+</div>
+<span class="hidden md:inline font-mono font-label-sm text-label-sm text-outline">UI FEED ENCODING: VER-3.2</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- GAUGES DISPLAY -->
+<div class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">SISTEMA MULTI-BARRA DE JEFES</span>
+<!-- Boss 1 / 1-Phase Gauge -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">EL PORTERO / LOS GEMELOS [1 FASE]</span>
+<span class="text-primary font-mono">100% HEALTH</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high flex">
+<div class="h-full bg-error w-full"></div>
+</div>
+</div>
+<!-- Boss 3,4,5 / 2-Phases Gauge -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">CALDERA / ESCRIBANO / CIRUJANA [2 FASES]</span>
+<span class="text-tertiary-fixed-dim font-mono">FASE 1 (50%) + FASE 2 (50%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high flex gap-1">
+<div class="h-full bg-tertiary-fixed-dim w-1/2"></div>
+<div class="h-full bg-error w-1/2"></div>
+</div>
+</div>
+<!-- Boss 6 / 3-Phases Gauge -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">EL NÚCLEO DE LA FRACTURA [3 FASES]</span>
+<span class="text-error font-mono">PULSO (30%) + ENJAMBRE (40%) + MAGMA (30%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high flex gap-1">
+<div class="h-full bg-primary-fixed w-[30%]"></div>
+<div class="h-full bg-tertiary-fixed-dim w-[40%]"></div>
+<div class="h-full bg-error w-[30%] animate-pulse"></div>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+<span>Al quebrar cada segmento, se dispara un <strong>Aturdimiento Breve (0.8s)</strong> para castigo libre.</span>
+</div>
+</div>
+<!-- TELEGRAPH GEOMETRY VECTOR DISPLAY -->
+<div class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">GEOMETRÍA VECTORIAL DE TELÉGRAFOS</span>
+<div class="grid grid-cols-3 gap-space-sm text-center">
+<!-- White Cone -->
+<div class="bg-surface-container p-space-md flex flex-col items-center gap-2">
+<div class="w-12 h-12 flex items-center justify-center">
+<svg class="w-10 h-10 text-white fill-current opacity-90" viewbox="0 0 40 40">
+<path d="M20 5 L35 35 L5 35 Z"></path>
+</svg>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold uppercase">CONO BLANCO</span>
+<span class="font-body-sm text-body-sm text-outline">Embestidas / Choque frontal</span>
+</div>
+<!-- Radial Shockwave -->
+<div class="bg-surface-container p-space-md flex flex-col items-center gap-2">
+<div class="w-12 h-12 flex items-center justify-center">
+<svg class="w-10 h-10 text-error stroke-current fill-none stroke-2" viewbox="0 0 40 40">
+<circle cx="20" cy="20" r="16"></circle>
+<circle cx="20" cy="20" r="8" stroke-dasharray="2,2"></circle>
+</svg>
+</div>
+<span class="font-label-sm text-label-sm text-error font-bold uppercase">ARO RADIAL</span>
+<span class="font-body-sm text-body-sm text-outline">Ondas de suelo / Traspasar con B</span>
+</div>
+<!-- Magma Pools -->
+<div class="bg-surface-container p-space-md flex flex-col items-center gap-2">
+<div class="w-12 h-12 flex items-center justify-center">
+<svg class="w-10 h-10 text-tertiary-fixed-dim fill-current" viewbox="0 0 40 40">
+<ellipse cx="20" cy="22" rx="16" ry="10"></ellipse>
+</svg>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim font-bold uppercase">CHARCOS MAGMA</span>
+<span class="font-body-sm text-body-sm text-outline">Zona denegada / Daño continuo</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between">
+<span class="text-outline">MARGEN DE REACCIÓN PROMEDIO:</span>
+<span class="text-secondary-fixed font-mono font-bold">0.8s - 1.0s DE ANTICIPACIÓN</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: FOOTER ENGAGEMENT COMMAND -->
+<section class="w-full bg-surface-container py-space-lg px-gutter-desktop">
+<div class="max-w-[1720px] mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="w-3 h-3 bg-secondary-fixed rounded-full animate-ping"></span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary uppercase font-bold">DESPLIEGUE AUTORIZADO // PROTOCOLO APEX</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Los datos tácticos se actualizarán automáticamente durante el combate en el cliente de juego.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full md:w-auto">
+<a class="w-full md:w-auto text-center px-space-lg py-space-sm bg-primary-container text-on-primary-container font-label-md text-label-md font-bold uppercase tracking-wider hover:bg-primary transition-colors" href="#">
+          [ EJECUTAR SALTO A TOKYO-03 WARD 9 ]
+        </a>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-lg"><div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-primary font-bold">NPAD ARCHIVE PROTOCOL</span><span class="font-body-sm text-body-sm">// ARCHIVAL SECTOR SHINJUKU WARD</span></div><div class="flex items-center gap-space-md font-label-sm text-label-sm"><span>CORE: ONLINE</span><span>LINK: ENCRYPTED (E-256)</span><span>DATA STREAM: SYNCHRONIZED</span></div><div class="font-body-sm text-body-sm text-outline">© 2095 NPAD DEFENSE ARCHIVES. POST-CATACLYSM OPERATIONAL COMMAND.</div></div></footer></body></html>

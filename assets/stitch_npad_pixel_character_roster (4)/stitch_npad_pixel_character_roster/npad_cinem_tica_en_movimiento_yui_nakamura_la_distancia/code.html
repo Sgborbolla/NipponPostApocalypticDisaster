@@ -1,0 +1,872 @@
+<!DOCTYPE html><html class="dark" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;family=Space+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+@layer base {
+  html, body { margin:0; padding:0; }
+  body { overscroll-behavior:none; }
+  main > :first-child { margin-top:0!important; }
+  main > :last-child { margin-bottom:0!important; }
+}
+::-webkit-scrollbar { display:none; }
+
+/* Dynamic Anamorphic & CRT Visual Effects */
+@keyframes crtFlicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  52% { opacity: 0.94; }
+  54% { opacity: 0.99; }
+  100% { opacity: 0.98; }
+}
+
+@keyframes rainFall {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000px); }
+}
+
+@keyframes laserTracerPulse {
+  0% { opacity: 0.15; transform: scaleX(0.96) translateY(-50%); box-shadow: 0 0 10px #ff2d6f; }
+  50% { opacity: 0.95; transform: scaleX(1.02) translateY(-50%); box-shadow: 0 0 25px #ff2d6f, 0 0 50px #ff2d6f; }
+  100% { opacity: 0.15; transform: scaleX(0.96) translateY(-50%); box-shadow: 0 0 10px #ff2d6f; }
+}
+
+@keyframes thermalSweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.4; }
+  100% { transform: translateY(1000%); opacity: 0; }
+}
+
+@keyframes muzzleBloom {
+  0% { opacity: 0; transform: scale(0.9); }
+  20% { opacity: 0.85; transform: scale(1.08); }
+  100% { opacity: 0; transform: scale(1.2); }
+}
+
+@keyframes screenShake {
+  0% { transform: translate(0, 0) scale(1.02); }
+  15% { transform: translate(-8px, 6px) scale(1.03); }
+  30% { transform: translate(7px, -6px) scale(1.02); }
+  45% { transform: translate(-5px, -3px) scale(1.03); }
+  60% { transform: translate(4px, 4px) scale(1.02); }
+  75% { transform: translate(-2px, 2px) scale(1.01); }
+  100% { transform: translate(0, 0) scale(1.0); }
+}
+
+/* Ken Burns Camera Modes */
+.kb-frame-1 {
+  transform: scale(1.15) translate(0%, -20%);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.kb-frame-2 {
+  transform: scale(1.28) translate(-14%, 4%);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.kb-frame-3 {
+  transform: scale(1.22) translate(12%, 18%);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.kb-frame-4 {
+  transform: scale(1.18) translate(-5%, -2%);
+  transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.kb-frame-5 {
+  transform: scale(1.24) translate(0%, 0%);
+  transition: transform 0.4s ease-out;
+}
+
+.shake-active {
+  animation: screenShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.rain-drop {
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.65));
+  pointer-events: none;
+}
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-container-lowest": "#0b0e13",
+        "on-primary-container": "#006970",
+        "tertiary": "#fff4e8",
+        "surface-tint": "#00dbe9",
+        "primary-fixed": "#7df4ff",
+        "surface": "#101319",
+        "surface-container-highest": "#32353b",
+        "secondary-container": "#2ff801",
+        "on-primary-fixed-variant": "#004f54",
+        "surface-variant": "#32353b",
+        "on-primary-fixed": "#002022",
+        "inverse-primary": "#006970",
+        "on-secondary-fixed-variant": "#095300",
+        "outline": "#849495",
+        "secondary-fixed-dim": "#2ae500",
+        "tertiary-container": "#ffd386",
+        "tertiary-fixed": "#ffdea8",
+        "on-surface-variant": "#b9cacb",
+        "background": "#101319",
+        "on-secondary-container": "#0f6d00",
+        "on-secondary": "#053900",
+        "on-tertiary": "#412d00",
+        "primary-fixed-dim": "#00dbe9",
+        "primary-container": "#00f0ff",
+        "inverse-surface": "#e1e2ea",
+        "on-surface": "#e1e2ea",
+        "outline-variant": "#3b494b",
+        "secondary": "#d7ffc5",
+        "inverse-on-surface": "#2d3036",
+        "surface-bright": "#36393f",
+        "on-background": "#e1e2ea",
+        "primary": "#00f0ff",
+        "crimson": "#ff2d6f",
+        "error": "#ff2d6f",
+        "on-tertiary-container": "#7d5800",
+        "surface-container-high": "#272a30",
+        "on-error": "#ffffff",
+        "tertiary-fixed-dim": "#ffba20",
+        "on-secondary-fixed": "#022100",
+        "on-error-container": "#ffdad6",
+        "error-container": "#93000a",
+        "on-primary": "#00363a",
+        "on-tertiary-fixed": "#271900",
+        "surface-dim": "#101319",
+        "surface-container": "#1d2025",
+        "on-tertiary-fixed-variant": "#5e4200",
+        "surface-container-low": "#191c21",
+        "secondary-fixed": "#79ff5b"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "gutter": "1rem",
+        "space-md": "1rem",
+        "gutter-desktop": "1.5rem",
+        "space-lg": "1.5rem",
+        "margin": "1rem",
+        "space-xl": "2.5rem",
+        "margin-desktop": "2rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "headline-xl-mobile": ["Space Grotesk"],
+        "label-md": ["JetBrains Mono"],
+        "body-md": ["Space Mono"],
+        "headline-sm": ["Space Grotesk"],
+        "body-lg": ["Space Mono"],
+        "label-sm": ["JetBrains Mono"],
+        "headline-md": ["Space Grotesk"],
+        "headline-lg": ["Space Grotesk"],
+        "body-sm": ["Space Mono"],
+        "headline-lg-mobile": ["Space Grotesk"],
+        "headline-xl": ["Space Grotesk"],
+        "label-lg": ["JetBrains Mono"]
+      },
+      "fontSize": {
+        "headline-xl-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+        "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.14em", "fontWeight": "600" }],
+        "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+        "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+        "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+        "label-sm": ["9px", { "lineHeight": "12px", "letterSpacing": "0.18em", "fontWeight": "700" }],
+        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+        "headline-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+        "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+        "headline-lg-mobile": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+        "headline-xl": ["48px", { "lineHeight": "52px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+        "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "700" }]
+      }
+    }
+  }
+};</script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none">
+<!-- Top Navigation Header -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-variant/40 shadow-[0_1px_12px_rgba(0,0,0,0.6)]">
+<div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md shrink-0">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-crimson animate-ping"></span>
+<span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary font-bold">NPAD</span>
+<span class="font-label-sm text-label-sm text-outline px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant/30">ARCHIVES</span>
+</div>
+<div class="hidden xl:flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-outline">FEED:</span>
+<span class="text-primary-fixed font-mono tracking-wider">MIL_SAT_TOK-09</span>
+</div>
+</div>
+<!-- Top 4 Heroes + Prologue Tabs (YUI NAKAMURA Highlighted) -->
+<nav class="hidden lg:flex items-center gap-space-sm font-label-md text-label-md uppercase tracking-wide">
+<a class="text-on-surface-variant hover:text-primary transition-colors px- space-sm py-1" data-path="visualizador-prologo" href="#">Prólogo Completo</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors px-2 py-1 rounded" data-path="dossier-rika-tsukimi" href="#">Rika Tsukimi</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors px-2 py-1 rounded" data-path="dossier-goro-arashi" href="#">Goro Arashi</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors px-2 py-1 rounded" data-path="dossier-ren-hayashi" href="#">Ren Hayashi</a>
+<a aria-current="page" class="transition-all text-on-primary bg-primary px-3 py-1 rounded font-bold shadow-[0_0_12px_rgba(0,240,255,0.4)] flex items-center gap-1" data-path="dossier-yui-nakamura" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse"></span>
+<span class="">Yui Nakamura</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors px-2 py-1" data-path="secuencia-telemetria" href="#">Telemetría</a>
+</nav>
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="hidden sm:flex items-center gap-space-xs bg-surface-container-high px-space-sm py-space-xs rounded font-label-sm text-label-sm border border-outline-variant/40">
+<span class="text-outline">AUDIO:</span>
+<span class="text-secondary-fixed">COMM_ONLINE</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded font-label-sm text-label-sm border border-secondary-container/30">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span class="text-secondary">SYNC_OK</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_8px_rgba(0,240,255,0.4)]">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="w-full pt-16 bg-surface">
+<div class="flex flex-col w-full">
+<!-- Scanline Cathode Overlay & Ambient Phosphor -->
+<div class="pointer-events-none fixed inset-0 z-40 bg-[repeating-linear-gradient(0deg,rgba(0,0,0,0.32)_0px,rgba(0,0,0,0.32)_1px,transparent_1px,transparent_3px)] opacity-50" style="animation: crtFlicker 0.12s infinite;"></div>
+<!-- Operational Mission Header Tape -->
+<div class="w-full bg-surface-container-lowest border-b border-surface-variant/30 px-gutter-desktop py-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-crimson tracking-widest uppercase">
+<span class="inline-block w-2.5 h-2.5 bg-crimson animate-ping"></span>
+<span class="">REC_PLAYBACK // SECTOR-03 EXCLUSION</span>
+</div>
+<span class="text-outline font-label-sm text-label-sm hidden md:inline">|</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:inline">DOSSIER REF: <span class="text-tertiary-fixed font-bold">NPAD-YN-04</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline">CODENAME: <span class="text-primary font-bold">«LA DISTANCIA»</span></span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<div class="bg-surface-container px-space-sm py-0.5 rounded text-on-surface flex items-center gap-space-xs border border-outline-variant/30">
+<span class="text-outline">BAL_LOCK:</span>
+<span class="text-secondary-fixed font-mono font-bold" id="telemetry-distance">8,420M OK</span>
+</div>
+<div class="bg-surface-container-high px-space-sm py-0.5 rounded text-on-surface flex items-center gap-space-xs border border-outline-variant/30">
+<span class="text-outline">CHRONO:</span>
+<span class="text-primary font-mono" id="system-time">19:10:05.057</span>
+</div>
+</div>
+</div>
+<!-- Main Tactical Theater -->
+<div class="w-full px-gutter-desktop py-space-md flex flex-col xl:flex-row gap-space-lg">
+<!-- Left Column: Cinema Viewport & Dialogue -->
+<div class="w-full xl:w-3/4 flex flex-col gap-space-md">
+<!-- Anamorphic CRT Display Box -->
+<div class="relative w-full bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant/40 shadow-2xl" id="theater-viewport" style="box-shadow: rgba(0, 240, 255, 0.35) 0px 0px 0px 1px, rgba(0, 0, 0, 0.9) 0px 10px 40px -10px, rgba(0, 240, 255, 0.15) 0px 0px 20px;">
+<!-- Top Anamorphic Letterbox Bar -->
+<div class="w-full h-8 bg-black/95 flex items-center justify-between px-space-md z-30 relative font-label-sm text-label-sm border-b border-white/5">
+<div class="flex items-center gap-space-sm text-outline">
+<span class="text-crimson font-bold tracking-widest flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+                [ANAMORPHIC FEED // 2.39:1]
+              </span>
+<span class="text-on-surface-variant font-mono">BIO-OPTIC LINK: ACTIVE</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-mono">
+<span class="text-primary" id="fps-display">MODE: 12 FPS RETRO_STEP</span>
+<span class="text-secondary">PHASE_SYNC: 99.4%</span>
+</div>
+</div>
+<!-- Cinema Screen Core (2.39:1 Anamorphic Canvas) -->
+<div class="relative w-full aspect-[21/9] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<!-- Ken Burns Animated Canvas Viewports -->
+<div class="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center">
+<!-- FRAME 01 & 02 & 03: Storyboard Panels (Composite Image with Ken Burns pan/zoom) -->
+<div class="absolute inset-0 w-full h-full transition-opacity duration-500 opacity-100 flex items-center justify-center" id="view-panel-composite">
+<img alt="Secuencia de cómic anime estilo OVA de los años 90 con Yui Nakamura en el triaje militar del pasado y apuntando con rifle antimaterial en el presente" class="w-full h-full object-cover object-center transform origin-center transition-transform duration-1000 kb-frame-1 will-change-transform" id="img-composite" src="https://lh3.googleusercontent.com/aida/AEtjO1VBaWVYVgD7GyBVZwFzAc4c3uQhQ2QBFSUZoqwWkqR-OMI9IqpO0vqqPnEldJRWVd-ydHhPFnGImyIyZZeUVx7p-UvZemR1QXrbW4olaeR2Ak1QfPd4ZxHV8-Yn4txVpXvoGSaK1A97tenQ7jRQkwVoXCXYcolIW3l9fDT_B2QqbcAXjmtaR7qogAe0tVA9POalCeZdwgi1sFV1hHS8iObgci4abh-XTPmKOLxSvzlXlMGzio82G3F7Vb8D" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.15) brightness(1.05) saturate(1.1);">
+</div>
+<!-- FRAME 04: Preparation & Bolt-Action Lock -->
+<div class="absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 bg-surface-container-lowest flex items-center justify-center" id="view-panel-sniper">
+<img class="w-full h-full object-cover object-center transform origin-center transition-transform duration-1000 will-change-transform" data-alt="Retro 90s cyber anime OVA still of military sniper Yui Nakamura with high red bun and bio-optic cybernetic eye reticle kneeling on rain-slicked concrete rooftop in Neo-Tokyo night, chambering a heavy 20mm tungsten sabot cartridge into a long black anti-materiel bolt-action rifle, cyan atmospheric glow and deep shadows" id="img-sniper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiYpwKUNE4Mtrsk7a_tOC4iZfQj1cu4sbwtzwzu8Kbz4EOmMQrPEwtU_TJLK-XY8y5GNJQIu4HBdhDnZ-_WYbQ_cb9YqTUkXtHjZf2Llc3gP4MdCLi3eTebtb1iT8ZdlE9pDRb_Megx3ZM_RxXG2TnPdYUw-HxFUCyvTv4GXACOVkkDGlF-oDkGUgm3RhSI5NbRnPi5Fas0EBXtlfAEtUyhblLmN1nZHRtKWmhIlBjWC8HAsF1SN48cw" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.16) brightness(1.04) saturate(1.15);">
+</div>
+<!-- FRAME 05: Climax Cut-In (Ruptura: Trazador Carmesí) -->
+<div class="absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 flex items-center justify-center" id="view-panel-ruptura">
+<img alt="Cinemática de acción estilo anime de Yui Nakamura con cabello rojo recogido y texto estilizado RUPTURA TRAZADOR CARMESÍ con robots destrozados y estallido escarlata" class="w-full h-full object-cover object-center transform origin-center transition-transform duration-300 will-change-transform" id="img-ruptura" src="https://lh3.googleusercontent.com/aida/AEtjO1XS0XWzPRYCCKdSlVhiWjkFYait-ogHCAA12CLIuSrsA6-huj1VmXjXwnUm3V_Pxe0CGxmoXf5we7J4IV6d4DKt4zUZQ4m-SxBhxVcpPOaDHGoKL29bDJrSoJStgJrLC5a-7MDP5s6KOmANmZ2e4pL22v9iILgGy72At1frb_COshn3G4-1a4IMspegIw83a549XiWtFLG114Hwy0_GjbDQcgIVbmMCK2x1G-kvWuvi7cS7DJ-iI7bBWPk" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.2) brightness(1.05) saturate(1.2);">
+</div>
+</div>
+<!-- ATMOSPHERIC LAYER 1: Animated Tokyo Rain Drizzle -->
+<div class="absolute inset-0 pointer-events-none z-10 overflow-hidden" id="rain-layer">
+<!-- Dynamically injected rain strokes -->
+<div class="rain-drop" style="left: 32.8992%; height: 55.0526px; opacity: 0.319839; animation: 1.09593s linear -0.452931s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 39.6808%; height: 20.5368px; opacity: 0.773265; animation: 1.29479s linear -0.669479s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 41.41%; height: 58.1024px; opacity: 0.7167; animation: 1.10511s linear -1.08069s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 88.9892%; height: 45.5207px; opacity: 0.53965; animation: 0.900827s linear -0.76874s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 29.9749%; height: 25.592px; opacity: 0.549224; animation: 1.1193s linear -1.18501s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 98.1012%; height: 50.3169px; opacity: 0.784138; animation: 0.793734s linear -1.17125s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 25.1675%; height: 27.8113px; opacity: 0.383594; animation: 0.656316s linear -1.01663s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 90.2929%; height: 52.8595px; opacity: 0.324722; animation: 0.883302s linear -1.09073s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 16.6757%; height: 33.083px; opacity: 0.4895; animation: 1.28987s linear -1.53011s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 96.9435%; height: 59.0626px; opacity: 0.75598; animation: 1.1372s linear -0.159966s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 32.1806%; height: 45.8873px; opacity: 0.305584; animation: 0.992066s linear -0.434128s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 0.360545%; height: 25.3471px; opacity: 0.580075; animation: 1.11161s linear -1.18149s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 1.18089%; height: 56.6234px; opacity: 0.375889; animation: 1.15958s linear -1.28594s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 70.3713%; height: 50.5344px; opacity: 0.579314; animation: 1.20119s linear -0.320819s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 66.3723%; height: 54.2989px; opacity: 0.217101; animation: 1.12858s linear -1.64512s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 11.8243%; height: 34.8953px; opacity: 0.794424; animation: 1.14086s linear -0.71534s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 51.4065%; height: 40.4281px; opacity: 0.437448; animation: 0.770875s linear -1.16572s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 12.4212%; height: 48.8074px; opacity: 0.593905; animation: 0.86879s linear -1.78991s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 49.8756%; height: 54.8429px; opacity: 0.780565; animation: 0.964366s linear -0.564769s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 29.3369%; height: 23.5085px; opacity: 0.216751; animation: 1.1138s linear -1.45925s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 10.2645%; height: 32.4873px; opacity: 0.511311; animation: 0.883449s linear -1.88715s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 40.6566%; height: 43.2949px; opacity: 0.608627; animation: 1.22322s linear -0.377532s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 31.7218%; height: 38.8945px; opacity: 0.75501; animation: 0.613151s linear -0.644577s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 10.5643%; height: 24.9776px; opacity: 0.596884; animation: 0.722889s linear -0.287643s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 15.5293%; height: 37.8733px; opacity: 0.723383; animation: 1.07667s linear -0.991786s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 82.4771%; height: 54.0698px; opacity: 0.337325; animation: 0.916878s linear -0.651796s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 44.2614%; height: 32.9305px; opacity: 0.544264; animation: 1.04141s linear -1.08439s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 25.2545%; height: 34.8648px; opacity: 0.292853; animation: 0.983414s linear -0.194678s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 25.5307%; height: 38.2925px; opacity: 0.741521; animation: 1.03352s linear -1.48287s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 47.4661%; height: 35.6369px; opacity: 0.595598; animation: 0.696686s linear -1.05799s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 8.8912%; height: 43.7019px; opacity: 0.498269; animation: 0.965795s linear -0.958291s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 10.1436%; height: 44.8276px; opacity: 0.246557; animation: 1.06401s linear -1.62226s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 35.2551%; height: 37.1975px; opacity: 0.780519; animation: 0.980837s linear -0.313722s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 24.7949%; height: 45.3146px; opacity: 0.745943; animation: 1.21482s linear -0.400696s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 48.6578%; height: 45.3447px; opacity: 0.281039; animation: 1.26958s linear -0.0400152s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 17.8402%; height: 40.4766px; opacity: 0.75458; animation: 1.23638s linear -0.320464s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 97.1346%; height: 28.5549px; opacity: 0.451511; animation: 0.964632s linear -1.70633s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 11.8843%; height: 33.4437px; opacity: 0.36418; animation: 0.8878s linear -1.84813s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 48.9514%; height: 31.2367px; opacity: 0.452287; animation: 1.2147s linear -0.972638s infinite normal none running rainFall;"></div><div class="rain-drop" style="left: 42.5536%; height: 43.9064px; opacity: 0.338395; animation: 0.874859s linear -1.62721s infinite normal none running rainFall;"></div></div>
+<!-- ATMOSPHERIC LAYER 2: Bio-Optic Thermal Sweep Line -->
+<div class="absolute inset-x-0 h-2 bg-gradient-to-r from-transparent via-[#00f0ff]/40 to-transparent pointer-events-none z-15 opacity-70" style="animation: thermalSweep 4s linear infinite;"></div>
+<!-- ATMOSPHERIC LAYER 3: Crimson Laser Tracer Beam (#ff2d6f) Cutting Through Horizon -->
+<div class="absolute top-[68%] left-0 w-full h-[2px] bg-gradient-to-r from-[#ff2d6f] via-white to-[#ff2d6f] pointer-events-none z-20 opacity-80" style="animation: laserTracerPulse 2.8s ease-in-out infinite;">
+<div class="absolute left-1/4 -top-1 w-2.5 h-2.5 rounded-full bg-[#ff2d6f] blur-[2px] animate-ping"></div>
+<div class="absolute right-1/3 -top-1 w-2.5 h-2.5 rounded-full bg-[#ff2d6f] blur-[1px]"></div>
+</div>
+<!-- ATMOSPHERIC LAYER 4: Ballistic Muzzle Flash / Laser Impact Bloom Overlay -->
+<div class="absolute inset-0 pointer-events-none z-25 bg-radial from-[#ff2d6f]/40 via-[#00f0ff]/10 to-transparent opacity-0 transition-opacity duration-300" id="bloom-overlay"></div>
+<!-- Tactical Biometric HUD Reticle Layer -->
+<div class="absolute inset-0 pointer-events-none z-30 flex flex-col justify-between p-space-md font-mono">
+<!-- Reticle Top Metrology -->
+<div class="flex items-start justify-between">
+<div class="bg-surface-container-lowest/85 backdrop-blur border border-primary/20 p-space-xs rounded font-label-sm text-label-sm text-primary flex flex-col gap-0.5">
+<span class="text-outline">TARGET_BEARING: <span class="text-primary font-bold" id="hud-bearing">042.8° NE</span></span>
+<span class="text-tertiary-fixed">MAGNIFICATION: <span class="font-bold" id="hud-mag">x32.4 BIO</span></span>
+<span class="text-on-surface">P-SHIFT DIST: 4.8m FLASH</span>
+</div>
+<div class="text-right bg-surface-container-lowest/85 backdrop-blur border border-crimson/20 p-space-xs rounded font-label-sm text-label-sm flex flex-col gap-0.5">
+<span class="text-crimson font-bold flex items-center justify-end gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson animate-ping"></span>
+                    WARHEAD: SUB-ATOMIC SABOT
+                  </span>
+<span class="text-outline">ATMOS PRESS: 1014 hPa</span>
+<span class="text-secondary-fixed">TRAZADOR CARMESÍ: <span class="text-primary font-bold">ENGAGED</span></span>
+</div>
+</div>
+<!-- Central Sniper Crosshairs & Animated Tracking Reticle -->
+<div class="relative w-full flex items-center justify-center">
+<div class="w-64 h-64 border-0 relative flex items-center justify-center opacity-80" id="targeting-reticle" style="transform: translate(0.32607px, 0.348009px);">
+<!-- Outer Rotating SVG -->
+<svg class="w-full h-full text-primary/40 animate-[spin_50s_linear_infinite]" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="46" stroke="currentColor" stroke-dasharray="2, 6" stroke-width="0.75"></circle>
+<circle cx="50" cy="50" fill="none" r="32" stroke="currentColor" stroke-dasharray="4, 4" stroke-width="0.5"></circle>
+</svg>
+<!-- Dynamic Targeting Box -->
+<div class="absolute w-20 h-20 border border-primary/40 flex items-center justify-center">
+<div class="w-2 h-2 border-t-2 border-l-2 border-crimson absolute -top-1 -left-1"></div>
+<div class="w-2 h-2 border-t-2 border-r-2 border-crimson absolute -top-1 -right-1"></div>
+<div class="w-2 h-2 border-b-2 border-l-2 border-crimson absolute -bottom-1 -left-1"></div>
+<div class="w-2 h-2 border-b-2 border-r-2 border-crimson absolute -bottom-1 -right-1"></div>
+</div>
+<!-- Cross Lines -->
+<div class="absolute w-full h-[1px] bg-primary/40"></div>
+<div class="absolute h-full w-[1px] bg-primary/40"></div>
+<div class="absolute w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_8px_#ff2d6f] animate-ping"></div>
+<!-- Distance Tag Tagline -->
+<div class="absolute -bottom-8 font-label-sm text-label-sm text-primary tracking-widest bg-surface-container-lowest/90 px-space-xs py-0.5 rounded border border-primary/30" id="reticle-lock-tag">
+                    LOCK: 8,420M // CONFIRMED
+                  </div>
+</div>
+</div>
+<!-- Bottom Corner HUD Tags -->
+<div class="flex items-end justify-between font-label-sm text-label-sm">
+<div class="bg-surface-container-lowest/90 border border-surface-variant/40 px-space-sm py-space-xs rounded text-primary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="">CAM: <span class="text-on-surface">MIL_OPTIC_TOK-V3</span></span>
+</div>
+<div class="bg-surface-container-lowest/90 border border-crimson/40 px-space-sm py-space-xs rounded text-crimson animate-pulse flex items-center gap-space-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-crimson"></span>
+<span class="">TRAZADOR_IGNITION // PULSA [J]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Anamorphic Letterbox & Dialogue Subtitle Bar -->
+<div class="w-full bg-black/95 px-space-lg py-space-md z-30 relative flex flex-col items-center justify-center text-center gap-space-xs border-t border-white/5">
+<!-- Japanese OVA Subtitle with Glowing Cyber Font -->
+<div class="font-headline-sm text-headline-sm text-primary tracking-wide transition-all duration-300 drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]" id="sub-jp">
+              「冷酷さではない、統計だった。今日、39年分の負債を清算する。」
+            </div>
+<!-- Spanish Translation Subtitle -->
+<div class="font-body-md text-body-md text-on-surface transition-all duration-300" id="sub-es">
+              «No fue crueldad, fue estadística. Hoy vengo a pagar la deuda de 39 años.»
+            </div>
+<!-- Subtitle Telemetry Metadata -->
+<div class="flex flex-wrap items-center justify-center gap-space-sm mt-space-xs font-label-sm text-label-sm text-outline font-mono">
+<span class="text-on-surface-variant">VOICE: <span class="text-primary font-bold">YUI NAKAMURA</span></span>
+<span class="">//</span>
+<span class="text-on-surface-variant">TIMECODE: <span class="text-white" id="sub-tc">00:03:41:18</span></span>
+<span class="">//</span>
+<span class="text-tertiary-fixed font-bold" id="sub-mode">LOGIC_MODE: TRIAGE_RESOLVE</span>
+<span class="">//</span>
+<span class="text-crimson font-bold">CHAMBER: 20mm SABOT</span>
+</div>
+</div>
+</div>
+<!-- Playback Control Console Deck -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-md shadow-lg border border-surface-variant/40">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">movie</span>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase font-bold">Selector de Fotogramas Clave</span>
+<span class="text-outline font-label-sm text-label-sm ml-space-xs font-mono">(PROLOGUE_YUI)</span>
+</div>
+<!-- Step Navigation Buttons -->
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-space-xs bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-sm text-label-sm rounded flex items-center gap-1 transition-colors border border-outline-variant/30 active:scale-95" id="btn-prev">
+<span class="material-symbols-outlined text-[16px]">skip_previous</span>
+<span class="">ANTERIOR</span>
+</button>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-fixed-dim text-on-primary font-label-md text-label-md rounded flex items-center gap-1 transition-all font-bold shadow-[0_0_10px_rgba(0,240,255,0.4)] active:scale-95" id="btn-play-pause">
+<span class="material-symbols-outlined text-[16px]" id="play-icon">play_arrow</span>
+<span id="play-text" class="">AUTO_PLAY (12 FPS)</span>
+</button>
+<button class="px-space-sm py-space-xs bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-sm text-label-sm rounded flex items-center gap-1 transition-colors border border-outline-variant/30 active:scale-95" id="btn-next">
+<span class="">SIGUIENTE</span>
+<span class="material-symbols-outlined text-[16px]">skip_next</span>
+</button>
+</div>
+</div>
+<!-- 5 Interactive Keyframes Horizontal Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-space-sm">
+<!-- Keyframe 01 -->
+<button class="frame-thumb text-left p-space-xs rounded bg-surface-container-high hover:bg-surface-variant transition-all flex flex-col gap-space-xs ring-2 ring-primary shadow-md" data-frame="1">
+<div class="flex items-center justify-between font-label-sm text-label-sm font-mono">
+<span class="text-primary font-bold">01 // TRIAJE</span>
+<span class="text-outline">-39 AÑOS</span>
+</div>
+<div class="h-16 w-full bg-surface-container-lowest rounded overflow-hidden relative border border-white/5">
+<img alt="Triaje perímetro" class="w-full h-full object-cover object-top opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1VBaWVYVgD7GyBVZwFzAc4c3uQhQ2QBFSUZoqwWkqR-OMI9IqpO0vqqPnEldJRWVd-ydHhPFnGImyIyZZeUVx7p-UvZemR1QXrbW4olaeR2Ak1QfPd4ZxHV8-Yn4txVpXvoGSaK1A97tenQ7jRQkwVoXCXYcolIW3l9fDT_B2QqbcAXjmtaR7qogAe0tVA9POalCeZdwgi1sFV1hHS8iObgci4abh-XTPmKOLxSvzlXlMGzio82G3F7Vb8D">
+<div class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded font-label-sm text-label-sm text-crimson font-bold border border-crimson/30">CRÍTICO</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface truncate">Perímetro de exclusión</div>
+</button>
+<!-- Keyframe 02 -->
+<button class="frame-thumb text-left p-space-xs rounded bg-surface-container-high hover:bg-surface-variant transition-all flex flex-col gap-space-xs opacity-75" data-frame="2">
+<div class="flex items-center justify-between font-label-sm text-label-sm font-mono">
+<span class="text-on-surface font-bold">02 // DECISIÓN</span>
+<span class="text-outline">COMPUERTAS</span>
+</div>
+<div class="h-16 w-full bg-surface-container-lowest rounded overflow-hidden relative border border-white/5">
+<img alt="Compuertas y último padre" class="w-full h-full object-cover object-center opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1VBaWVYVgD7GyBVZwFzAc4c3uQhQ2QBFSUZoqwWkqR-OMI9IqpO0vqqPnEldJRWVd-ydHhPFnGImyIyZZeUVx7p-UvZemR1QXrbW4olaeR2Ak1QfPd4ZxHV8-Yn4txVpXvoGSaK1A97tenQ7jRQkwVoXCXYcolIW3l9fDT_B2QqbcAXjmtaR7qogAe0tVA9POalCeZdwgi1sFV1hHS8iObgci4abh-XTPmKOLxSvzlXlMGzio82G3F7Vb8D">
+<div class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded font-label-sm text-label-sm text-tertiary-fixed font-bold border border-tertiary-container/30">CERO</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface truncate">El último padre</div>
+</button>
+<!-- Keyframe 03 -->
+<button class="frame-thumb text-left p-space-xs rounded bg-surface-container-high hover:bg-surface-variant transition-all flex flex-col gap-space-xs opacity-75" data-frame="3">
+<div class="flex items-center justify-between font-label-sm text-label-sm font-mono">
+<span class="text-on-surface font-bold">03 // REMORDIMIENTO</span>
+<span class="text-outline">ESTADÍSTICA</span>
+</div>
+<div class="h-16 w-full bg-surface-container-lowest rounded overflow-hidden relative border border-white/5">
+<img alt="Cálculo y silueta" class="w-full h-full object-cover object-bottom opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1VBaWVYVgD7GyBVZwFzAc4c3uQhQ2QBFSUZoqwWkqR-OMI9IqpO0vqqPnEldJRWVd-ydHhPFnGImyIyZZeUVx7p-UvZemR1QXrbW4olaeR2Ak1QfPd4ZxHV8-Yn4txVpXvoGSaK1A97tenQ7jRQkwVoXCXYcolIW3l9fDT_B2QqbcAXjmtaR7qogAe0tVA9POalCeZdwgi1sFV1hHS8iObgci4abh-XTPmKOLxSvzlXlMGzio82G3F7Vb8D">
+<div class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded font-label-sm text-label-sm text-primary font-bold border border-primary/30">NIGHT</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface truncate">39 años de cálculo</div>
+</button>
+<!-- Keyframe 04 -->
+<button class="frame-thumb text-left p-space-xs rounded bg-surface-container-high hover:bg-surface-variant transition-all flex flex-col gap-space-xs opacity-75" data-frame="4">
+<div class="flex items-center justify-between font-label-sm text-label-sm font-mono">
+<span class="text-on-surface font-bold">04 // PRESENTE</span>
+<span class="text-outline">31 AÑOS</span>
+</div>
+<div class="h-16 w-full bg-surface-container-lowest rounded overflow-hidden relative border border-white/5">
+<img alt="Close up tactical frame Yui loading bolt action sniper" class="w-full h-full object-cover object-center opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiYpwKUNE4Mtrsk7a_tOC4iZfQj1cu4sbwtzwzu8Kbz4EOmMQrPEwtU_TJLK-XY8y5GNJQIu4HBdhDnZ-_WYbQ_cb9YqTUkXtHjZf2Llc3gP4MdCLi3eTebtb1iT8ZdlE9pDRb_Megx3ZM_RxXG2TnPdYUw-HxFUCyvTv4GXACOVkkDGlF-oDkGUgm3RhSI5NbRnPi5Fas0EBXtlfAEtUyhblLmN1nZHRtKWmhIlBjWC8HAsF1SN48cw">
+<div class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded font-label-sm text-label-sm text-secondary font-bold border border-secondary-container/30">ARMADA</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface truncate">Carga de antimaterial</div>
+</button>
+<!-- Keyframe 05 -->
+<button class="frame-thumb text-left p-space-xs rounded bg-surface-container-high hover:bg-surface-variant transition-all flex flex-col gap-space-xs opacity-75" data-frame="5">
+<div class="flex items-center justify-between font-label-sm text-label-sm font-mono">
+<span class="text-on-surface font-bold">05 // TRAZADOR</span>
+<span class="text-outline">CLÍMAX</span>
+</div>
+<div class="h-16 w-full bg-surface-container-lowest rounded overflow-hidden relative border border-white/5">
+<img alt="Ruptura Trazador Carmesí" class="w-full h-full object-cover object-center opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1XS0XWzPRYCCKdSlVhiWjkFYait-ogHCAA12CLIuSrsA6-huj1VmXjXwnUm3V_Pxe0CGxmoXf5we7J4IV6d4DKt4zUZQ4m-SxBhxVcpPOaDHGoKL29bDJrSoJStgJrLC5a-7MDP5s6KOmANmZ2e4pL22v9iILgGy72At1frb_COshn3G4-1a4IMspegIw83a549XiWtFLG114Hwy0_GjbDQcgIVbmMCK2x1G-kvWuvi7cS7DJ-iI7bBWPk">
+<div class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded font-label-sm text-label-sm text-crimson font-bold border border-crimson/40">RUPTURA</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface truncate">破断: Trazador Carmesí</div>
+</button>
+</div>
+<!-- Frame Progress Bar with Step Milestones -->
+<div class="w-full flex flex-col gap-1 mt-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm text-outline font-mono">
+<span id="frame-counter" class="">FRAME 01 / 05 — [TRIAJE EN EL PERÍMETRO]</span>
+<span class="text-primary font-bold" id="sync-percentage">ACTIVO // SECUENCIA NORMAL</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-crimson transition-all duration-300 w-1/5 shadow-[0_0_8px_rgba(0,240,255,0.6)]" id="sequence-bar"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Combat Telemetry & Dossier Breakdown -->
+<div class="w-full xl:w-1/4 flex flex-col gap-space-md">
+<!-- Operator Card: Yui Nakamura -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm shadow-md border border-surface-variant/40">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-mono">OPERADOR MILITAR</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-tertiary-fixed font-bold border border-outline-variant/30">DIVISIÓN MÉDICA / TÁCTICA</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded overflow-hidden bg-surface-container-lowest shrink-0 relative border border-primary/40 shadow-[0_0_8px_rgba(0,240,255,0.2)]">
+<img alt="Retrato de Yui Nakamura" class="w-full h-full object-cover object-[70%_80%]" src="https://lh3.googleusercontent.com/aida/AEtjO1VBaWVYVgD7GyBVZwFzAc4c3uQhQ2QBFSUZoqwWkqR-OMI9IqpO0vqqPnEldJRWVd-ydHhPFnGImyIyZZeUVx7p-UvZemR1QXrbW4olaeR2Ak1QfPd4ZxHV8-Yn4txVpXvoGSaK1A97tenQ7jRQkwVoXCXYcolIW3l9fDT_B2QqbcAXjmtaR7qogAe0tVA9POalCeZdwgi1sFV1hHS8iObgci4abh-XTPmKOLxSvzlXlMGzio82G3F7Vb8D" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.18) saturate(1.15);">
+<span class="absolute bottom-0 inset-x-0 bg-primary/90 text-on-primary font-label-sm text-label-sm text-center py-0.2 font-bold font-mono">YN-04</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface truncate">中村 唯</span>
+<span class="font-body-md text-body-md text-primary font-bold">Yui Nakamura</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">Edad cronológica: 31a (Paradoja 39a)</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container rounded font-body-sm text-body-sm text-on-surface-variant leading-relaxed border border-surface-variant/30">
+            Ex-directora médica de descontaminación en el Sector Tokio-03. Responsable del algoritmo de triaje que selló a 14,200 civiles tras las esclusas blindadas.
+          </div>
+</div>
+<!-- Tactical Module: Phase Displacement (Teletransporte de corto rango) -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm shadow-md border border-surface-variant/40">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span class="">DESPLAZAMIENTO DE FASE</span>
+</span>
+<span class="text-secondary-fixed font-bold">INSTANTÁNEO</span>
+</div>
+<div class="p-space-sm bg-surface-container rounded flex flex-col gap-space-xs border border-surface-variant/30 font-mono">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-outline">RANGO EFECTIVO:</span>
+<span class="text-on-surface font-bold">3.2m — 6.5m FLASH</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-outline">COOLDOWN TÁCTICO:</span>
+<span class="text-on-surface font-bold">0.82 SEG</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-outline">CONSUMO CELDA:</span>
+<span class="text-tertiary-fixed font-bold">14% / PARPADEO</span>
+</div>
+<!-- Phase Segment Meter -->
+<div class="grid grid-cols-6 gap-1 mt-1">
+<div class="h-2 rounded bg-secondary-container shadow-[0_0_6px_#2ff801]"></div>
+<div class="h-2 rounded bg-secondary-container shadow-[0_0_6px_#2ff801]"></div>
+<div class="h-2 rounded bg-secondary-container shadow-[0_0_6px_#2ff801]"></div>
+<div class="h-2 rounded bg-secondary-container shadow-[0_0_6px_#2ff801]"></div>
+<div class="h-2 rounded bg-secondary-container shadow-[0_0_6px_#2ff801]"></div>
+<div class="h-2 rounded bg-surface-container-highest"></div>
+</div>
+</div>
+<!-- Telemetry Details: Antimateriel Heavy Rifle -->
+<div class="mt-space-xs flex flex-col gap-space-xs font-mono">
+<span class="font-label-sm text-label-sm text-outline">ARMAMENTO ASIGNADO:</span>
+<div class="bg-surface-container-lowest p-space-sm rounded font-label-sm text-label-sm flex flex-col gap-1 border border-surface-variant/30">
+<div class="text-primary font-bold">NT-99 CERROJO BIO-ÓPTICO (20mm)</div>
+<div class="text-on-surface-variant flex justify-between">
+<span class="">VEL. SALIDA:</span>
+<span class="text-on-surface font-bold">3,200 m/s</span>
+</div>
+<div class="text-on-surface-variant flex justify-between">
+<span class="">PENETRACIÓN:</span>
+<span class="text-on-surface font-bold">180mm RHAe @ 5km</span>
+</div>
+<div class="text-on-surface-variant flex justify-between">
+<span class="">TIPO DE PROYECTIL:</span>
+<span class="text-crimson font-bold">TRAZADOR CARMESÍ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Execution Trigger Panel (RUPTURA CARMESÍ) -->
+<div class="w-full bg-surface-container-high rounded-lg p-space-md flex flex-col gap-space-sm shadow-md border border-crimson/30">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-crimson font-bold tracking-wider flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-crimson animate-ping"></span>
+              EJECUCIÓN MANUAL
+            </span>
+<span class="text-outline font-label-sm text-label-sm font-mono">PULSAR [J]</span>
+</div>
+<button class="w-full py-space-sm px-space-md bg-crimson hover:bg-crimson/90 text-white rounded font-label-md text-label-md flex items-center justify-center gap-space-sm transition-all transform active:scale-95 shadow-[0_0_16px_rgba(255,45,111,0.5)] cursor-pointer" id="trigger-ruptura">
+<span class="material-symbols-outlined text-[18px]">emergency</span>
+<span class="font-bold tracking-wider">ACTIVAR: RUPTURA CARMESÍ</span>
+</button>
+<div class="text-center font-label-sm text-label-sm text-on-surface-variant">
+            Dispara el fotograma 05 con sacudida sísmica y bloom láser.
+          </div>
+</div>
+</div>
+</div>
+<!-- Narrative Context Card Section -->
+
+<!-- Interactive Motion & Player Controller Script -->
+<script>
+      (function initEnhancedCinemaViewer() {
+        let currentFrame = 1;
+        const totalFrames = 5;
+        let isPlaying = false;
+        let playInterval = null;
+
+        const theaterViewport = document.getElementById('theater-viewport');
+        const panelComposite = document.getElementById('view-panel-composite');
+        const panelSniper = document.getElementById('view-panel-sniper');
+        const panelRuptura = document.getElementById('view-panel-ruptura');
+        const imgComposite = document.getElementById('img-composite');
+        const imgSniper = document.getElementById('img-sniper');
+        const imgRuptura = document.getElementById('img-ruptura');
+        const bloomOverlay = document.getElementById('bloom-overlay');
+
+        const subJp = document.getElementById('sub-jp');
+        const subEs = document.getElementById('sub-es');
+        const subTc = document.getElementById('sub-tc');
+        const subMode = document.getElementById('sub-mode');
+        const frameCounter = document.getElementById('frame-counter');
+        const sequenceBar = document.getElementById('sequence-bar');
+        const frameThumbs = document.querySelectorAll('.frame-thumb');
+        
+        const hudBearing = document.getElementById('hud-bearing');
+        const hudMag = document.getElementById('hud-mag');
+        const reticleLockTag = document.getElementById('reticle-lock-tag');
+        const telemetryDistance = document.getElementById('telemetry-distance');
+
+        // Rain generator
+        const rainLayer = document.getElementById('rain-layer');
+        if (rainLayer) {
+          const dropCount = 40;
+          for (let i = 0; i < dropCount; i++) {
+            const drop = document.createElement('div');
+            drop.className = 'rain-drop';
+            drop.style.left = Math.random() * 100 + '%';
+            drop.style.height = (Math.random() * 40 + 20) + 'px';
+            drop.style.opacity = (Math.random() * 0.6 + 0.2).toString();
+            drop.style.animation = `rainFall ${0.6 + Math.random() * 0.7}s linear infinite`;
+            drop.style.animationDelay = `-${Math.random() * 2}s`;
+            rainLayer.appendChild(drop);
+          }
+        }
+
+        const frameData = {
+          1: {
+            jp: "「冷酷さではない、統計だった。今日、39年分の負債を清算する。」",
+            es: "«No fue crueldad, fue estadística. Hoy vengo a pagar la deuda de 39 años.»",
+            title: "FRAME 01 / 05 — [39 AÑOS ATRÁS // TRIAJE EN EL PERÍMETRO]",
+            tc: "00:01:14:08",
+            mode: "LOGIC_MODE: TRIAGE_RESOLVE",
+            bearing: "042.8° NE",
+            mag: "x16.0 WIDE",
+            dist: "8,420M",
+            kbClass: "kb-frame-1",
+            view: "composite"
+          },
+          2: {
+            jp: "「閉鎖レバーに手をかけた瞬間、目の前の父と子の声が途切れた。」",
+            es: "«En el instante que bajé la palanca de cierre, la voz de aquel padre se cortó en seco.»",
+            title: "FRAME 02 / 05 — [LA ÚLTIMA DECISIÓN // EL PADRE EN EL CRISTAL]",
+            tc: "00:02:08:14",
+            mode: "LOGIC_MODE: PERIMETER_LOCK",
+            bearing: "043.1° NE",
+            mag: "x24.5 MID",
+            dist: "8,420M",
+            kbClass: "kb-frame-2",
+            view: "composite"
+          },
+          3: {
+            jp: "「計算した確率は完璧だった。しかし、心拍の周波数だけが合わなかった。」",
+            es: "«La probabilidad calculada era perfecta. Sin embargo, los latidos nunca cuadraron.»",
+            title: "FRAME 03 / 05 — [EL REMORDIMIENTO // LA NOCHE HELADA]",
+            tc: "00:02:49:22",
+            mode: "LOGIC_MODE: PARADOX_CALC",
+            bearing: "043.5° NE",
+            mag: "x32.4 BIO",
+            dist: "8,420M",
+            kbClass: "kb-frame-3",
+            view: "composite"
+          },
+          4: {
+            jp: "「標的補足。8,420メートル。風速北北西3.2。装填完了。」",
+            es: "«Objetivo fijado. 8,420 metros. Viento nornoroeste 3.2. Cerrojo cerrado.»",
+            title: "FRAME 04 / 05 — [EL PRESENTE // CARGA ANTIMATERIAL 20mm]",
+            tc: "00:03:15:02",
+            mode: "LOGIC_MODE: SABOT_CHAMBERED",
+            bearing: "044.0° NE",
+            mag: "x48.0 OPTIC",
+            dist: "8,420M",
+            kbClass: "kb-frame-4",
+            view: "sniper"
+          },
+          5: {
+            jp: "「破断：トラサドール・カルメシ。一瞬で、すべてを終わらせる。」",
+            es: "«RUPTURA: Trazador Carmesí. En un parpadeo, cancelaré la cuenta pendiente.»",
+            title: "FRAME 05 / 05 — [CLÍMAX // TRAZADOR CARMESÍ: DISPARO PERFORANTE]",
+            tc: "00:03:41:18",
+            mode: "LOGIC_MODE: HYPER_VELOCITY_LETHAL",
+            bearing: "044.2° NE",
+            mag: "x64.0 LOCK",
+            dist: "0,000M IMPACT",
+            kbClass: "kb-frame-5",
+            view: "ruptura"
+          }
+        };
+
+        function triggerImpactBloom() {
+          if (!bloomOverlay || !theaterViewport) return;
+          // Apply violent screen shake
+          theaterViewport.classList.remove('shake-active');
+          void theaterViewport.offsetWidth; // Trigger reflow
+          theaterViewport.classList.add('shake-active');
+
+          // Flash bloom
+          bloomOverlay.style.opacity = '0.9';
+          setTimeout(() => {
+            bloomOverlay.style.opacity = '0';
+          }, 350);
+        }
+
+        function updateFrame(frameIndex, triggerFx = false) {
+          currentFrame = frameIndex;
+          const data = frameData[frameIndex];
+
+          // Reset all views opacity
+          panelComposite.style.opacity = '0';
+          panelSniper.style.opacity = '0';
+          panelRuptura.style.opacity = '0';
+
+          // Reset Ken Burns classes
+          imgComposite.className = imgComposite.className.replace(/kb-frame-\d/g, '').trim();
+
+          // Show targeted view
+          if (data.view === 'composite') {
+            panelComposite.style.opacity = '1';
+            imgComposite.classList.add(data.kbClass);
+          } else if (data.view === 'sniper') {
+            panelSniper.style.opacity = '1';
+            imgSniper.style.transform = 'scale(1.15) translate(-2%, -2%)';
+          } else if (data.view === 'ruptura') {
+            panelRuptura.style.opacity = '1';
+            imgRuptura.style.transform = 'scale(1.08)';
+            triggerImpactBloom();
+          }
+
+          if (triggerFx && frameIndex !== 5) {
+            triggerImpactBloom();
+          }
+
+          // Subtitles transition
+          subJp.textContent = data.jp;
+          subEs.textContent = data.es;
+          subTc.textContent = data.tc;
+          subMode.textContent = data.mode;
+          frameCounter.textContent = data.title;
+
+          // HUD dynamic readouts
+          if (hudBearing) hudBearing.textContent = data.bearing;
+          if (hudMag) hudMag.textContent = data.mag;
+          if (reticleLockTag) reticleLockTag.textContent = `LOCK: ${data.dist} // CONFIRMED`;
+          if (telemetryDistance) telemetryDistance.textContent = `${data.dist} OK`;
+
+          // Progress bar
+          sequenceBar.style.width = (frameIndex / totalFrames * 100) + '%';
+
+          // Thumbnails active state
+          frameThumbs.forEach(thumb => {
+            const f = parseInt(thumb.getAttribute('data-frame'), 10);
+            if (f === frameIndex) {
+              thumb.classList.add('ring-2', 'ring-primary', 'opacity-100', 'shadow-md');
+              thumb.classList.remove('opacity-75');
+            } else {
+              thumb.classList.remove('ring-2', 'ring-primary', 'opacity-100', 'shadow-md');
+              thumb.classList.add('opacity-75');
+            }
+          });
+        }
+
+        // Frame thumb click listeners
+        frameThumbs.forEach(thumb => {
+          thumb.addEventListener('click', () => {
+            const f = parseInt(thumb.getAttribute('data-frame'), 10);
+            updateFrame(f, f === 5);
+          });
+        });
+
+        // Prev / Next controls
+        document.getElementById('btn-prev').addEventListener('click', () => {
+          let prev = currentFrame - 1;
+          if (prev < 1) prev = totalFrames;
+          updateFrame(prev, prev === 5);
+        });
+
+        document.getElementById('btn-next').addEventListener('click', () => {
+          let next = currentFrame + 1;
+          if (next > totalFrames) next = 1;
+          updateFrame(next, next === 5);
+        });
+
+        // Auto play sequence (12 FPS pacing simulation ~ 3.5s per keyframe)
+        const playBtn = document.getElementById('btn-play-pause');
+        const playIcon = document.getElementById('play-icon');
+        const playText = document.getElementById('play-text');
+
+        playBtn.addEventListener('click', () => {
+          if (!isPlaying) {
+            isPlaying = true;
+            playIcon.textContent = 'pause';
+            playText.textContent = 'PAUSAR';
+            playInterval = setInterval(() => {
+              let next = currentFrame + 1;
+              if (next > totalFrames) next = 1;
+              updateFrame(next, next === 5);
+            }, 3600);
+          } else {
+            isPlaying = false;
+            playIcon.textContent = 'play_arrow';
+            playText.textContent = 'AUTO_PLAY (12 FPS)';
+            clearInterval(playInterval);
+          }
+        });
+
+        // Quick trigger for Climax Cut-In (Frame 5)
+        const triggerBtn = document.getElementById('trigger-ruptura');
+        if (triggerBtn) {
+          triggerBtn.addEventListener('click', () => {
+            updateFrame(5, true);
+          });
+        }
+
+        // Keyboard shortcut [J] for climax trigger
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'j' || e.key === 'J') {
+            updateFrame(5, true);
+          }
+        });
+
+        // Live microsecond clock
+        const timeElem = document.getElementById('system-time');
+        setInterval(() => {
+          const now = new Date();
+          const h = String(now.getHours()).padStart(2, '0');
+          const m = String(now.getMinutes()).padStart(2, '0');
+          const s = String(now.getSeconds()).padStart(2, '0');
+          const ms = String(Math.floor(now.getMilliseconds())).padStart(3, '0');
+          if (timeElem) {
+            timeElem.textContent = `${h}:${m}:${s}.${ms}`;
+          }
+        }, 50);
+
+        // Reticle Micro-Drift for real-time sniper HUD tracking feel
+        const reticle = document.getElementById('targeting-reticle');
+        let driftX = 0, driftY = 0;
+        setInterval(() => {
+          if (reticle) {
+            driftX = (Math.random() - 0.5) * 6;
+            driftY = (Math.random() - 0.5) * 6;
+            reticle.style.transform = `translate(${driftX}px, ${driftY}px)`;
+          }
+        }, 800);
+
+      })();
+    </script>
+</div>
+</main>
+<!-- Standard Footer -->
+<footer class="w-full bg-surface-container-lowest py-space-lg border-t border-surface-variant/30">
+<div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-on-surface-variant font-mono">
+<div class="flex items-center gap-space-md">
+<span class="">NPAD ENGINE v4.2.0-TACTICAL</span>
+<span class="">//</span>
+<span class="">MILITARY CATHODE PROTOCOL</span>
+<span class="">//</span>
+<span class="">TOKYO SECTOR-03</span>
+</div>
+<div class="flex items-center gap-space-lg">
+<span class="text-crimson font-bold">DEFCON 2 RESTRICTED ACCESS</span>
+<span class="">© NPAD ARCHIVES ALL RIGHTS RESERVED</span>
+</div>
+</div>
+</footer>
+
+
+</body></html>

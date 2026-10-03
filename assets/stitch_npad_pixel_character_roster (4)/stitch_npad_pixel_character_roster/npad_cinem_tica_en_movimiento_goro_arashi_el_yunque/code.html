@@ -1,0 +1,739 @@
+<!DOCTYPE html><html class="dark" lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;family=Space+Mono:wght@100..900&amp;display=swap" rel="stylesheet"><style>
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}
+::-webkit-scrollbar{display:none;}
+
+/* Dynamic Ken Burns Camera Pan & Zoom */
+@keyframes kenburns-0 {
+  0% { transform: scale(1.0) translate(0, 0); }
+  50% { transform: scale(1.08) translate(-1.5%, -1%); }
+  100% { transform: scale(1.14) translate(-3%, -2%); }
+}
+@keyframes kenburns-1 {
+  0% { transform: scale(1.12) translate(1%, 2%); }
+  100% { transform: scale(1.02) translate(-1%, -1%); }
+}
+@keyframes kenburns-2 {
+  0% { transform: scale(1.0) translate(0, 0); }
+  50% { transform: scale(1.06) translate(1%, -1.5%); }
+  100% { transform: scale(1.1) translate(2%, -3%); }
+}
+@keyframes kenburns-3 {
+  0% { transform: scale(1.18) translate(3%, 2%); }
+  100% { transform: scale(1.03) translate(0, 0); }
+}
+@keyframes kenburns-4 {
+  0% { transform: scale(1.22) translate(-2%, 2%); filter: contrast(135%) brightness(120%); }
+  20% { transform: scale(1.08) translate(1%, -1%); filter: contrast(110%) brightness(100%); }
+  100% { transform: scale(1.14) translate(0%, 0%); filter: contrast(125%) brightness(110%); }
+}
+
+.kb-active-0 { animation: kenburns-0 14s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate; }
+.kb-active-1 { animation: kenburns-1 12s ease-in-out infinite alternate; }
+.kb-active-2 { animation: kenburns-2 15s ease-out infinite alternate; }
+.kb-active-3 { animation: kenburns-3 14s ease-in-out infinite alternate; }
+.kb-active-4 { animation: kenburns-4 8s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate; }
+
+/* CRT Scanlines and Cathode Glow */
+.crt-overlay {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.38) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 6px 100%;
+}
+.crt-flicker {
+  animation: crtFlicker 0.15s infinite;
+}
+@keyframes crtFlicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 0.94; }
+  100% { opacity: 1.0; }
+}
+
+/* Gauntlet Molten Heat Shimmer */
+@keyframes heatPulse {
+  0%, 100% { opacity: 0.45; filter: blur(14px) drop-shadow(0 0 25px rgba(255, 138, 61, 0.7)); transform: scale(0.95); }
+  50% { opacity: 0.9; filter: blur(20px) drop-shadow(0 0 50px rgba(255, 138, 61, 0.95)); transform: scale(1.12); }
+}
+.heat-shimmer {
+  animation: heatPulse 2.8s ease-in-out infinite;
+}
+
+/* Floating Forge Embers */
+@keyframes emberRise {
+  0% { transform: translateY(110%) translateX(0) scale(0.6); opacity: 0; }
+  25% { opacity: 0.9; }
+  75% { opacity: 0.85; }
+  100% { transform: translateY(-120px) translateX(28px) scale(1.2); opacity: 0; }
+}
+.ember-p {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #ffe17d 0%, #ff8a3d 60%, rgba(255, 60, 0, 0) 100%);
+  box-shadow: 0 0 8px #ff8a3d, 0 0 15px rgba(255, 138, 61, 0.8);
+  pointer-events: none;
+}
+
+/* Steam Vents Burst */
+@keyframes steamVent {
+  0% { opacity: 0; transform: translateY(20px) scale(0.8); filter: blur(8px); }
+  35% { opacity: 0.35; transform: translateY(-30px) scale(1.3); filter: blur(18px); }
+  100% { opacity: 0; transform: translateY(-90px) scale(1.8); filter: blur(26px); }
+}
+.steam-cloud {
+  animation: steamVent 5.5s infinite ease-out;
+}
+
+/* Seismic Rumble Screen Shake */
+@keyframes seismicShake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-4px, 3px) rotate(-0.5deg); }
+  20% { transform: translate(5px, -4px) rotate(0.6deg); }
+  30% { transform: translate(-5px, 2px) rotate(-0.3deg); }
+  40% { transform: translate(4px, -3px) rotate(0.4deg); }
+  50% { transform: translate(-3px, 4px) rotate(-0.2deg); }
+  60% { transform: translate(3px, -2px) rotate(0.3deg); }
+  70% { transform: translate(-2px, 1px) rotate(-0.1deg); }
+  80% { transform: translate(2px, -1px) rotate(0.1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+.seismic-rumble {
+  animation: seismicShake 0.45s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Shockwave expansion */
+@keyframes shockwavePulse {
+  0% { transform: scale(0.1); opacity: 0.9; border-width: 8px; }
+  100% { transform: scale(2.8); opacity: 0; border-width: 1px; }
+}
+.shockwave-ring {
+  animation: shockwavePulse 1.2s ease-out infinite;
+}
+
+/* Live audio waveform bar pulse */
+@keyframes waveBounce {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-lowest": "#0b0e13", "on-primary-container": "#006970", "tertiary": "#fff4e8", "surface-tint": "#00dbe9", "primary-fixed": "#7df4ff", "surface": "#101319", "surface-container-highest": "#32353b", "secondary-container": "#2ff801", "on-primary-fixed-variant": "#004f54", "surface-variant": "#32353b", "on-primary-fixed": "#002022", "inverse-primary": "#006970", "on-secondary-fixed-variant": "#095300", "outline": "#849495", "secondary-fixed-dim": "#2ae500", "tertiary-container": "#ffd386", "tertiary-fixed": "#ffdea8", "on-surface-variant": "#b9cacb", "background": "#101319", "on-secondary-container": "#0f6d00", "on-secondary": "#053900", "on-tertiary": "#412d00", "primary-fixed-dim": "#00dbe9", "primary-container": "#00f0ff", "inverse-surface": "#e1e2ea", "on-surface": "#e1e2ea", "outline-variant": "#3b494b", "secondary": "#d7ffc5", "inverse-on-surface": "#2d3036", "surface-bright": "#36393f", "on-background": "#e1e2ea", "primary": "#dbfcff", "error": "#ffb4ab", "on-tertiary-container": "#7d5800", "surface-container-high": "#272a30", "on-error": "#690005", "tertiary-fixed-dim": "#ffba20", "on-secondary-fixed": "#022100", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-primary": "#00363a", "on-tertiary-fixed": "#271900", "surface-dim": "#101319", "surface-container": "#1d2025", "on-tertiary-fixed-variant": "#5e4200", "surface-container-low": "#191c21", "secondary-fixed": "#79ff5b", "forge-amber": "#ff8a3d", "forge-glow": "#ff5500" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "space-lg": "1.5rem", "margin": "1rem", "space-xl": "2.5rem", "margin-desktop": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-xl-mobile": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "body-md": ["Space Mono"], "headline-sm": ["Space Grotesk"], "body-lg": ["Space Mono"], "label-sm": ["JetBrains Mono"], "headline-md": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "body-sm": ["Space Mono"], "headline-lg-mobile": ["Space Grotesk"], "headline-xl": ["Space Grotesk"], "label-lg": ["JetBrains Mono"] }, "fontSize": { "headline-xl-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.14em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0.02em", "fontWeight": "400" }], "label-sm": ["9px", { "lineHeight": "12px", "letterSpacing": "0.18em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "0.06em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }], "headline-xl": ["48px", { "lineHeight": "52px", "letterSpacing": "0.08em", "fontWeight": "700" }], "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-forge-amber selection:text-black"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.6)] border-b border-surface-container-highest/60"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse shadow-[0_0_8px_#2ff801]"></span><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">NPAD</span><span class="font-label-sm text-label-sm text-outline px-space-xs bg-surface-container text-on-surface-variant border border-outline-variant/40">ARCHIVES</span></div><div class="hidden xl:flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant"><span class="text-outline">FEED:</span><span class="text-primary-fixed">MIL_SAT_TOK-09</span></div></div><nav class="hidden lg:flex items-center gap-1 font-label-md text-label-md uppercase tracking-wider" data-active-classes="text-on-primary bg-primary-container px-space-sm py-space-xs font-label-md text-label-md"><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="visualizador-prologo" href="#">Prólogo Completo</a><span class="text-outline/40">|</span><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" data-path="dossier-rika-tsukimi" href="#"><span class="w-1.5 h-1.5 bg-outline rounded-full"></span>RIKA TSUKIMI</a><a aria-current="page" class="transition-colors text-black font-extrabold bg-primary-container px-space-md py-space-xs shadow-[0_0_12px_rgba(0,240,255,0.4)] flex items-center gap-1 border border-primary-fixed" data-path="dossier-goro-arashi" href="#"><span class="w-2 h-2 bg-[#ff8a3d] rounded-full animate-ping"></span>GORO ARASHI [EL YUNQUE]</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" data-path="dossier-ren-hayashi" href="#"><span class="w-1.5 h-1.5 bg-outline rounded-full"></span>REN HAYASHI</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" data-path="dossier-yui-nakamura" href="#"><span class="w-1.5 h-1.5 bg-outline rounded-full"></span>YUI NAKAMURA</a><span class="text-outline/40">|</span><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-primary-fixed transition-colors flex items-center gap-1" data-path="secuencia-telemetria" href="#"><span class="material-symbols-outlined text-[14px] text-primary-container">vital_signs</span>Telemetría</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex items-center gap-space-xs bg-surface-container-high px-space-sm py-space-xs rounded font-label-sm text-label-sm border border-outline-variant/30"><span class="text-outline">AUDIO:</span><span class="text-secondary-fixed">COMM_ONLINE</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded font-label-sm text-label-sm border border-secondary-container/30"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container shadow-[0_0_6px_#2ff801]"></span><span class="text-secondary">SYNC_OK</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_10px_rgba(219,252,255,0.5)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Scanline / Monitor Texture Filter (Overlay inside wrapper) -->
+<div class="relative w-full overflow-hidden bg-surface-container-lowest">
+<!-- TOP TACTICAL HUD RIBBON -->
+<div class="w-full bg-surface-container-low px-gutter-desktop py-space-sm flex flex-wrap items-center justify-between gap-space-md border-b border-surface-container-high">
+<div class="flex items-center gap-space-md font-label-md text-label-md">
+<span class="px-space-xs py-0.5 bg-error-container text-error uppercase font-bold tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-error rounded-full animate-ping"></span>
+PROLOGUE // REPLAY
+</span>
+<span class="text-on-surface-variant">SUBJECT:</span>
+<span class="text-primary font-bold tracking-wide">GORO ARASHI [嵐 吾郎]</span>
+<span class="text-outline">CALLSIGN:</span>
+<span class="text-[#ff8a3d] font-bold tracking-wider">EL YUNQUE (ANVIL-01)</span>
+</div>
+<div class="flex items-center gap-space-lg font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="text-outline">ARCHIVE:</span>
+<span class="text-primary-fixed font-mono">REC_TOK_99_WARD9</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-outline">RENDER:</span>
+<span class="text-secondary-fixed">CATHODE_NATIVE_60HZ</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="text-error font-bold">TELEMETRY HOT</span>
+</div>
+</div>
+</div>
+<!-- MAIN INTERACTIVE STAGE (12-COL HUD LAYOUT) -->
+<div class="w-full p-gutter-desktop grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- LEFT & CENTER: CINEMATIC REPLAY MONITOR (8 Cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Viewport Outer Chassis with Chamfer Aesthetic -->
+<div class="relative w-full bg-surface-container rounded-none p-space-sm shadow-2xl border border-surface-container-highest/80" id="monitor-outer-frame">
+<!-- Viewport Header Strip -->
+<div class="flex items-center justify-between pb-space-sm px-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[14px]">videocam</span>
+<span class="text-primary tracking-widest font-mono font-bold" id="current-frame-id">FRAME_INDEX: [01/05]</span>
+<span class="text-outline">//</span>
+<span class="text-on-surface font-mono" id="current-timestamp">TC: 00:00:12.04</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#ff8a3d] animate-pulse"></span>
+<span class="text-[#ff8a3d] font-mono text-[10px]">HYDRAULIC_ONLINE</span>
+</div>
+<span class="text-secondary font-mono">BUFFER_SYNC: 100%</span>
+<span class="px-space-xs bg-surface-container-highest text-primary-fixed border border-outline-variant/40">ASPECT: 16:9 NATIVE</span>
+</div>
+</div>
+<!-- Screen Viewport Box with CRT & atmospheric FX -->
+<div class="relative w-full aspect-video bg-black overflow-hidden flex items-center justify-center border border-surface-container-highest" id="viewport-box">
+<!-- Dynamic Slide Container -->
+<div class="relative w-full h-full flex items-center justify-center overflow-hidden" id="cinema-stage">
+<!-- SLIDE 01: Lockout Ward 9 (Young Goro) -->
+<div class="cinema-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-100 flex flex-col justify-between overflow-hidden" id="frame-view-0">
+<img alt="NPAD Prologue Comic sequence showing young Goro Arashi" class="slide-media w-full h-full object-cover transition-transform duration-700 ease-out kb-active-0" id="media-0" src="https://lh3.googleusercontent.com/aida/AEtjO1XgzKwhrDGp5_uATanPT6TT2w7xJkq9PLJ4oDajyWGipZxHBNY72LQ5KW-fmKXr0HkZ70Ce_DIMcyCMDO5c8WF8JhXtXarQ-_LA19anF6QldaNUmsmAXE70XDDA9xYvDrsjLgAd3Ho1Kp0IIPY7qa2ohukunIRBCUsqDV3LI-wO9ac26VIbWNRFbDhnGkvq-NFpRJ1B3B4rk3jm4gYHodcqpCosRbL376SLB0F99fDcNY6V80e5p-wgSM-v">
+<!-- Gauntlet Heat Shimmer overlay in frame 01 panel -->
+<div class="absolute right-[8%] bottom-[16%] w-48 h-48 rounded-full bg-gradient-to-tr from-[#ff5500]/40 via-[#ff8a3d]/50 to-transparent heat-shimmer pointer-events-none mix-blend-screen"></div>
+<div class="absolute right-[12%] bottom-[24%] w-24 h-24 rounded-full bg-[#ffea79]/30 heat-shimmer pointer-events-none blur-xl"></div>
+<!-- Tactical In-Overlay Badges -->
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 border border-error/40 backdrop-blur px-space-md py-space-xs font-label-sm text-label-sm shadow-lg">
+<div class="flex items-center gap-1.5 text-error font-bold tracking-wider">
+<span class="w-1.5 h-1.5 bg-error rounded-full animate-ping"></span>
+<span class="">SEC_LOCK // LEVER_HYDRAULIC_9</span>
+</div>
+<div class="text-[#ff8a3d] text-[10px] font-label-sm font-mono mt-0.5">PRESSURE: 8,420 PSI CRITICAL</div>
+</div>
+</div>
+<!-- SLIDE 02: Quartz Viewport -->
+<div class="cinema-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 pointer-events-none flex flex-col justify-between overflow-hidden" id="frame-view-1">
+<div class="slide-media w-full h-full bg-cover bg-center relative transition-transform duration-700 ease-out" data-alt="Dark gritty 90s cyber anime OVA scene of panicked civilian silhouettes pounding violently against reinforced thick quartz circular viewport window with luminous toxic green radiation fog seeping behind them while young soldier with jaw clenched shuts massive mechanical bulkhead" id="media-1" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDxHvrtoHT2d5zHJ8Hym0Xst3vuZdhDfM9qxgUtrAxeAwaBAkp21IZlxsH7h3tknkN8SLx5_yAtg19jOjDbi7l_jA4w3EIYXRhYH-S9jyqNrUzZGJKu7qR9kYTA9dOYG3-0SVwiiWV8A57jOfzdiBouxRLXyELanj1p_9lQvAI-_R5nSAYubOAa1NIpjXPFY41CORpKkalX6kVwKLjDnM2ACrZq5pMrXJt07v2MIdefNearkYq14zsR8w')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/40"></div>
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 border border-secondary-container/40 backdrop-blur px-space-md py-space-xs font-label-sm text-label-sm shadow-lg">
+<span class="text-secondary font-bold tracking-wider flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+WARD 9 AIRLOCK: CRITICAL FAILURE
+</span>
+<div class="text-on-surface-variant text-[9px] font-label-sm font-mono mt-0.5">ATMOSPHERE: CONTAMINATED (98.7% TOXICITY)</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 03: The 14 Minutes of Silence -->
+<div class="cinema-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 pointer-events-none flex items-center justify-center bg-surface-container-lowest overflow-hidden" id="frame-view-2">
+<div class="slide-media w-full h-full bg-cover bg-center relative transition-transform duration-700 ease-out" data-alt="Cinematic retro sci-fi anime screenshot in claustrophobic dim bunker boiler room with lone exhausted young military engineer sitting in total silence against rusty iron bulkhead with broken radio spark spitting cyan embers in Tokyo underground 1999" id="media-2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCAPThGHAaMikNQuGJ5vhiT5xu4PMjr3trVObNL7LxOcq5_-gEtB78QnuhYkXfgvOcJq2fVyp4ZRXMa66Dy3R2kyx_8ESOpX9Akox5Gancp_MIlsRtR5Z5o3wGqs9nNxuxDGpzjMrbCMxSVRMKfVMhx-G9wbwYVDvZMDfGslT7mEgDgf5Rgxh5ZZzenUz2P-sUz-WMDsCEZUOkUd3UnHl8x3Mf6b2LHm3TvMQ0mLz6ie7gMKLFnEyuEA')">
+<div class="absolute inset-0 bg-surface-container-lowest/75 backdrop-blur-[2px] flex flex-col items-center justify-center p-space-lg text-center">
+<div class="w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center bg-surface-container/60 mb-space-xs shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+<span class="material-symbols-outlined text-primary-fixed text-[36px] animate-pulse">volume_off</span>
+</div>
+<p class="font-headline-lg text-headline-lg text-primary tracking-widest uppercase text-shadow">14 MINUTOS DE SILENCIO</p>
+<p class="font-label-md text-label-md text-[#ff8a3d] max-w-lg mt-space-xs tracking-wider">
+PÉRDIDA TOTAL DE PORTADORA MILITAR. EL SECTOR CAYÓ Y NADIE RESPONDIÓ.
+</p>
+<div class="mt-space-md flex items-center gap-space-sm font-label-sm text-outline">
+<span class="">RADIO DEAD-END</span>
+<span class="">//</span>
+<span class="text-error font-mono font-bold">CARRIER_SIGNAL_LOST</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 04: The Present Day (Goro Awakens) -->
+<div class="cinema-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 pointer-events-none overflow-hidden" id="frame-view-3">
+<div class="slide-media w-full h-full bg-cover bg-center relative transition-transform duration-700 ease-out" data-alt="Hard-edged Japanese 90s cyber anime frame of a battle-hardened 41 year old veteran soldier named Goro Arashi with scarred square jaw strapping massive ballistic blast shield to back, his industrial cybernetic gauntlet pulsing with molten orange hydraulic heat in ruins of Neo Tokyo" id="media-3" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTuAVLNzPe1ErDXd7Ls8SWPVqfSGGEtAmrOQ0tl2F3-aMKFPkXb-gPCzCgR7LhTlL79eWGgZHQnzVw0sNuE9R1_uww40xbngMb1H29OihlHm0SBZPHyfor34HsaEKLI3F7KXnAh0cUN5ciXaWmu5ifkJCwfYQV7kBHHV-fRPy0p5bdE2SO9mYPLG3NM-NSTm0LZMxfK6MhW9EUvSfE-aSGAXgWhpcG4rH6bVXQE65cfah55lmQn3h7Hg')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+<!-- Gauntlet Heat Distortion Shimmer (Frame 4) -->
+<div class="absolute right-[22%] bottom-[20%] w-60 h-60 rounded-full bg-[#ff5500]/30 heat-shimmer pointer-events-none mix-blend-screen filter blur-xl"></div>
+<div class="absolute right-[24%] bottom-[25%] w-32 h-32 rounded-full bg-[#ffea79]/40 heat-shimmer pointer-events-none blur-lg"></div>
+<div class="absolute bottom-6 left-6 bg-surface-container-lowest/90 border border-[#ff8a3d]/50 px-space-md py-space-sm font-label-sm text-label-sm shadow-xl">
+<div class="text-[#ff8a3d] font-bold tracking-widest flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#ff8a3d] animate-ping"></span>
+FORGE GAUNTLET HOT // TEMP: 1,420°C
+</div>
+<div class="text-primary-fixed font-mono mt-0.5">OBJECTIVE: ASCENDER LA TORRE / EXIGIR RESPUESTAS</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 05: Climax // Seismic Hammer -->
+<div class="cinema-slide absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 pointer-events-none overflow-hidden" id="frame-view-4">
+<img alt="Dynamic anime manga comic cut-in of Goro Arashi executing Ruptura Martillo Sismico with molten magma fist" class="slide-media w-full h-full object-cover transition-transform duration-700 ease-out" id="media-4" src="https://lh3.googleusercontent.com/aida/AEtjO1WI0BpAdaFdri4Ihef6cG15YTT4RgTU4hEmNzHz72B9vgMarPnmsIyvbUOcam0Rj0qFnHTSCVz6ALyJ8wTLdoKgRGvM7jGCWxN9LOfgkrywWMCSVcgtkhlVYBxD3Dby1LJAA9VSaC7f3M10TEqOBCz7FafUry6YvaU2DfS4dKef5bMqFOu9p3i-aaOSd9vjyJ3476eXGMEDlc5LEdbG5PrczJsiBUkIIqXMjCblKjNOfmfgEfKhpbNskugp">
+<!-- Dynamic Climax Radial Shockwaves -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="shockwave-ring absolute w-96 h-96 rounded-full border border-[#ff8a3d]/80"></div>
+<div class="shockwave-ring absolute w-96 h-96 rounded-full border border-[#00f0ff]/60" style="animation-delay: 0.4s;"></div>
+<div class="shockwave-ring absolute w-96 h-96 rounded-full border border-white/90" style="animation-delay: 0.8s;"></div>
+</div>
+<div class="absolute top-4 right-4 bg-error-container/95 border border-error px-space-md py-space-xs font-label-md text-label-md text-error tracking-widest shadow-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] animate-spin">cyclone</span>
+OVERDRIVE: SEISMIC IMPACT
+</div>
+<div class="absolute bottom-6 left-6 bg-surface-container-lowest/95 border border-[#ff8a3d] p-space-sm font-label-sm text-label-sm">
+<div class="text-[#ff8a3d] font-bold tracking-widest text-[12px]">RUPTURA // SEISMIC CRATER ACTIVE</div>
+<div class="text-primary font-mono text-[10px]">GROUND DISPLACEMENT: 18.4 METERS // VIBRATION: 9.2 RICHTER</div>
+</div>
+</div>
+</div>
+<!-- ATMOSPHERIC PARTICLES LAYER: Rising Forge Embers & Steam -->
+<div class="pointer-events-none absolute inset-0 overflow-hidden" id="atmosphere-layer">
+<!-- Embers (generated dynamically & placed) -->
+<div class="ember-p w-2 h-2 left-[18%] bottom-2" style="animation: emberRise 3.2s infinite ease-out; animation-delay: 0.2s;"></div>
+<div class="ember-p w-1.5 h-1.5 left-[34%] bottom-4" style="animation: emberRise 4.1s infinite ease-out; animation-delay: 1.1s;"></div>
+<div class="ember-p w-2.5 h-2.5 left-[58%] bottom-1" style="animation: emberRise 3.6s infinite ease-out; animation-delay: 0.7s;"></div>
+<div class="ember-p w-1.5 h-1.5 left-[72%] bottom-3" style="animation: emberRise 2.9s infinite ease-out; animation-delay: 1.8s;"></div>
+<div class="ember-p w-2 h-2 left-[86%] bottom-2" style="animation: emberRise 4.5s infinite ease-out; animation-delay: 0.4s;"></div>
+<div class="ember-p w-1 h-1 left-[48%] bottom-5" style="animation: emberRise 3.8s infinite ease-out; animation-delay: 2.2s;"></div>
+<!-- Mechanical Steam Release Cloud -->
+<div class="steam-cloud absolute bottom-0 left-[20%] w-72 h-44 rounded-full bg-gradient-to-t from-white/20 via-[#dbfcff]/15 to-transparent pointer-events-none"></div>
+<div class="steam-cloud absolute bottom-0 right-[25%] w-80 h-48 rounded-full bg-gradient-to-t from-[#ff8a3d]/20 via-[#ff5500]/10 to-transparent pointer-events-none" style="animation-delay: 2.6s;"></div>
+</div>
+<!-- CRT MONITOR SCANLINES & CATHODE GLOW OVERLAY -->
+<div class="pointer-events-none absolute inset-0 crt-overlay crt-flicker"></div>
+<!-- Optical Grid Lines & Calibration Reticles -->
+<div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+<span class="text-outline/40 text-headline-sm select-none font-label-sm tracking-widest">+</span>
+<div class="w-32 h-32 border border-outline/20 rounded-full absolute pointer-events-none"></div>
+</div>
+<div class="pointer-events-none absolute top-3 left-3 text-[10px] font-label-sm text-[#00f0ff]/70 flex items-center gap-1 font-mono">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+REC [●] 24FPS // HDR-CATHODE
+</div>
+<div class="pointer-events-none absolute bottom-3 right-3 text-[10px] font-label-sm text-outline/50 font-mono">
+NPAD-MIL-SYS // SUB-09 // FORGE-ANVIL
+</div>
+</div>
+<!-- SUBTITLE & DUAL VOICE TRACK DRAWER + AUDIO TELEMETRY WAVEFORM -->
+<div class="mt-space-sm bg-surface-container-lowest p-space-md border border-surface-container-highest/60">
+<div class="flex items-center justify-between gap-space-md mb-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs text-[#00f0ff]">
+<span class="material-symbols-outlined text-[16px] animate-pulse">record_voice_over</span>
+<span class="tracking-widest font-mono font-bold">COMM CHANNEL: VOX_TRACK_GORO</span>
+</div>
+<!-- Real-Time Waveform Telemetry Visualizer -->
+<div class="flex items-center gap-1 h-5 px-space-sm bg-surface-container border border-surface-container-high" title="Live Voice Waveform">
+<div class="w-1 bg-[#00f0ff] rounded-sm" style="animation: waveBounce 0.9s infinite ease-in-out;"></div>
+<div class="w-1 bg-[#ff8a3d] rounded-sm" style="animation: waveBounce 0.6s infinite ease-in-out 0.2s;"></div>
+<div class="w-1 bg-secondary rounded-sm" style="animation: waveBounce 1.1s infinite ease-in-out 0.1s;"></div>
+<div class="w-1 bg-[#00f0ff] rounded-sm" style="animation: waveBounce 0.7s infinite ease-in-out 0.4s;"></div>
+<div class="w-1 bg-[#ff8a3d] rounded-sm" style="animation: waveBounce 0.85s infinite ease-in-out 0.3s;"></div>
+<div class="w-1 bg-secondary rounded-sm" style="animation: waveBounce 0.5s infinite ease-in-out 0.15s;"></div>
+<div class="w-1 bg-[#00f0ff] rounded-sm" style="animation: waveBounce 1.2s infinite ease-in-out 0.35s;"></div>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-mono">
+<span class="">FREQ: <strong class="text-primary-fixed">142.85 MHz</strong></span>
+<span class="">SYNC: <strong class="text-secondary">99.4%</strong></span>
+</div>
+</div>
+<!-- Animated Japanese Audio Log & Spanish Translation -->
+<div class="flex flex-col gap-space-xs border-l-2 border-[#ff8a3d] pl-space-md py-0.5">
+<p class="font-headline-sm text-headline-sm text-[#ffd386] tracking-wider transition-all duration-300" id="dialogue-jp">「閉めろ！ 誰も通すな！」</p>
+<p class="font-body-lg text-body-lg text-white font-medium transition-all duration-300" id="dialogue-es">«¡Ciérralo, que nadie pase!»</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic mt-space-xs" id="dialogue-lore">Tokyo Subterráneo, Ward 9. Joven Goro recibe la última orden directa antes del colapso del sistema.</p>
+</div>
+</div>
+<!-- TRANSPORT CONTROL CONSOLE (SCRUBBER & BUTTONS) -->
+<div class="mt-space-sm bg-surface-container-high p-space-sm flex flex-col gap-space-sm border border-surface-container-highest">
+<!-- Timeline Scrub Bar -->
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<span class="text-outline font-mono">FRAME</span>
+<input class="w-full accent-[#00f0ff] h-2 bg-surface-container cursor-pointer" id="frame-range" max="4" min="0" step="1" type="range" value="0">
+<span class="text-[#00f0ff] font-mono font-bold w-14 text-right" id="range-counter">01/05</span>
+</div>
+<!-- Operational Buttons Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<!-- Prev Frame -->
+<button class="px-space-md py-space-xs bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright flex items-center gap-space-xs transition-colors border border-outline-variant/30" id="btn-prev">
+<span class="material-symbols-outlined text-[16px]">fast_rewind</span>
+<span class="">ANT [PREV]</span>
+</button>
+<!-- Play / Auto Toggle -->
+<button class="px-space-md py-space-xs bg-primary-container text-black font-label-md text-label-md font-bold hover:bg-primary-fixed-dim transition-colors flex items-center gap-space-xs shadow-[0_0_10px_rgba(0,240,255,0.3)]" id="btn-play">
+<span class="material-symbols-outlined text-[16px]" id="play-icon">play_arrow</span>
+<span id="play-label" class="">AUTO 12FPS</span>
+</button>
+<!-- Next Frame -->
+<button class="px-space-md py-space-xs bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright flex items-center gap-space-xs transition-colors border border-outline-variant/30" id="btn-next">
+<span class="">SIG [NEXT]</span>
+<span class="material-symbols-outlined text-[16px]">fast_forward</span>
+</button>
+<!-- Trigger Seismic Rumble Preview Button -->
+<button class="px-space-sm py-space-xs bg-[#ff8a3d]/20 text-[#ff8a3d] border border-[#ff8a3d]/50 hover:bg-[#ff8a3d] hover:text-black font-label-sm text-label-sm font-bold flex items-center gap-1 transition-all" onclick="triggerImpactShake()" title="Simulate Seismic Rumble">
+<span class="material-symbols-outlined text-[14px]">vibration</span>
+<span class="">SÍSMICO FX</span>
+</button>
+</div>
+<!-- Quick Frame Selectors -->
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<button class="frame-tab px-space-sm py-space-xs bg-[#00f0ff] text-black font-extrabold shadow-[0_0_8px_rgba(0,240,255,0.4)]" onclick="setFrame(0)">F-01</button>
+<button class="frame-tab px-space-sm py-space-xs bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="setFrame(1)">F-02</button>
+<button class="frame-tab px-space-sm py-space-xs bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="setFrame(2)">F-03</button>
+<button class="frame-tab px-space-sm py-space-xs bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="setFrame(3)">F-04</button>
+<button class="frame-tab px-space-sm py-space-xs bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="setFrame(4)">F-05</button>
+</div>
+</div>
+</div>
+</div>
+<!-- LOWER CINEMATIC METRIC RIBBON -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="bg-surface-container p-space-md flex flex-col justify-between border-t-2 border-error">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mb-space-xs">
+<span class="">SEAL INTEGRITY</span>
+<span class="text-error font-bold tracking-wider">FAILURE</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary font-mono">00.0%</div>
+<div class="w-full bg-surface-container-lowest h-1.5 mt-space-sm">
+<div class="bg-error h-full w-[8%]"></div>
+</div>
+</div>
+<div class="bg-surface-container p-space-md flex flex-col justify-between border-t-2 border-[#ff8a3d]">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mb-space-xs">
+<span class="">ISOLATION TIMER</span>
+<span class="text-[#ff8a3d] font-bold tracking-wider">TOTAL</span>
+</div>
+<div class="font-headline-md text-headline-md text-[#ffd386] font-mono">14m 00s</div>
+<div class="w-full bg-surface-container-lowest h-1.5 mt-space-sm">
+<div class="bg-[#ff8a3d] h-full w-full"></div>
+</div>
+</div>
+<div class="bg-surface-container p-space-md flex flex-col justify-between border-t-2 border-secondary-container">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mb-space-xs">
+<span class="">ELAPSED DESPAIR</span>
+<span class="text-secondary font-bold tracking-wider">CHRONO</span>
+</div>
+<div class="font-headline-md text-headline-md text-secondary font-mono">39 AÑOS</div>
+<div class="w-full bg-surface-container-lowest h-1.5 mt-space-sm">
+<div class="bg-secondary h-full w-[95%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: COMBAT TELEMETRY, HYDRAULIC PRESSURE & DOSSIER NOTES (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- OPERATIONAL PROFILE CARD -->
+<div class="bg-surface-container p-space-md shadow-lg flex flex-col gap-space-md border border-surface-container-highest">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-[#00f0ff] font-bold tracking-wider">TACTICAL PROFILE // UNIT-02</span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-secondary-fixed border border-secondary/30">DEFENDER CLASS</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 bg-surface-container-lowest shrink-0 overflow-hidden relative p-0.5 border border-[#ff8a3d]/60 shadow-[0_0_12px_rgba(255,138,61,0.3)]">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up face portrait of Goro Arashi veteran anime OVA cyber soldier rugged short black hair furrowed scarred brow intense hardened amber eyes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBi72hWaJ6Yt5MUilvAKd25_4eqUDGxsnyZt44JDNDEIk49D29KqUAoJw65uyFfvo8y3mkB2NY0YwoaYU6yQ0hzpqjO5eac_LlDFq66gvbnGTBNC2QG5b-9ADsxmvIAmEHjag1rrt9DWei-3BOMNG-fx4PsTmmVB9G5lzRXE4gqcfi4qVR4pIx-zUCbSeuqk1xP6RBfsb6CZYX9u_e9LzasQFZAt7PBaIg6hRygfArfYkXGILcw8keCpA')"></div>
+<div class="absolute bottom-0 inset-x-0 bg-surface-container-lowest/90 text-[8px] font-label-sm text-center text-[#ff8a3d] font-bold">VET-99</div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase truncate tracking-wide">GORO ARASHI</span>
+<span class="font-label-sm text-label-sm text-outline">EDAD: 41 AÑOS (2 AÑOS EN EL CATACLISMO)</span>
+<span class="font-label-sm text-label-sm text-[#00f0ff] font-bold">REGIMIENTO DE INGENIERÍA MINERA NPAD</span>
+</div>
+</div>
+<!-- 10-BAR LED HARDWARE METRICS -->
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center justify-between">
+<span class="">ESTADO DE HARDWARE EN CINEMÁTICA</span>
+<span class="text-[#ff8a3d] font-mono text-[9px]">LIVE TELEMETRY</span>
+</span>
+<!-- Metric 1: Gauntlet Thermal -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm font-mono">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff8a3d]"></span>
+TEMPERATURA GUANTELETE (FORJA)
+</span>
+<span class="text-[#ff8a3d] font-bold" id="stat-temp">320 °C</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2" id="temp-led-bar"><div class="bg-[#ff8a3d] shadow-[0_0_5px_#ff8a3d] h-full"></div><div class="bg-[#ff8a3d] shadow-[0_0_5px_#ff8a3d] h-full"></div><div class="bg-[#ff8a3d] shadow-[0_0_5px_#ff8a3d] h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div></div>
+</div>
+<!-- Metric 2: Shield Integrity -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm font-mono">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+INTEGRIDAD ESCUDO BALÍSTICO
+</span>
+<span class="text-secondary font-bold" id="stat-shield">100.0%</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2" id="shield-led-bar"><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div><div class="bg-secondary-container shadow-[0_0_5px_#2ff801] h-full"></div></div>
+</div>
+<!-- Metric 3: Hydraulic Pressure -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm font-mono">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00f0ff]"></span>
+PRESIÓN HIDRÁULICA PISTÓN
+</span>
+<span class="text-[#00f0ff] font-bold" id="stat-press">4,200 KPa</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2" id="press-led-bar"><div class="bg-[#00f0ff] shadow-[0_0_5px_#00f0ff] h-full"></div><div class="bg-[#00f0ff] shadow-[0_0_5px_#00f0ff] h-full"></div><div class="bg-[#00f0ff] shadow-[0_0_5px_#00f0ff] h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div><div class="bg-surface-container-lowest h-full"></div></div>
+</div>
+</div>
+</div>
+<!-- SPECIAL MOVE CUT-IN CALLOUT (RUPTURA // 破断) -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col gap-space-sm relative overflow-hidden border border-error/50 shadow-xl">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-error font-bold flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-error rounded-full animate-ping"></span>
+SPECIAL ATTACK TRIGGER
+</span>
+<span class="text-outline font-mono">HOLD COMMAND</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div>
+<p class="font-headline-lg text-headline-lg text-[#ff8a3d] tracking-wider uppercase font-bold text-shadow">RUPTURA // 破断</p>
+<p class="font-label-md text-label-md text-primary tracking-widest uppercase">MARTILLO SÍSMICO</p>
+</div>
+<div class="bg-surface-container-high px-space-md py-space-xs flex items-center gap-space-xs font-label-lg text-label-lg text-primary font-bold border border-[#00f0ff]/40">
+<span class="">HOLD</span>
+<span class="px-space-xs bg-[#00f0ff] text-black font-extrabold">[ J ]</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+Goro concentra la energía cinética acumulada durante 39 años de confinamiento, liberando un impacto de maza a 360 grados capaz de fracturar armaduras pesadas de titanio.
+</p>
+<button class="w-full mt-space-xs py-space-sm bg-[#ff8a3d] text-black font-label-md text-label-md uppercase font-extrabold tracking-wider hover:bg-[#ffa768] transition-all flex items-center justify-center gap-space-sm shadow-[0_0_15px_rgba(255,138,61,0.5)] active:scale-[0.98]" onclick="setFrame(4)">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="">VER CLÍMAX CINEMÁTICO (F-05)</span>
+</button>
+</div>
+<!-- TELEMETRY INCIDENT LOG TERMINAL -->
+<div class="bg-surface-container p-space-md flex flex-col gap-space-xs font-label-sm text-label-sm border border-surface-container-highest">
+<div class="flex items-center justify-between text-outline pb-space-xs border-b border-surface-container-highest">
+<span class="font-mono text-primary">TERMINAL LOG // REPLAY BUFFER</span>
+<span class="text-secondary font-mono">STREAM_ONLINE</span>
+</div>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant max-h-36 overflow-y-auto font-mono">
+<div class="text-[11px] leading-tight">
+<span class="text-[#00f0ff] font-label-sm">[T-39Y:00:00]</span> Alerta roja en Sub-Nivel 4. Evacuación denegada por Comandancia Central.
+</div>
+<div class="text-[11px] leading-tight">
+<span class="text-[#00f0ff] font-label-sm">[T-39Y:00:14]</span> Silencio absoluto de portadora militar. Goro Arashi asume el puesto de guardia final.
+</div>
+<div class="text-[11px] leading-tight">
+<span class="text-[#00f0ff] font-label-sm">[T-00Y:00:01]</span> Detección de reactivación en los sensores del ascensor orbital. Goro empuña el escudo.
+</div>
+<div class="text-[11px] leading-tight">
+<span class="text-[#ff8a3d] font-label-sm">[T-00Y:00:00]</span> "Si el mando no bajó a darnos una respuesta... subiré yo a exigirla."
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- NARRATIVE ACT TIMELINE DRAWER -->
+
+</div>
+<!-- SCRIPT FOR CINEMATIC FRAME ENGINE AND TIMELINE SCRUBBING -->
+<script>
+    (function initCinematicEngine() {
+      const frameData = [
+        {
+          id: "01/05",
+          tc: "00:00:12.04",
+          jp: "「閉めろ！ 誰も通すな！」",
+          es: "«¡Ciérralo, que nadie pase!»",
+          lore: "Tokyo Subterráneo, Ward 9. Joven Goro recibe la última orden directa antes del colapso del sistema.",
+          temp: "320 °C",
+          tempBars: 3,
+          shield: "100.0%",
+          shieldBars: 10,
+          press: "4,200 KPa",
+          pressBars: 3,
+          rumble: false
+        },
+        {
+          id: "02/05",
+          tc: "00:03:48.22",
+          jp: "「ガラスを叩く音が、まだ耳の奥で鳴り響いている。」",
+          es: "«El sonido de los golpes contra el cristal aún retumba en mis oídos.»",
+          lore: "A través del visor de cuarzo blindado, sombras desesperadas se desvanecieron en la niebla radioactiva.",
+          temp: "410 °C",
+          tempBars: 4,
+          shield: "98.2%",
+          shieldBars: 9,
+          press: "8,800 KPa",
+          pressBars: 6,
+          rumble: false
+        },
+        {
+          id: "03/05",
+          tc: "00:14:00.00",
+          jp: "「沈黙の14分... 39年間、答えを待っていた。」",
+          es: "«Catorce minutos de silencio... Treinta y nueve años esperando una respuesta.»",
+          lore: "La radio militar enmudeció para siempre. Cuatro décadas de aislamiento forjaron el mito de 'El Yunque'.",
+          temp: "540 °C",
+          tempBars: 5,
+          shield: "96.4%",
+          shieldBars: 9,
+          press: "9,100 KPa",
+          pressBars: 7,
+          rumble: false
+        },
+        {
+          id: "04/05",
+          tc: "00:22:15.10",
+          jp: "「司令部が降りてこないのなら、俺がこの手で登るだけだ。」",
+          es: "«Si la Comandancia no baja, seré yo quien suba a buscarlos con mis propias manos.»",
+          lore: "Ajustando su colosal escudo balístico de aleación oxidada, Goro activa el guantelete de forja ardiente.",
+          temp: "980 °C",
+          tempBars: 8,
+          shield: "94.8%",
+          shieldBars: 9,
+          press: "11,500 KPa",
+          pressBars: 8,
+          rumble: false
+        },
+        {
+          id: "05/05",
+          tc: "00:28:44.95",
+          jp: "「破断！ 地殻を砕け、メルトダウン・ストライク！」",
+          es: "«¡Ruptura! ¡Quiebra la corteza, Martillo Sísmico a máxima potencia!»",
+          lore: "El impacto libera energía volcánica concentrada, resquebrajando la superficie de la torre militar.",
+          temp: "1,650 °C",
+          tempBars: 10,
+          shield: "88.1%",
+          shieldBars: 8,
+          press: "16,400 KPa",
+          pressBars: 10,
+          rumble: true
+        }
+      ];
+
+      let currentIdx = 0;
+      let isPlaying = false;
+      let playInterval = null;
+
+      const viewportBox = document.getElementById("viewport-box");
+      const currentFrameIdEl = document.getElementById("current-frame-id");
+      const currentTimestampEl = document.getElementById("current-timestamp");
+      const dialogueJpEl = document.getElementById("dialogue-jp");
+      const dialogueEsEl = document.getElementById("dialogue-es");
+      const dialogueLoreEl = document.getElementById("dialogue-lore");
+      const frameRangeEl = document.getElementById("frame-range");
+      const rangeCounterEl = document.getElementById("range-counter");
+      const statTempEl = document.getElementById("stat-temp");
+      const statShieldEl = document.getElementById("stat-shield");
+      const statPressEl = document.getElementById("stat-press");
+      const tempLedBarEl = document.getElementById("temp-led-bar");
+      const shieldLedBarEl = document.getElementById("shield-led-bar");
+      const pressLedBarEl = document.getElementById("press-led-bar");
+      const btnPrevEl = document.getElementById("btn-prev");
+      const btnNextEl = document.getElementById("btn-next");
+      const btnPlayEl = document.getElementById("btn-play");
+      const playIconEl = document.getElementById("play-icon");
+      const playLabelEl = document.getElementById("play-label");
+
+      function updateLedBars(activeTemp, activeShield, activePress) {
+        tempLedBarEl.innerHTML = Array.from({length: 10}, (_, i) => 
+          `<div class="${i < activeTemp ? 'bg-[#ff8a3d] shadow-[0_0_5px_#ff8a3d]' : 'bg-surface-container-lowest'} h-full"></div>`
+        ).join('');
+
+        shieldLedBarEl.innerHTML = Array.from({length: 10}, (_, i) => 
+          `<div class="${i < activeShield ? 'bg-secondary-container shadow-[0_0_5px_#2ff801]' : 'bg-surface-container-lowest'} h-full"></div>`
+        ).join('');
+
+        pressLedBarEl.innerHTML = Array.from({length: 10}, (_, i) => 
+          `<div class="${i < activePress ? 'bg-[#00f0ff] shadow-[0_0_5px_#00f0ff]' : 'bg-surface-container-lowest'} h-full"></div>`
+        ).join('');
+      }
+
+      window.triggerImpactShake = function() {
+        viewportBox.classList.remove("seismic-rumble");
+        void viewportBox.offsetWidth; // trigger reflow
+        viewportBox.classList.add("seismic-rumble");
+      };
+
+      window.setFrame = function(idx) {
+        currentIdx = Math.max(0, Math.min(idx, frameData.length - 1));
+        const data = frameData[currentIdx];
+
+        // Update slides visibility & Ken Burns dynamic motion classes
+        for (let i = 0; i < 5; i++) {
+          const slide = document.getElementById("frame-view-" + i);
+          const media = document.getElementById("media-" + i);
+          const tab = document.querySelectorAll(".frame-tab")[i];
+          const card = document.getElementById("card-node-" + i);
+
+          if (i === currentIdx) {
+            slide.classList.remove("opacity-0", "pointer-events-none");
+            slide.classList.add("opacity-100");
+            
+            // Ken burns dynamic camera pan & zoom activation
+            if (media) {
+              media.className = media.className.replace(/kb-active-\d+/g, '').trim();
+              media.classList.add("kb-active-" + i);
+            }
+
+            if (tab) {
+              tab.className = "frame-tab px-space-sm py-space-xs bg-[#00f0ff] text-black font-extrabold shadow-[0_0_8px_rgba(0,240,255,0.4)]";
+            }
+            if (card) {
+              card.className = "cursor-pointer bg-surface-container p-space-sm flex flex-col gap-space-xs transition-all border-l-2 border-[#ff8a3d]";
+            }
+          } else {
+            slide.classList.remove("opacity-100");
+            slide.classList.add("opacity-0", "pointer-events-none");
+
+            if (media) {
+              media.className = media.className.replace(/kb-active-\d+/g, '').trim();
+            }
+
+            if (tab) {
+              tab.className = "frame-tab px-space-sm py-space-xs bg-surface-container text-on-surface-variant hover:text-on-surface";
+            }
+            if (card) {
+              card.className = "cursor-pointer bg-surface-container-high p-space-sm flex flex-col gap-space-xs hover:bg-surface-bright transition-all border-l-2 border-outline-variant";
+            }
+          }
+        }
+
+        // Trigger seismic rumble if frame 5 (climax)
+        if (data.rumble) {
+          window.triggerImpactShake();
+        }
+
+        // Update HUD textual telemetry
+        currentFrameIdEl.textContent = "FRAME_INDEX: [" + data.id + "]";
+        currentTimestampEl.textContent = "TC: " + data.tc;
+        dialogueJpEl.textContent = data.jp;
+        dialogueEsEl.innerHTML = data.es;
+        dialogueLoreEl.textContent = data.lore;
+        frameRangeEl.value = currentIdx;
+        rangeCounterEl.textContent = data.id;
+
+        statTempEl.textContent = data.temp;
+        statShieldEl.textContent = data.shield;
+        statPressEl.textContent = data.press;
+
+        updateLedBars(data.tempBars, data.shieldBars, data.pressBars);
+      };
+
+      frameRangeEl.addEventListener("input", function(e) {
+        setFrame(parseInt(e.target.value, 10));
+      });
+
+      btnPrevEl.addEventListener("click", function() {
+        if (currentIdx > 0) setFrame(currentIdx - 1);
+        else setFrame(frameData.length - 1);
+      });
+
+      btnNextEl.addEventListener("click", function() {
+        if (currentIdx < frameData.length - 1) setFrame(currentIdx + 1);
+        else setFrame(0);
+      });
+
+      btnPlayEl.addEventListener("click", function() {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+          playIconEl.textContent = "pause";
+          playLabelEl.textContent = "PAUSAR";
+          btnPlayEl.classList.remove("bg-primary-container", "text-black");
+          btnPlayEl.classList.add("bg-error-container", "text-error");
+          playInterval = setInterval(function() {
+            let next = (currentIdx + 1) % frameData.length;
+            setFrame(next);
+          }, 3200);
+        } else {
+          clearInterval(playInterval);
+          playIconEl.textContent = "play_arrow";
+          playLabelEl.textContent = "AUTO 12FPS";
+          btnPlayEl.classList.remove("bg-error-container", "text-error");
+          btnPlayEl.classList.add("bg-primary-container", "text-black");
+        }
+      });
+
+      // Keyboard navigation (Arrow keys + J shortcut)
+      window.addEventListener("keydown", function(e) {
+        if (e.key === "ArrowLeft") {
+          btnPrevEl.click();
+        } else if (e.key === "ArrowRight") {
+          btnNextEl.click();
+        } else if (e.key === "j" || e.key === "J") {
+          setFrame(4); // Jump to Ruptura Climax with seismic feedback
+        }
+      });
+
+      // Initialize frame 0
+      setFrame(0);
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-lg border-t border-surface-container-highest/60"><div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-on-surface-variant"><div class="flex items-center gap-space-md font-mono"><span class="">NPAD ENGINE v4.2.0-TACTICAL</span><span class="">//</span><span class="">MILITARY CATHODE PROTOCOL</span><span class="">//</span><span class="">TOKYO SECTOR-03</span></div><div class="flex items-center gap-space-lg font-mono"><span class="text-error font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>DEFCON 2 RESTRICTED ACCESS</span><span class="">© NPAD ARCHIVES ALL RIGHTS RESERVED</span></div></div></footer>
+
+</body></html>

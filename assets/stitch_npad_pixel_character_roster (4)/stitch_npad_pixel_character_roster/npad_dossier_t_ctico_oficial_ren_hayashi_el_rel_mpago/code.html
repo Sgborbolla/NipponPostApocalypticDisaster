@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Space+Grotesk:wght@600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed":"#271900","primary-fixed":"#7df4ff","primary-fixed-dim":"#00dbe9","surface-container":"#1d2025","background":"#101319","surface-tint":"#00dbe9","error-container":"#93000a","on-error":"#690005","secondary-fixed-dim":"#2ae500","on-primary":"#00363a","outline":"#849495","surface-dim":"#101319","tertiary-fixed":"#ffdea8","primary-container":"#00f0ff","on-surface-variant":"#b9cacb","on-primary-container":"#006970","tertiary":"#fff4e8","inverse-primary":"#006970","outline-variant":"#3b494b","surface-container-lowest":"#0b0e13","inverse-on-surface":"#2d3036","on-primary-fixed":"#002022","primary":"#dbfcff","on-secondary":"#053900","on-background":"#e1e2ea","surface-bright":"#36393f","on-secondary-fixed":"#022100","on-surface":"#e1e2ea","secondary-container":"#2ff801","on-secondary-fixed-variant":"#095300","on-secondary-container":"#0f6d00","error":"#ffb4ab","secondary":"#d7ffc5","on-primary-fixed-variant":"#004f54","on-error-container":"#ffdad6","surface-variant":"#32353b","inverse-surface":"#e1e2ea","secondary-fixed":"#79ff5b","surface-container-high":"#272a30","tertiary-container":"#ffd386","surface-container-low":"#191c21","on-tertiary-container":"#7d5800","on-tertiary":"#412d00","on-tertiary-fixed-variant":"#5e4200","surface":"#101319","surface-container-highest":"#32353b","tertiary-fixed-dim":"#ffba20"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem",margin:"1rem","space-xl":"2.5rem","space-md":"1rem","margin-desktop":"2rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter-desktop":"1.5rem",gutter:"1rem"},fontFamily:{"body-sm":["Space Mono"],"label-sm":["JetBrains Mono"],"body-md":["Space Mono"],"label-md":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"headline-lg-mobile":["Space Grotesk"],"headline-xl":["Space Grotesk"],"body-lg":["Space Mono"],"headline-xl-mobile":["Space Grotesk"],"headline-lg":["Space Grotesk"],"headline-sm":["Space Grotesk"],"headline-md":["Space Grotesk"]},fontSize:{"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"400"}],"label-sm":["9px",{lineHeight:"12px",letterSpacing:"0.18em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0.01em",fontWeight:"400"}],"label-md":["11px",{lineHeight:"14px",letterSpacing:"0.14em",fontWeight:"600"}],"label-lg":["13px",{lineHeight:"16px",letterSpacing:"0.12em",fontWeight:"700"}],"headline-lg-mobile":["24px",{lineHeight:"28px",letterSpacing:"0.05em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"52px",letterSpacing:"0.08em",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0.02em",fontWeight:"400"}],"headline-xl-mobile":["32px",{lineHeight:"36px",letterSpacing:"0.06em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"38px",letterSpacing:"0.06em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"0.04em",fontWeight:"600"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md"><div class="h-20 w-full px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-2.5 h-2.5 bg-error animate-ping"></div><div class="flex flex-col"><span class="font-label-lg text-label-lg tracking-widest text-primary">NPAD // TOKYO-03</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">DEFCON-2 // TACTICAL COMM</span></div></div><div class="hidden xl:flex items-center gap-space-md pl-space-lg"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-outline">RAD-LEVEL</span><span class="font-label-md text-label-md text-secondary-fixed">0.42 mSv/h</span></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-outline">GRID-FREQ</span><span class="font-label-md text-label-md text-tertiary-fixed">49.98 HZ</span></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-outline">STATUS</span><span class="font-label-md text-label-md text-error">LETHAL_WARN</span></div></div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container"><a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview-telemetry" href="#">Overview</a><a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="rika-tsukimi" href="#">Rika Tsukimi</a><a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="goro-arashi" href="#">Goro Arashi</a><a aria-current="page" class="px-space-md py-space-xs font-label-md uppercase tracking-wider transition-colors bg-primary-container text-on-primary-container" data-path="ren-hayashi" href="#">Ren Hayashi</a><a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="yui-nakamura" href="#">Yui Nakamura</a><a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="compendium" href="#">Compendium</a></nav><div class="flex items-center gap-space-md"><div class="hidden sm:flex flex-col text-right"><span class="font-label-sm text-label-sm text-outline">OP_ID</span><span class="font-label-md text-label-md text-primary-fixed">CMD_SATO_99</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Scanline & CRT Vignette Ambience Layer -->
+<div class="relative w-full overflow-hidden px-margin-desktop py-space-lg flex flex-col gap-space-xl">
+<!-- TOP TELEMETRY HUD RIBBON -->
+<section class="w-full bg-surface-container-lowest p-space-md flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<span class="px-space-sm py-space-xs bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm uppercase font-bold tracking-widest">DOSSIER // CLASSIFIED</span>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span>OPERATOR_ID:</span>
+<span class="text-tertiary-fixed font-bold tracking-wider">NPAD-TK03 // 03</span>
+</div>
+<span class="text-outline-variant font-label-sm text-label-sm hidden sm:inline">|</span>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant hidden sm:flex">
+<span>DISPATCH STATUS:</span>
+<span class="text-secondary-fixed font-bold">DEPLOYED // COMBAT_ACTIVE</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-ping"></span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed uppercase font-bold">WARP_SYNC: 99.84%</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline">
+<span>LATENCY:</span>
+<span class="text-primary-fixed font-bold">0.04 MS</span>
+</div>
+<div class="bg-surface-container px-space-sm py-space-xs font-label-sm text-label-sm text-primary">
+          SEC-LEVEL: LETHAL_VIP
+        </div>
+</div>
+</section>
+<!-- MAIN DOSSIER SPLIT HERO -->
+<section class="w-full grid grid-cols-1 xl:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT 7 COLUMNS: COMBAT FRAME & QUICK COMBAT METRICS -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Frame Outer Box -->
+<div class="relative bg-surface-container-lowest p-space-sm shadow-xl group">
+<!-- Corner Markers -->
+<div class="absolute top-2 left-2 font-label-sm text-label-sm text-tertiary-fixed-dim pointer-events-none select-none">┌ ID:03_HAYASHI</div>
+<div class="absolute top-2 right-2 font-label-sm text-label-sm text-primary-fixed-dim pointer-events-none select-none">CAM_01 // HIGH_FREQ ┐</div>
+<div class="absolute bottom-2 left-2 font-label-sm text-label-sm text-outline pointer-events-none select-none">└ 40PX_SPRITE_RATIO</div>
+<div class="absolute bottom-2 right-2 font-label-sm text-label-sm text-error pointer-events-none select-none">LETHAL_WARN ┘</div>
+<!-- Main Combat Display -->
+<div class="relative w-full aspect-video bg-surface-dim overflow-hidden flex items-center justify-center">
+<img alt="Ren Hayashi en pleno tajo dual acrobático con sus dagas gemelas de asalto y estelas doradas cortando androides de combate en una azotea de Tokio-03 de noche con la luna llena de fondo" class="w-full h-full object-cover filter contrast-125 saturate-110" src="https://lh3.googleusercontent.com/aida/AEtjO1VOktNVfgcCD90Utz-AcPZql1R6GZ7gGql4sRty5ggilGIp4cxWFGc-K6TkpE-Q0bbvkfG2BKGHKTqvciuVZybsgfEblcZ9Rceqbsqo6b-PYk9OBJ0oejpS2UHs2vG18V_Zr4-xbeQBBkUV6sSmRxj22JNxUIQA10SI-nzIn1Rc3bXdQb4LAmFACIbRenXsqsM6H9VvTRu1OwkJQRn_ul_08VrBA-91L5zq5bfSRZT8sGk5rqLbkK-VrA9o"/>
+<!-- Combat HUD Overlay Elements inside viewport -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute top-4 left-4 flex flex-col gap-space-xs bg-surface-container-lowest/85 px-space-md py-space-sm backdrop-blur-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 bg-tertiary-fixed-dim rounded-none"></span>
+<span class="font-headline-sm text-headline-sm text-primary uppercase tracking-wider">REN HAYASHI</span>
+</div>
+<div class="w-48 h-2 bg-surface-container-highest flex">
+<div class="h-full bg-error" style="width: 31%;"></div>
+<div class="h-full bg-surface-variant flex-1"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
+<span>VITALITY: 310 / 1000 HP</span>
+<span class="text-error font-bold">FRAGILE</span>
+</div>
+</div>
+<!-- Signature Tag -->
+<div class="absolute bottom-4 left-4 flex items-center gap-space-xs bg-surface-container-lowest/90 px-space-md py-space-xs">
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-bold tracking-widest uppercase">TRAJECTORY: DOUBLE_ACROBATIC_SLASH</span>
+<span class="text-outline font-label-sm text-label-sm">|</span>
+<span class="font-label-sm text-label-sm text-primary-fixed">ESTELA: #FFC400 EXCLUSIVE</span>
+</div>
+<div class="absolute bottom-4 right-4 flex items-center gap-space-xs bg-surface-container-lowest/90 px-space-md py-space-xs">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase">I-FRAMES: ACTIVE (0.00s DELAY)</span>
+</div>
+</div>
+</div>
+<!-- Silhouette Specifications Bar -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm flex flex-col gap-space-xs shadow-sm">
+<span class="font-label-sm text-label-sm text-outline">PUNTO FOCAL (200MS)</span>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 bg-tertiary-fixed rounded-none"></span>
+<span class="font-label-md text-label-md text-tertiary-fixed font-bold">CHAQUETA #FFC400</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Amarillo señalización único en elenco</span>
+</div>
+<div class="bg-surface-container-low p-space-sm flex flex-col gap-space-xs shadow-sm">
+<span class="font-label-sm text-label-sm text-outline">VENDAS ANTEBRAZO</span>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 bg-tertiary rounded-none"></span>
+<span class="font-label-md text-label-md text-tertiary font-bold">BLANCO #F4F0FF</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Contraste de empuñadura táctica</span>
+</div>
+<div class="bg-surface-container-low p-space-sm flex flex-col gap-space-xs shadow-sm">
+<span class="font-label-sm text-label-sm text-outline">CALZADO OPERATIVO</span>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 bg-error rounded-none"></span>
+<span class="font-label-md text-label-md text-error font-bold">GASTADAS #E04A5A</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Goma urbana de alta fricción</span>
+</div>
+<div class="bg-surface-container-low p-space-sm flex flex-col gap-space-xs shadow-sm">
+<span class="font-label-sm text-label-sm text-outline">ESCALA EN PANTALLA</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary-fixed font-bold">40 PX TOTAL</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cabeza expresiva 25% (Lectura rápida)</span>
+</div>
+</div>
+</div>
+<!-- RIGHT 5 COLUMNS: OPERATIONAL PROFILE & ATTRIBUTE MATRIX -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<!-- Tactical Header Panel -->
+<div class="bg-surface-container-low p-space-lg shadow-md flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-fixed uppercase font-bold tracking-widest">ID: 03 // INSTANTE TERCERO</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 bg-error text-on-error uppercase font-bold">COMBAT SPEED: MAXIMUM</span>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight font-bold">REN HAYASHI</h1>
+<span class="font-headline-md text-headline-md text-tertiary-fixed font-bold tracking-wider">«EL RELÁMPAGO»</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">Edad Aparente</span>
+<span class="font-label-lg text-label-lg text-on-surface">19 AÑOS (BIOLÓGICA)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">Armamento Primario</span>
+<span class="font-label-lg text-label-lg text-primary-fixed">DAGAS GEMELAS DE ASALTO</span>
+</div>
+</div>
+</div>
+<!-- Radar & Tactical Attribute Readouts (1-10 Scale) -->
+<div class="bg-surface-container p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">ATRIBUTOS TÁCTICOS // MATRIZ 10-BAR</span>
+<span class="font-label-sm text-label-sm text-outline">BASE VAL: 100/100</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Attribute: Velocidad / Agilidad (10/10) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-tertiary-fixed font-bold">VELOCIDAD / AGILIDAD (MÁXIMA)</span>
+<span class="text-tertiary-fixed font-bold">10 / 10</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed"></div>
+<div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed"></div><div class="bg-tertiary-fixed shadow-sm"></div>
+</div>
+</div>
+<!-- Attribute: I-Frames / Evasión (10/10) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-primary-fixed font-bold">I-FRAMES / VENTANA EVASIVA</span>
+<span class="text-primary-fixed font-bold">10 / 10</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<div class="bg-primary-container"></div><div class="bg-primary-container"></div><div class="bg-primary-container"></div><div class="bg-primary-container"></div><div class="bg-primary-container"></div>
+<div class="bg-primary-container"></div><div class="bg-primary-container"></div><div class="bg-primary-container"></div><div class="bg-primary-container"></div><div class="bg-primary-container shadow-sm"></div>
+</div>
+</div>
+<!-- Attribute: Control de Hordas (8/10) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-secondary-fixed font-bold">CONTROL DE HORDAS (ROTACIÓN)</span>
+<span class="text-secondary-fixed font-bold">8 / 10</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<div class="bg-secondary-fixed"></div><div class="bg-secondary-fixed"></div><div class="bg-secondary-fixed"></div><div class="bg-secondary-fixed"></div><div class="bg-secondary-fixed"></div>
+<div class="bg-secondary-fixed"></div><div class="bg-secondary-fixed"></div><div class="bg-secondary-fixed"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div>
+</div>
+</div>
+<!-- Attribute: Vitalidad (3/10) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-error font-bold">VITALIDAD (310 HP // CRÍTICO VULNERABLE)</span>
+<span class="text-error font-bold">3 / 10</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<div class="bg-error"></div><div class="bg-error"></div><div class="bg-error"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div>
+<div class="bg-surface-variant"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div>
+</div>
+</div>
+<!-- Attribute: Alcance de Combate (3/10) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant font-bold">ALCANCE DE COMBATE (CUERPO A CUERPO)</span>
+<span class="text-on-surface-variant font-bold">3 / 10</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-2">
+<div class="bg-outline"></div><div class="bg-outline"></div><div class="bg-outline"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div>
+<div class="bg-surface-variant"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div><div class="bg-surface-variant"></div>
+</div>
+</div>
+</div>
+<!-- Radar Summary Badge -->
+<div class="mt-space-xs p-space-sm bg-surface-container-high flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>CLASIFICACIÓN DE TIPO:</span>
+<span class="text-tertiary-fixed font-bold font-label-md text-label-md">SKIRMISHER // HYPER-AGILE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SIGNATURE PERK & MECHANICS SECTION -->
+<section class="w-full grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- PERK CARD: PODER DE FIRMA -->
+<div class="lg:col-span-1 bg-surface-container-low p-space-lg flex flex-col justify-between shadow-md relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-tertiary-fixed/5 rounded-full pointer-events-none blur-xl"></div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-bold uppercase tracking-widest">PODER DE FIRMA EXCLUSIVO</span>
+<span class="px-space-xs py-0.5 bg-tertiary text-on-tertiary font-label-sm text-label-sm font-bold">AUTÓNOMO</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary uppercase font-bold">«DESLIZAMIENTO DE TIEMPO»</h2>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Equipado con <strong class="text-tertiary-fixed">3 cargas de dash autónomas</strong> que <strong class="text-primary-fixed">NUNCA</strong> se agotan en combate, pues se regeneran continuamente por tiempo pasivo sin depender de bajas enemigas ni combos activos.
+          </p>
+<div class="flex items-center gap-space-md bg-surface-container p-space-md">
+<div class="flex gap-space-xs">
+<span class="w-3 h-8 bg-tertiary-fixed shadow-sm"></span>
+<span class="w-3 h-8 bg-tertiary-fixed shadow-sm"></span>
+<span class="w-3 h-8 bg-tertiary-fixed shadow-sm"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">3 / 3 CARGAS PERPETUAS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cooldown pasivo: 1.25s por celda</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>CONDICIÓN AÉREA:</span>
+<span class="text-secondary-fixed font-bold">NUNCA TOCA EL SUELO EN HORDAS</span>
+</div>
+</div>
+<!-- COMBAT CHAIN & 2-BUTTON SYSTEM -->
+<div class="lg:col-span-2 bg-surface-container p-space-lg flex flex-col gap-space-md shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">SISTEMA DE CONTROL A 2 BOTONES // COMBOS</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">INPUT BUFFER: INSTANT_READ</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Key [J] -->
+<div class="bg-surface-container-high p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-space-xs bg-primary text-on-primary font-label-lg text-label-lg font-bold">[ J ]</span>
+<span class="font-label-sm text-label-sm text-primary-fixed">OFENSIVA CADENCIA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">TAJO DOBLE ACROBÁTICO</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Cadena continua de alta velocidad:
+            </p>
+<div class="flex flex-col gap-1 font-label-sm text-label-sm text-on-surface">
+<div class="bg-surface-container px-space-xs py-1 text-primary">1. Dos pinchazos veloces</div>
+<div class="bg-surface-container px-space-xs py-1 text-primary">2. Patada baja con cancel</div>
+<div class="bg-surface-container px-space-xs py-1 text-tertiary-fixed">3. Torbellino giratorio</div>
+</div>
+</div>
+<!-- Key [K] -->
+<div class="bg-surface-container-high p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-space-xs bg-tertiary text-on-tertiary font-label-lg text-label-lg font-bold">[ K ]</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">EVASIÓN PURA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">DASH RÁPIDO DE 4 FRAMES</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Movilidad hiper-espacial inmediata:
+            </p>
+<div class="flex flex-col gap-1 font-label-sm text-label-sm text-on-surface">
+<div class="bg-surface-container px-space-xs py-1 text-tertiary-fixed">● 4 Frames de inicio (0.06s)</div>
+<div class="bg-surface-container px-space-xs py-1 text-tertiary-fixed">● Estela dorada #FFC400</div>
+<div class="bg-surface-container px-space-xs py-1 text-secondary-fixed">● Traspasa masa enemiga</div>
+</div>
+</div>
+<!-- Hold [J] RUPTURA -->
+<div class="bg-surface-container-high p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-space-xs bg-error text-on-error font-label-lg text-label-lg font-bold">HOLD [ J ]</span>
+<span class="font-label-sm text-label-sm text-error font-bold">RUPTURA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">TORMENTA DE VÓRTICE</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Remate activado tras el 3er golpe:
+            </p>
+<div class="flex flex-col gap-1 font-label-sm text-label-sm text-on-surface">
+<div class="bg-surface-container px-space-xs py-1 text-error">● Succión radial de horda</div>
+<div class="bg-surface-container px-space-xs py-1 text-error">● Despedazamiento perimetral</div>
+<div class="bg-surface-container px-space-xs py-1 text-primary-fixed">● Recupera frame de dash</div>
+</div>
+</div>
+</div>
+<!-- Combat Execution Bar -->
+<div class="p-space-sm bg-surface-container-lowest flex flex-wrap items-center justify-between gap-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-space-sm text-on-surface-variant">
+<span class="text-tertiary-fixed font-bold">ESTRATEGIA RECOMENDADA:</span>
+<span>J → J → DASH [K] → J → HOLD [J] (Vórtice aéreo)</span>
+</div>
+<button class="px-space-md py-space-xs bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity" id="simBtn" onclick="runSim()">
+            ▶ PROBAR SIMULACIÓN DE CADENCIA
+          </button>
+</div>
+</div>
+</section>
+<!-- DETAILED LORE & ARCHIVAL DATA (PERSONAJES.md & DISEÑO.md) -->
+<section class="w-full bg-surface-container-lowest p-space-xl shadow-lg flex flex-col gap-space-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary-fixed uppercase font-bold tracking-widest">ARCHIVOS NPAD // REGISTRO TEMPORAL 09</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-wide">HISTORIA Y ANOMALÍA: LA FRACTURA DEL WARD NOVENO</h2>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-md py-space-xs">
+<span class="font-label-sm text-label-sm text-outline">ORIGEN:</span>
+<span class="font-label-md text-label-md text-on-surface">ESTUDIANTE CIVIL → OPERADOR CLAVE</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Story Column -->
+<div class="lg:col-span-8 flex flex-col gap-space-md font-body-lg text-body-lg text-on-surface leading-relaxed">
+<p>
+            Ren tenía apenas <strong class="text-tertiary-fixed">16 años</strong> cuando el continuo espacio-temporal colapsó violentamente sobre el <span class="text-primary-fixed">Ward Noveno</span> de Tokio. Mientras que toda la población civil y las guarniciones de defensa quedaron perpetuamente paralizadas en un bucle cerrado y estático de sufrimiento infinito, Ren experimentó una divergencia celular anómala: en lugar de congelarse, fue expulsado hacia los intersticios dimensionales de la fractura.
+          </p>
+<p>
+            Durante lo que el exterior midió como <strong class="text-primary-fixed">tres años cronológicos</strong>, Ren deambuló solo por los pasillos rotos del tiempo detenido sin experimentar el envejecimiento molecular orgánico a velocidad regular. Sobrevivió aprendiendo a deslizarse entre los milisegundos ciegos de la realidad.
+          </p>
+<div class="bg-surface-container p-space-md flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-error uppercase font-bold">REPORTE MÉDICO POST-EXTRACCIÓN:</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              «Emerge de la brecha a sus 19 años biológicos aparentes. Conserva la hiper-agilidad adquirida en los intersticios, pero sufre de <strong class="text-on-surface">amnesia disociativa casi total</strong> de su travesía. Entró a la catástrofe como un simple estudiante escolar de secundaria; regresó al Tokio fortificado como el operador de combate más letal y veloz del sector.»
+            </p>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            Hoy en día, sus movimientos desafían la percepción óptica estándar: para el ojo humano desprovisto de bio-aumentos cibernéticos, Ren es simplemente un destello amarillo de señalización que desmantela batallones mecanizados antes de que la onda de choque acústica toque el pavimento.
+          </p>
+</div>
+<!-- Archival Metric Visualizer -->
+<div class="lg:col-span-4 bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+<span class="font-label-md text-label-md text-tertiary-fixed font-bold uppercase tracking-wider">TELEMETRÍA CRONOMÉTRICA</span>
+<div class="flex flex-col gap-space-sm">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-outline">TIEMPO LOCAL EXTERIOR</span>
+<span class="text-on-surface font-bold">1,095 DÍAS (3 AÑOS)</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="w-full h-full bg-tertiary-fixed"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm pt-space-xs">
+<span class="text-outline">DEGRADACIÓN SINÁPTICA</span>
+<span class="text-error font-bold">98.4% (AMNESIA TOTAL)</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="h-full bg-error" style="width: 98%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm pt-space-xs">
+<span class="text-outline">SINCRONIZACIÓN DE FRACTURA</span>
+<span class="text-secondary-fixed font-bold">ESTABLE // PERPETUO</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary-fixed" style="width: 100%;"></div>
+</div>
+</div>
+<div class="mt-space-md p-space-sm bg-surface-container flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase font-bold">DICTAMEN TÁCTICO:</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+              No desplegar en misiones de asedio estático. Su armadura es mínima (310 HP); maximizar espacio perimetral para evasión en cadena y control de torbellino.
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- LIVE TELEMETRY SIMULATOR LOG (INTERACTIVE MICRO-INTERACTION) -->
+<section class="w-full bg-surface-container-low p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="w-2 h-2 bg-secondary-fixed animate-pulse"></span>
+<span class="text-primary-fixed font-bold uppercase">CONSOLA EN TIEMPO REAL // BUFFER DE COMBATE</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">HOST: NPAD_TK03_EXEC</span>
+</div>
+<div class="h-28 overflow-y-auto bg-surface-dim p-space-sm font-label-sm text-label-sm text-on-surface-variant flex flex-col gap-1" id="simLog">
+<div class="text-outline-variant">[00:00:01.04] // SISTEMA CONECTADO. TELEMETRÍA DE REN HAYASHI ACTIVA.</div>
+<div class="text-outline-variant">[00:00:01.12] // ANÁLISIS DE INTERSTICIO: 3 CARGAS DE DASH LISTAS (#FFC400).</div>
+<div class="text-secondary-fixed">[00:00:01.18] // LISTO PARA TRANSMISIÓN DE COMANDO [J] / [K].</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  let comboIndex = 0;
+  const comboSteps = [
+    { text: "[J] TAJO RÁPIDO 1: Doble estocada a 120 FPS. Impacto registrado.", color: "text-primary-fixed" },
+    { text: "[J] TAJO RÁPIDO 2: Patada baja giratoria con cancel de animación.", color: "text-primary-fixed" },
+    { text: "[K] DASH 4-FRAMES: Deslizamiento aéreo sin colisión. Estela #ffc400 desplegada.", color: "text-tertiary-fixed" },
+    { text: "HOLD [J] TORMENTA DE VÓRTICE: Succión centrípeta activada. 6 androides despedazados.", color: "text-error" },
+    { text: "REGENERACIÓN PASIVA: 3 Cargas completadas sin impacto de piso. Bucle listo.", color: "text-secondary-fixed" }
+  ];
+
+  function runSim() {
+    const logBox = document.getElementById('simLog');
+    if (!logBox) return;
+    const step = comboSteps[comboIndex % comboSteps.length];
+    comboIndex++;
+    
+    const time = new Date().toISOString().substring(11, 23);
+    const entry = document.createElement('div');
+    entry.className = step.color;
+    entry.innerText = `[${time}] // ` + step.text;
+    logBox.appendChild(entry);
+    logBox.scrollTop = logBox.scrollHeight;
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-space-lg"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm text-secondary-fixed">● LINK_ACTIVE: 4096-BIT RSA</span><span class="font-label-sm text-label-sm text-outline">|</span><span class="font-label-sm text-label-sm text-on-surface-variant">SYS_DIAG: ALL SUBSYSTEMS NOMINAL</span><span class="font-label-sm text-label-sm text-outline">|</span><span class="font-label-sm text-label-sm text-tertiary-fixed">BUFFER 0xFA488</span></div><div class="flex items-center gap-space-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed uppercase tracking-widest transition-colors" data-path="terminal-diagnostics" href="#">Terminal Diagnostics</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed uppercase tracking-widest transition-colors" data-path="encryption-link" href="#">Encryption Link</a><span class="font-label-sm text-label-sm text-outline">© NPAD NIPPON DEFENSE FORCE</span></div></div></footer></body></html>

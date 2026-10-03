@@ -1,0 +1,748 @@
+<!DOCTYPE html><html class="dark" lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;family=Space+Mono:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+/* Custom Visual Effects for OVA Anime Motion */
+@keyframes speedlines-anim {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes speedlines-horiz {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes lightning-flash {
+  0%, 88%, 93%, 97%, 100% { opacity: 0; }
+  89%, 92% { opacity: 0.85; }
+  94%, 96% { opacity: 1; }
+}
+@keyframes chromatic-glitch {
+  0% { transform: translate(0); filter: drop-shadow(0 0 0 transparent); }
+  20% { transform: translate(-3px, 2px); filter: drop-shadow(3px -1px 0 rgba(0,240,255,0.7)) drop-shadow(-3px 1px 0 rgba(255,196,0,0.7)); }
+  40% { transform: translate(2px, -2px); filter: drop-shadow(-2px 2px 0 rgba(255,50,50,0.7)); }
+  60% { transform: translate(-1px, 1px); filter: none; }
+  80% { transform: translate(3px, -1px); filter: drop-shadow(2px 0 0 rgba(0,240,255,0.6)); }
+  100% { transform: translate(0); filter: none; }
+}
+@keyframes vortex-spin {
+  0% { transform: scale(1.15) rotate(0deg); }
+  50% { transform: scale(1.35) rotate(180deg); }
+  100% { transform: scale(1.15) rotate(360deg); }
+}
+@keyframes screenshake {
+  0% { transform: translate(0, 0); }
+  15% { transform: translate(-4px, 3px); }
+  30% { transform: translate(4px, -3px); }
+  45% { transform: translate(-3px, -2px); }
+  60% { transform: translate(3px, 3px); }
+  75% { transform: translate(-2px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.glitch-active {
+  animation: chromatic-glitch 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.screenshake-active {
+  animation: screenshake 0.35s ease-in-out infinite;
+}
+.vortex-active {
+  animation: vortex-spin 4s linear infinite;
+}
+.speedline-bg {
+  background: repeating-linear-gradient(90deg, transparent, transparent 18px, rgba(255, 196, 0, 0.12) 19px, rgba(0, 240, 255, 0.15) 20px);
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-lowest": "#0b0e13", "on-primary-container": "#006970", "tertiary": "#fff4e8", "surface-tint": "#00dbe9", "primary-fixed": "#7df4ff", "surface": "#101319", "surface-container-highest": "#32353b", "secondary-container": "#2ff801", "on-primary-fixed-variant": "#004f54", "surface-variant": "#32353b", "on-primary-fixed": "#002022", "inverse-primary": "#006970", "on-secondary-fixed-variant": "#095300", "outline": "#849495", "secondary-fixed-dim": "#2ae500", "tertiary-container": "#ffd386", "tertiary-fixed": "#ffdea8", "on-surface-variant": "#b9cacb", "background": "#101319", "on-secondary-container": "#0f6d00", "on-secondary": "#053900", "on-tertiary": "#412d00", "primary-fixed-dim": "#00dbe9", "primary-container": "#00f0ff", "inverse-surface": "#e1e2ea", "on-surface": "#e1e2ea", "outline-variant": "#3b494b", "secondary": "#d7ffc5", "inverse-on-surface": "#2d3036", "surface-bright": "#36393f", "on-background": "#e1e2ea", "primary": "#dbfcff", "error": "#ffb4ab", "on-tertiary-container": "#7d5800", "surface-container-high": "#272a30", "on-error": "#690005", "tertiary-fixed-dim": "#ffba20", "on-secondary-fixed": "#022100", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-primary": "#00363a", "on-tertiary-fixed": "#271900", "surface-dim": "#101319", "surface-container": "#1d2025", "on-tertiary-fixed-variant": "#5e4200", "surface-container-low": "#191c21", "secondary-fixed": "#79ff5b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "space-lg": "1.5rem", "margin": "1rem", "space-xl": "2.5rem", "margin-desktop": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-xl-mobile": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "body-md": ["Space Mono"], "headline-sm": ["Space Grotesk"], "body-lg": ["Space Mono"], "label-sm": ["JetBrains Mono"], "headline-md": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "body-sm": ["Space Mono"], "headline-lg-mobile": ["Space Grotesk"], "headline-xl": ["Space Grotesk"], "label-lg": ["JetBrains Mono"] }, "fontSize": { "headline-xl-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.14em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0.02em", "fontWeight": "400" }], "label-sm": ["9px", { "lineHeight": "12px", "letterSpacing": "0.18em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "0.06em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }], "headline-xl": ["48px", { "lineHeight": "52px", "letterSpacing": "0.08em", "fontWeight": "700" }], "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.4)] border-b border-surface-variant/40"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">NPAD</span><span class="font-label-sm text-label-sm text-outline px-space-xs bg-surface-container text-on-surface-variant">ARCHIVES</span></div><div class="hidden xl:flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant"><span class="text-outline">FEED:</span><span class="text-primary-fixed">MIL_SAT_TOK-09</span></div></div><nav class="hidden lg:flex items-center gap-space-md font-label-md text-label-md uppercase" data-active-classes="text-on-primary bg-primary-container px-space-sm py-space-xs font-label-md text-label-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="visualizador-prologo" href="#">Prólogo Completo</a><a class="text-on-surface-variant hover:text-primary transition-colors border border-transparent hover:border-surface-variant px-space-sm py-space-xs rounded" data-path="dossier-rika-tsukimi" href="#">Rika Tsukimi</a><a class="text-on-surface-variant hover:text-primary transition-colors border border-transparent hover:border-surface-variant px-space-sm py-space-xs rounded" data-path="dossier-goro-arashi" href="#">Goro Arashi</a><a aria-current="page" class="transition-all text-on-primary bg-primary-container px-space-sm py-space-xs font-label-md text-label-md font-bold shadow-[0_0_12px_rgba(0,240,255,0.4)] rounded" data-path="dossier-ren-hayashi" href="#">Ren Hayashi</a><a class="text-on-surface-variant hover:text-primary transition-colors border border-transparent hover:border-surface-variant px-space-sm py-space-xs rounded" data-path="dossier-yui-nakamura" href="#">Yui Nakamura</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="secuencia-telemetria" href="#">Telemetría</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex items-center gap-space-xs bg-surface-container-high px-space-sm py-space-xs rounded font-label-sm text-label-sm border border-[#ffc400]/30"><span class="material-symbols-outlined text-[14px] text-[#ffc400] animate-pulse">bolt</span><span class="text-outline">AUDIO:</span><span class="text-secondary-fixed">COMM_ONLINE</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span><span class="text-secondary">SYNC_OK</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_10px_#00f0ff]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Scanline CRT Simulation Overlay -->
+<div class="pointer-events-none fixed inset-0 z-40 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,14,19,0.75)_100%)] opacity-80"></div>
+<div class="pointer-events-none fixed inset-0 z-40 bg-[linear-gradient(rgba(0,240,255,0.02)_50%,transparent_50%)] bg-[length:100%_4px]"></div>
+<!-- Tactical HUD Subheader & Operation Context -->
+<div class="w-full bg-surface-container-lowest px-gutter-desktop py-space-sm flex flex-wrap items-center justify-between gap-space-md border-b border-surface-variant/30">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-primary-fixed uppercase tracking-wider">
+<span class="w-2.5 h-2.5 bg-primary-container inline-block shadow-[0_0_8px_#00f0ff]"></span>
+<span class="">REC_PLAYBACK // NPAD-REN-04</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant">|</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-space-xs">
+<span class="text-outline">OPERADOR:</span>
+<span class="text-primary font-bold">REN HAYASHI (林 蓮)</span>
+<span class="px-space-xs py-0.5 bg-[#ffc400] text-black rounded font-label-sm text-label-sm font-black ml-space-xs shadow-[0_0_8px_rgba(255,196,0,0.5)]">«EL RELÁMPAGO»</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="text-outline">QUANTUM FLUX:</span>
+<span class="text-[#ffc400] font-mono tracking-widest font-bold" id="quantum-flux-val">0.0034 Δt</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="text-outline">CHRONO-ANCHOR:</span>
+<span class="text-error font-mono tracking-wider animate-pulse">LOCKED [39Y DESYNC]</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded border border-primary-container/30">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed animate-pulse">movie</span>
+<span class="text-primary-fixed font-bold">ANIME TIMING: <span class="text-[#ffc400]" id="fps-badge">12 FPS</span> OVA</span>
+</div>
+</div>
+</div>
+<!-- Main Cinematic Showcase Grid -->
+<div class="w-full px-gutter-desktop flex flex-col xl:flex-row gap-space-lg py-space-sm">
+<!-- Left Column: Visualizer Viewport (16:9 Cinema Box + Subtitles + Overlay HUD) -->
+<div class="flex-1 flex flex-col gap-space-md min-w-0">
+<!-- Viewport Shell Container -->
+<div class="relative w-full aspect-[16/9] bg-surface-container-lowest rounded-lg overflow-hidden shadow-2xl flex flex-col justify-between border border-surface-variant/50" id="cinema-viewport-shell">
+<!-- Flash / Glitch Lightning FX Overlay -->
+<div class="pointer-events-none absolute inset-0 z-30 bg-white/30 mix-blend-overlay opacity-0 transition-opacity duration-75" id="lightning-flash-fx" style="opacity: 0;"></div>
+<div class="pointer-events-none absolute inset-0 z-20 opacity-0 speedline-bg transition-opacity duration-200" id="slipstream-speedlines" style="opacity: 0.75;"></div>
+<!-- Viewport Top Ribbon HUD -->
+<div class="relative z-30 w-full px-space-md py-space-sm bg-gradient-to-b from-surface-container-lowest/90 to-transparent flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-0.5 bg-error-container text-on-error-container rounded font-bold uppercase tracking-widest text-[9px] animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> LIVE BUFFER
+            </span>
+<span class="text-primary-fixed font-mono" id="tc-display">TC 00:02:45:09</span>
+<span class="text-outline-variant font-mono" id="frame-counter-display">FRAME 0874 [12 FPS]</span>
+</div>
+<!-- Chrono Distortion Mini Meter -->
+<div class="flex items-center gap-space-sm">
+<span class="text-outline uppercase text-[10px]">Distorsión Cuántica:</span>
+<div class="flex items-center gap-0.5" id="distortion-bars">
+<span class="w-1.5 h-3 bg-primary-fixed-dim shadow-[0_0_4px_#00dbe9]"></span>
+<span class="w-1.5 h-3 bg-primary-fixed-dim shadow-[0_0_4px_#00dbe9]"></span>
+<span class="w-1.5 h-3 bg-primary-fixed-dim shadow-[0_0_4px_#00dbe9]"></span>
+<span class="w-1.5 h-3 bg-[#ffc400] shadow-[0_0_4px_#ffc400]"></span>
+<span class="w-1.5 h-3 bg-[#ffc400] shadow-[0_0_4px_#ffc400]"></span>
+<span class="w-1.5 h-3 bg-secondary-fixed shadow-[0_0_4px_#79ff5b]"></span>
+<span class="w-1.5 h-3 bg-tertiary-fixed-dim"></span>
+<span class="w-1.5 h-3 bg-error animate-pulse"></span>
+</div>
+<span class="text-error font-mono font-bold text-[11px]" id="skew-display">+39.2Y SKEW</span>
+</div>
+</div>
+<!-- Cinema Image Screen (Dynamic Switcher with Ken Burns & Camera Zooms) -->
+<div class="absolute inset-0 z-10 w-full h-full overflow-hidden" id="viewport-canvas">
+<!-- Frame 1-3 Collage Image (Storyboard Visual from prompt image 1) with Ken Burns motion transform -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700 ease-out opacity-100 will-change-transform" id="cinematic-layer-story" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida/AEtjO1WnTLbeA0_BDjwPQ3f8ZH3GVp0xigIisL7coUlhW5R89TSp2AG3vJILdxMfAeHKT4aqgO_C4w9uhW3mQQ7c2l3kcRJkV9kcaeidcE1P2DOOD7lDYOaswWVC7vlQ_vD4SsOdv764ymnUr3mEgtcWK6deA6un8BRM_3FcTPX6uy0jN9iPjV498E9bhiOM06KU5XfdwE2AGg2F40PSR5M_fMax-tFpAkA1Dui-DttS2I8BnYXkSEPLYoDbZWo&quot;); transform: scale(1.3) translate(-14%, 2%);">
+<!-- Dynamic Anamorphic Lens Flare Line -->
+<div class="w-full h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent opacity-70 absolute top-1/2 -translate-y-1/2 shadow-[0_0_12px_#00f0ff]" id="lens-flare-bar"></div>
+<div class="w-full h-px bg-gradient-to-r from-transparent via-[#ffc400] to-transparent opacity-50 absolute top-[48%] -translate-y-1/2" id="lens-flare-yellow"></div>
+</div>
+<!-- Frame 4-5 Climax Image (Vortex Cut-in from prompt image 2) -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700 ease-out opacity-0 will-change-transform" id="cinematic-layer-climax" style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1Ub5-xDN17UpGBBqDKn71HTuS4JvgozmmFCO9ofbuTYYyj3q2keK0B14imiGB-dyMYZZzoWq6eTvB_k40QxDDdgbbg-KcwT0UP9tLDktdsfnVggfifnynsmcvXEgfs__211y1Z-Dk-_UkJ1MsH4dsnTx9qoBpgjf-elMYDQPHG8gckdeMtJRNkTr_eosQPDbSb-ptYecbAzk8vbQVlaRIWFnmFy3EnTa0OxPSr0_bOg5nuQKVGwRlpUce5s');">
+<div class="w-full h-full bg-gradient-to-t from-surface-container-lowest/85 via-transparent to-transparent"></div>
+</div>
+<!-- Dynamic Electric Lightning Arc SVG Overlay (Canvas Simulator) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-20 opacity-80" id="lightning-canvas" preserveAspectRatio="none" viewBox="0 0 1200 675">
+<defs>
+<filter height="140%" id="glow-yellow" width="140%" x="-20%" y="-20%">
+<feGaussianBlur result="glow" stdDeviation="5"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="glow"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+<filter height="140%" id="glow-cyan" width="140%" x="-20%" y="-20%">
+<feGaussianBlur result="glow" stdDeviation="4"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="glow"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<path class="transition-opacity duration-150 opacity-90" d="M 141.12284586252213 380.38293142429535 L 276.83188071990065 334.5086893391855 L 336.53024257294777 380.4771675836448 L 504.31493409333285 246.36837756744583 L 604.280883159467 349.3961359304793 L 767.9984813429194 212.79190588886587" fill="none" filter="url(#glow-yellow)" id="lightning-arc-1" stroke="#ffc400" stroke-dasharray="10 5" stroke-width="2.5"></path>
+<path class="transition-opacity duration-150 opacity-80" d="M 708.3854568918175 120.56543924447615 L 784.0243586889962 283.96954868108867 L 884.0057313659468 226.0936248268013 L 968.2871245952125 425.4914277395958 L 1076.2132438490503 378.61399687179687 L 1192.4068466174385 512.2721595949627" fill="none" filter="url(#glow-cyan)" id="lightning-arc-2" stroke="#00f0ff" stroke-dasharray="8 4" stroke-width="2"></path>
+<!-- Centripetal Vortex Rings for Climax Frame -->
+<circle class="origin-center" cx="600" cy="337" fill="none" id="vortex-ring-1" opacity="0" r="160" stroke="#ffc400" stroke-dasharray="30 20" stroke-width="2"></circle>
+<circle class="origin-center" cx="600" cy="337" fill="none" id="vortex-ring-2" opacity="0" r="260" stroke="#00f0ff" stroke-dasharray="40 30" stroke-width="1.5"></circle>
+</svg>
+</div>
+<!-- Corner Reticles & Technical HUD Crosshairs -->
+<div class="absolute top-4 left-4 z-20 pointer-events-none flex flex-col font-label-sm text-[9px] text-[#00f0ff]/80">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-[#00f0ff] animate-ping inline-block"></span> + CH1_OPTICAL_FEED</span>
+<span class="text-[8px] text-outline font-mono">SEC_TAG: 39-FLSH-TOKYO</span>
+</div>
+<div class="absolute top-4 right-4 z-20 pointer-events-none text-right font-label-sm text-[9px] text-[#00f0ff]/80">
+<span class="">FIELD_ANGLE: 48.6° ANAMORPHIC</span>
+<span class="text-[8px] text-[#ffc400] font-mono font-bold block">FIBER_BAND: 890nm [IONIZED]</span>
+</div>
+<div class="absolute bottom-16 left-4 z-20 pointer-events-none flex items-center gap-1 font-label-sm text-[9px] text-secondary">
+<span class="material-symbols-outlined text-[14px] text-[#ffc400] animate-pulse">bolt</span>
+<span class="text-[#ffc400] font-bold">SPARK_TRIGGER: READY</span>
+</div>
+<div class="absolute bottom-16 right-4 z-20 pointer-events-none flex items-center gap-1 font-label-sm text-[9px] text-[#ffc400] font-bold bg-black/60 px-2 py-0.5 rounded border border-[#ffc400]/40">
+<span class="material-symbols-outlined text-[13px] text-[#00f0ff]">keyboard</span>
+<span class="">PULSA [J] PARA VÓRTICE</span>
+</div>
+<!-- Cinema Subtitle Display (Dual Language OVA Typography) -->
+<div class="relative z-30 w-full p-space-md flex flex-col items-center justify-end bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent">
+<div class="max-w-3xl text-center px-space-md py-space-sm bg-surface-container-lowest/90 backdrop-blur-md rounded-lg shadow-xl border border-primary-container/20" id="subtitles-container">
+<p class="font-body-sm text-body-sm text-[#ffc400] tracking-widest uppercase transition-all duration-200 font-semibold" id="sub-jp">世界にとっては39年。僕にとっては、まだ終わらない一瞬だった。</p>
+<p class="font-headline-sm text-headline-sm text-primary tracking-wide transition-all duration-200 mt-0.5 drop-shadow-[0_2px_8px_rgba(0,240,255,0.4)]" id="sub-es">“Para el mundo pasaron 39 años. Para mí fue un parpadeo que aún no termina.”</p>
+</div>
+</div>
+</div>
+<!-- Playback Transport Strip & Quick Controls -->
+<div class="w-full bg-surface-container-low px-space-md py-space-sm rounded-lg flex flex-wrap items-center justify-between gap-space-md border border-surface-variant/30">
+<!-- Transport Buttons -->
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<button class="p-2 bg-surface-container hover:bg-surface-container-highest text-on-surface rounded flex items-center justify-center transition-colors" id="btn-prev-frame" title="Fotograma Anterior">
+<span class="material-symbols-outlined text-[18px]">skip_previous</span>
+</button>
+<button class="px-space-md py-2 bg-primary-container text-on-primary-container font-headline-sm text-[13px] font-bold rounded flex items-center gap-1 transition-all hover:bg-primary hover:text-on-primary shadow-[0_0_10px_rgba(0,240,255,0.3)]" id="btn-play-pause">
+<span class="material-symbols-outlined text-[18px]" id="play-icon">play_arrow</span>
+<span id="play-text" class="">PLAY OVA</span>
+</button>
+<button class="p-2 bg-surface-container hover:bg-surface-container-highest text-on-surface rounded flex items-center justify-center transition-colors" id="btn-next-frame" title="Fotograma Siguiente">
+<span class="material-symbols-outlined text-[18px]">skip_next</span>
+</button>
+<div class="h-6 w-px bg-surface-variant mx-space-xs"></div>
+<button class="px-space-sm py-2 bg-surface-container hover:bg-surface-bright text-[#ffc400] rounded font-mono font-bold text-[11px] flex items-center gap-1 transition-colors border border-[#ffc400]/30 hover:border-[#ffc400]" id="btn-burst">
+<span class="material-symbols-outlined text-[16px] text-[#ffc400] animate-pulse">electric_bolt</span>
+            STEP (12 FPS)
+          </button>
+<button class="px-space-sm py-2 bg-surface-container hover:bg-surface-bright text-[#00f0ff] rounded font-mono font-bold text-[11px] flex items-center gap-1 transition-colors border border-[#00f0ff]/30" id="btn-glitch-test" title="Simular Fallo Temporal">
+<span class="material-symbols-outlined text-[16px]">grain</span>
+            GLITCH FX
+          </button>
+</div>
+<!-- Frame Progress Bar -->
+<div class="flex-1 min-w-[200px] flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-outline font-mono" id="current-frame-idx">FRAME 03 / 05</span>
+<div class="flex-1 h-2.5 bg-surface-container-highest rounded-full overflow-hidden flex cursor-pointer border border-surface-variant/40" id="scrubber-bar" title="Arrastrar o hacer clic para saltar en la línea de tiempo">
+<div class="h-full bg-gradient-to-r from-primary-container to-[#ffc400] transition-all duration-300 shadow-[0_0_8px_#00f0ff]" id="scrubber-fill" style="width: 60%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-fixed font-mono font-bold" id="frame-pct">60%</span>
+</div>
+<!-- Audio & Speed Indicators -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-outline">SPEED:</span>
+<span class="text-[#ffc400] font-mono font-bold">12 FPS ANIME</span>
+<span class="text-outline ml-space-xs">CH:</span>
+<span class="text-primary-fixed font-mono font-bold">STEREO_OVA_MIX</span>
+</div>
+</div>
+<!-- 5 Keyframe Storyboard Timeline Selector -->
+<div class="w-full bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-sm border border-surface-variant/30">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span class="text-primary flex items-center gap-1 uppercase tracking-wider font-bold">
+<span class="material-symbols-outlined text-[16px] text-[#ffc400]">view_timeline</span>
+            LÍNEA DE TIEMPO DEL PRÓLOGO CINEMÁTICO (5 FOTOGRAMAS CLAVE)
+          </span>
+<span class="text-outline font-label-sm text-label-sm">HAZ CLIC EN CADA FOTOGRAMA PARA ACTIVAR SU DINÁMICA DE CÁMARA</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-space-sm">
+<!-- Frame Card 01 -->
+<button class="timeline-card group text-left p-space-sm rounded bg-surface-container transition-all hover:bg-surface-container-high focus:outline-none border border-transparent" data-frame="0">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold">FOTOGRAMA 01</span>
+<span class="text-error font-mono text-[9px]">-39 AÑOS</span>
+</div>
+<p class="font-headline-sm text-[13px] text-on-surface font-bold group-hover:text-primary transition-colors">LA FRACTURA</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-tight">
+              Ren escolar (16a) en pasillo cuando los relojes estallan en cristales cian.
+            </p>
+<div class="mt-2 text-[10px] font-mono text-outline flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> PAN IZQUIERDO // TWITCH
+            </div>
+</button>
+<!-- Frame Card 02 -->
+<button class="timeline-card group text-left p-space-sm rounded bg-surface-container transition-all hover:bg-surface-container-high focus:outline-none border border-transparent" data-frame="1">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold">FOTOGRAMA 02</span>
+<span class="text-tertiary-fixed-dim font-mono text-[9px]">LIMBO Δt</span>
+</div>
+<p class="font-headline-sm text-[13px] text-on-surface font-bold group-hover:text-primary transition-colors">VACÍO TEMPORAL</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-tight">
+              Deambulando en soledad a través de pasillos con relojes derretidos y ecos.
+            </p>
+<div class="mt-2 text-[10px] font-mono text-outline flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffc400]"></span> SLOW ZOOM // CENTRO
+            </div>
+</button>
+<!-- Frame Card 03 -->
+<button class="timeline-card group text-left p-space-sm rounded bg-surface-container transition-all hover:bg-surface-container-high focus:outline-none ring-2 ring-[#ffc400] bg-surface-container-high border border-transparent" data-frame="2">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-[#ffc400] font-bold">FOTOGRAMA 03</span>
+<span class="text-secondary font-mono text-[9px]">PRESENTE</span>
+</div>
+<p class="font-headline-sm text-[13px] text-primary font-bold group-hover:text-primary transition-colors">EL DESPERTAR</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-tight">
+              Aparición en el Tokio devastado. Chamarra amarillo chillón, 19 años biológicos.
+            </p>
+<div class="mt-2 text-[10px] font-mono text-outline flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffc400] animate-ping"></span> PAN DERECHA // HERO ZOOM
+            </div>
+</button>
+<!-- Frame Card 04 -->
+<button class="timeline-card group text-left p-space-sm rounded bg-surface-container transition-all hover:bg-surface-container-high focus:outline-none border border-transparent" data-frame="3">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold">FOTOGRAMA 04</span>
+<span class="text-primary-fixed font-mono text-[9px]">COMBAT_ON</span>
+</div>
+<p class="font-headline-sm text-[13px] text-on-surface font-bold group-hover:text-primary transition-colors">SLIPSTREAM</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-tight">
+              Desenvaine de dagas invertidas con descarga de relámpago dorado puro.
+            </p>
+<div class="mt-2 text-[10px] font-mono text-outline flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00f0ff]"></span> SPEED LINES // RAYOS
+            </div>
+</button>
+<!-- Frame Card 05 -->
+<button class="timeline-card group text-left p-space-sm rounded bg-surface-container transition-all hover:bg-surface-container-high focus:outline-none border border-transparent" data-frame="4">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold">FOTOGRAMA 05</span>
+<span class="text-error font-mono text-[9px] animate-pulse">MAX CLÍMAX</span>
+</div>
+<p class="font-headline-sm text-[13px] text-on-surface font-bold group-hover:text-primary transition-colors">TORMENTA VÓRTICE</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-tight">
+              Torbellino eléctrico centrípeto. Ruptura de drones en pedazos suspendidos.
+            </p>
+<div class="mt-2 text-[10px] font-mono text-outline flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> VÓRTICE 360° // SHAKE
+            </div>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Operator Dossier, Passive Skills & Telemetry Deck -->
+<div class="w-full xl:w-96 flex flex-col gap-space-md shrink-0">
+<!-- Character Identity Card -->
+<div class="bg-surface-container p-space-md rounded-lg shadow-md flex flex-col gap-space-sm border border-surface-variant/40">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wide">IDENTIDAD COMBATIENTE</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline bg-surface-container-lowest px-2 py-0.5 rounded font-mono border border-surface-variant/30">ID: HAYASHI-04</span>
+</div>
+<div class="flex items-center gap-space-md pt-2">
+<!-- Visual Avatar Pill -->
+<div class="w-16 h-16 rounded-lg bg-surface-container-highest overflow-hidden relative shadow-inner shrink-0 border border-[#ffc400]/40">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1WnTLbeA0_BDjwPQ3f8ZH3GVp0xigIisL7coUlhW5R89TSp2AG3vJILdxMfAeHKT4aqgO_C4w9uhW3mQQ7c2l3kcRJkV9kcaeidcE1P2DOOD7lDYOaswWVC7vlQ_vD4SsOdv764ymnUr3mEgtcWK6deA6un8BRM_3FcTPX6uy0jN9iPjV498E9bhiOM06KU5XfdwE2AGg2F40PSR5M_fMax-tFpAkA1Dui-DttS2I8BnYXkSEPLYoDbZWo'); background-position: 80% 20%;"></div>
+<div class="absolute bottom-0 inset-x-0 bg-[#ffc400] text-black font-label-sm text-[8px] font-black text-center">19 AÑOS</div>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-headline-md text-headline-md text-primary truncate">REN HAYASHI</h3>
+<span class="font-headline-sm text-headline-sm text-[#ffc400] font-bold">林 蓮 // «EL RELÁMPAGO»</span>
+<span class="font-label-sm text-label-sm text-outline-variant font-mono">EDAD CRONOLÓGICA: 55 AÑOS (BIOLÓGICA: 19)</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-2 leading-relaxed">
+          Atrapado durante 39 años terrestres dentro de la fisura dimensional del incidente escolar. Su percepción subjetiva transcurrió en escasos minutos de adrenalina pura, otorgándole sincronía temporal hiperacelerada.
+        </p>
+<!-- Signature Aesthetics Badges -->
+<div class="flex flex-wrap gap-1.5 pt-2">
+<span class="px-2 py-1 bg-surface-container-lowest text-[#ffc400] border border-[#ffc400]/30 rounded font-label-sm text-[10px] font-bold">
+            CHAMARRA INDUSTRIAL #FFC400
+          </span>
+<span class="px-2 py-1 bg-surface-container-lowest text-primary border border-primary-container/30 rounded font-label-sm text-[10px] font-bold">
+            DAGAS DUALES REVERSAS
+          </span>
+<span class="px-2 py-1 bg-surface-container-lowest text-secondary border border-secondary-container/30 rounded font-label-sm text-[10px] font-bold">
+            RELÁMPAGO CUÁNTICO
+          </span>
+</div>
+</div>
+<!-- Tactical Ability Card: 3 Cargas de Dash Ilimitadas -->
+<div class="bg-surface-container p-space-md rounded-lg shadow-md flex flex-col gap-space-sm border border-surface-variant/40">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary-fixed uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#ffc400]">speed</span>
+            HABILIDAD PASIVA: PARPADEO CRÓNICO
+          </span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold rounded">ACTIVA</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface leading-normal">
+          Genera 3 cargas cuánticas de dash instantáneo de desplazamiento relativo sin costo de energía cinemática durante combate.
+        </p>
+<!-- Segmented 3-Charge Gauge -->
+<div class="flex flex-col gap-1.5 pt-2">
+<div class="flex justify-between font-label-sm text-[10px] text-outline">
+<span class="">CARGAS DE DESLIZAMIENTO TEMPORAL:</span>
+<span class="text-secondary-fixed font-bold font-mono" id="dash-charges-label">3 / 3 DISPONIBLES</span>
+</div>
+<div class="grid grid-cols-3 gap-2" id="charge-slots">
+<button class="h-6 rounded bg-secondary-container flex items-center justify-center shadow-[0_0_8px_#2ff801] cursor-pointer hover:opacity-90 transition-all dash-btn" data-slot="1">
+<span class="font-label-sm text-[10px] font-bold text-on-secondary-container">BURST I [LISTO]</span>
+</button>
+<button class="h-6 rounded bg-secondary-container flex items-center justify-center shadow-[0_0_8px_#2ff801] cursor-pointer hover:opacity-90 transition-all dash-btn" data-slot="2">
+<span class="font-label-sm text-[10px] font-bold text-on-secondary-container">BURST II [LISTO]</span>
+</button>
+<button class="h-6 rounded bg-secondary-container flex items-center justify-center shadow-[0_0_8px_#2ff801] cursor-pointer hover:opacity-90 transition-all dash-btn" data-slot="3">
+<span class="font-label-sm text-[10px] font-bold text-on-secondary-container">BURST III [LISTO]</span>
+</button>
+</div>
+</div>
+<!-- Climax Trigger Prompt (Matches Cut-in Screen prompt) -->
+<div class="mt-2 p-space-sm bg-surface-container-lowest rounded flex items-center justify-between border border-[#ffc400]/40">
+<div class="flex flex-col">
+<span class="font-headline-sm text-[13px] text-primary font-bold flex items-center gap-1">
+<span class="text-[#ffc400]">RUPTURA // 破断</span>
+</span>
+<span class="font-label-sm text-[10px] text-outline">TORMENTA DE VÓRTICE CENTRÍPETO</span>
+</div>
+<button class="px-space-sm py-1.5 bg-[#ffc400] hover:bg-[#ffe066] text-black rounded font-label-md text-label-md font-black tracking-wider flex items-center gap-1 transition-all shadow-[0_0_12px_rgba(255,196,0,0.5)] active:scale-95" id="btn-trigger-vortex">
+<span class="material-symbols-outlined text-[16px]">all_inclusive</span>
+            DISPARAR [J]
+          </button>
+</div>
+</div>
+<!-- Live Quantum Telemetry Readouts -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-sm border border-surface-variant/30">
+<div class="flex items-center justify-between font-label-md text-label-md text-outline">
+<span class="uppercase tracking-wider">TELEMETRÍA DE CAMPO CINEMÁTICO</span>
+<span class="font-mono text-primary text-[10px]">SENS-TOK-09</span>
+</div>
+<div class="space-y-2 pt-1 font-label-sm text-[11px]">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">VELOCIDAD ANGULAR DE CORTE:</span>
+<span class="text-[#00f0ff] font-mono font-bold" id="telemetry-rpm">14,200 RPM</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[92%] transition-all duration-300" id="telemetry-rpm-bar" style="width: 63%;"></div>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="text-on-surface-variant">VOLTAJE ESTÁTICO PERIMETRAL:</span>
+<span class="text-[#ffc400] font-mono font-bold" id="telemetry-voltage">850 kV</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#ffc400] w-[84%] transition-all duration-300" id="telemetry-voltage-bar" style="width: 67%;"></div>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="text-on-surface-variant">FRICCIÓN SUBJETIVA (PARPADEO):</span>
+<span class="text-secondary font-mono font-bold" id="telemetry-desync">0.00018s REL</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[98%]"></div>
+</div>
+</div>
+<!-- Terminal Log Feed snippet -->
+<div class="mt-2 p-2 bg-surface-container rounded font-label-sm text-[10px] text-outline space-y-1 font-mono border border-surface-variant/30">
+<div class=""><span class="text-primary-fixed">&gt; [SYNC_START]</span> Ren Hayashi sincronizado con núcleo OVA.</div>
+<div class=""><span class="text-[#ffc400]">&gt; [TIME_SKEW]</span> 39 años confirmados en Sector Exterior Tokio.</div>
+<div class=""><span class="text-error">&gt; [BURST_ENGAGED]</span> Dagas invertidas canalizando plasma.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Logic Script with 12 FPS Anime Timing & Real-time Motion Animations -->
+<script>
+    (function initCinematicPlayer() {
+      const frames = [
+        {
+          idx: "01",
+          name: "LA FRACTURA",
+          layer: "story",
+          tc: "00:00:14:02",
+          subJp: "放課後、時計が砕け散った瞬間、時間は永遠に凍りついた。",
+          subEs: "“En el pasillo escolar, el tiempo estalló en pedazos de cristal cian. Todo se detuvo.”",
+          flux: "0.0001 Δt",
+          pct: "20%",
+          rpm: "4,200 RPM",
+          voltage: "180 kV",
+          skew: "-39.0Y",
+          // Ken Burns Pan Left: focuses on the school hallway & clock explosion on left side
+          transform: "scale(1.28) translate(14%, -4%)",
+          speedlines: false,
+          shake: false,
+          vortex: false
+        },
+        {
+          idx: "02",
+          name: "EL VACÍO TEMPORAL",
+          layer: "story",
+          tc: "00:01:22:15",
+          subJp: "無人の回廊を彷徨う。秒針の鳴らない無限のループの中で。",
+          subEs: "“Deambulando en soledad. Un pasillo sin fin donde los fantasmas del pasado se repiten en silencio.”",
+          flux: "0.0012 Δt",
+          pct: "40%",
+          rpm: "7,800 RPM",
+          voltage: "390 kV",
+          skew: "LIMBO Δt",
+          // Ken Burns Pan Center: clocks melting and lonely figure
+          transform: "scale(1.22) translate(0%, -2%)",
+          speedlines: false,
+          shake: false,
+          vortex: false
+        },
+        {
+          idx: "03",
+          name: "EL DESPERTAR - AÑO 39",
+          layer: "story",
+          tc: "00:02:45:09",
+          subJp: "世界にとっては39年。僕にとっては、まだ終わらない一瞬だった。",
+          subEs: "“Para el mundo pasaron 39 años. Para mí fue un parpadeo que aún no termina.”",
+          flux: "0.0034 Δt",
+          pct: "60%",
+          rpm: "14,200 RPM",
+          voltage: "850 kV",
+          skew: "+39.2Y SKEW",
+          // Ken Burns Pan Right: Heroic Ren in yellow industrial jacket
+          transform: "scale(1.3) translate(-14%, 2%)",
+          speedlines: true,
+          shake: false,
+          vortex: false
+        },
+        {
+          idx: "04",
+          name: "DESLIZAMIENTO DE TIEMPO",
+          layer: "story",
+          tc: "00:03:10:23",
+          subJp: "逆手刃に宿る金色の電光。世界を追い越す刃。",
+          subEs: "“Dagas gemelas listas. El relámpago dorado envuelve mis pasos para rebasar la realidad.”",
+          flux: "0.0078 Δt",
+          pct: "80%",
+          rpm: "18,900 RPM",
+          voltage: "1,120 kV",
+          skew: "DESYNC MAX",
+          // Extreme Twitch Zoom on daggers & lightning stance
+          transform: "scale(1.42) translate(-12%, -3%)",
+          speedlines: true,
+          shake: false,
+          vortex: false
+        },
+        {
+          idx: "05",
+          name: "CLÍMAX // TORMENTA DE VÓRTICE",
+          layer: "climax",
+          tc: "00:03:39:18",
+          subJp: "破断：トルネードヴォルテックス。すべてを切り裂く極限の旋風！",
+          subEs: "“¡RUPTURA // 破断! Tormenta de vórtice centrípeto. Los enemigos son triturados en el tiempo detenido.”",
+          flux: "0.0150 Δt",
+          pct: "100%",
+          rpm: "24,500 RPM",
+          voltage: "2,400 kV",
+          skew: "CRITICAL 0.0s",
+          // Dynamic centrifugal vortex spin
+          transform: "scale(1.15) rotate(0deg)",
+          speedlines: true,
+          shake: true,
+          vortex: true
+        }
+      ];
+
+      let currentFrame = 2; // Default starting at frame 03 (The famous quote)
+      let isPlaying = false;
+      let playTimer = null;
+      let lightningInterval = null;
+
+      const layerStory = document.getElementById("cinematic-layer-story");
+      const layerClimax = document.getElementById("cinematic-layer-climax");
+      const viewportShell = document.getElementById("cinema-viewport-shell");
+      const lightningFlash = document.getElementById("lightning-flash-fx");
+      const speedlines = document.getElementById("slipstream-speedlines");
+      const subJp = document.getElementById("sub-jp");
+      const subEs = document.getElementById("sub-es");
+      const tcDisplay = document.getElementById("tc-display");
+      const fluxVal = document.getElementById("quantum-flux-val");
+      const frameLabel = document.getElementById("current-frame-idx");
+      const framePct = document.getElementById("frame-pct");
+      const scrubberFill = document.getElementById("scrubber-fill");
+      const timelineCards = document.querySelectorAll(".timeline-card");
+      const btnPlay = document.getElementById("btn-play-pause");
+      const playIcon = document.getElementById("play-icon");
+      const playText = document.getElementById("play-text");
+      const skewDisplay = document.getElementById("skew-display");
+      const telemetryRpm = document.getElementById("telemetry-rpm");
+      const telemetryRpmBar = document.getElementById("telemetry-rpm-bar");
+      const telemetryVoltage = document.getElementById("telemetry-voltage");
+      const telemetryVoltageBar = document.getElementById("telemetry-voltage-bar");
+      const vortexRing1 = document.getElementById("vortex-ring-1");
+      const vortexRing2 = document.getElementById("vortex-ring-2");
+      const lightningArc1 = document.getElementById("lightning-arc-1");
+      const lightningArc2 = document.getElementById("lightning-arc-2");
+
+      // Flash & Glitch trigger function
+      function triggerGlitchFX() {
+        viewportShell.classList.add("glitch-active");
+        lightningFlash.style.opacity = "0.75";
+        setTimeout(() => {
+          lightningFlash.style.opacity = "0";
+          viewportShell.classList.remove("glitch-active");
+        }, 180);
+      }
+
+      // Procedural electric lightning arc flicker generator
+      function randomizeLightning() {
+        if (!lightningArc1 || !lightningArc2) return;
+        const pts1 = [
+          [100 + Math.random() * 50, 380 + Math.random() * 40],
+          [240 + Math.random() * 40, 300 + Math.random() * 50],
+          [320 + Math.random() * 30, 370 + Math.random() * 30],
+          [460 + Math.random() * 50, 240 + Math.random() * 40],
+          [600 + Math.random() * 60, 320 + Math.random() * 40],
+          [740 + Math.random() * 40, 190 + Math.random() * 30]
+        ];
+        lightningArc1.setAttribute("d", `M ${pts1[0][0]} ${pts1[0][1]} L ${pts1[1][0]} ${pts1[1][1]} L ${pts1[2][0]} ${pts1[2][1]} L ${pts1[3][0]} ${pts1[3][1]} L ${pts1[4][0]} ${pts1[4][1]} L ${pts1[5][0]} ${pts1[5][1]}`);
+
+        const pts2 = [
+          [680 + Math.random() * 40, 110 + Math.random() * 40],
+          [750 + Math.random() * 40, 270 + Math.random() * 30],
+          [850 + Math.random() * 50, 210 + Math.random() * 40],
+          [960 + Math.random() * 40, 420 + Math.random() * 30],
+          [1060 + Math.random() * 30, 350 + Math.random() * 40],
+          [1180 + Math.random() * 20, 500 + Math.random() * 40]
+        ];
+        lightningArc2.setAttribute("d", `M ${pts2[0][0]} ${pts2[0][1]} L ${pts2[1][0]} ${pts2[1][1]} L ${pts2[2][0]} ${pts2[2][1]} L ${pts2[3][0]} ${pts2[3][1]} L ${pts2[4][0]} ${pts2[4][1]} L ${pts2[5][0]} ${pts2[5][1]}`);
+      }
+
+      lightningInterval = setInterval(randomizeLightning, 120);
+
+      function updateUI(index) {
+        currentFrame = index;
+        const data = frames[index];
+
+        // Trigger brief chromatic glitch and temporal flash on transition
+        triggerGlitchFX();
+
+        // Layer crossfade and camera pan / Ken Burns
+        if (data.layer === "climax") {
+          layerStory.classList.replace("opacity-100", "opacity-0");
+          layerClimax.classList.replace("opacity-0", "opacity-100");
+          layerClimax.style.transform = data.transform;
+          vortexRing1.setAttribute("opacity", "0.9");
+          vortexRing2.setAttribute("opacity", "0.75");
+        } else {
+          layerStory.classList.replace("opacity-0", "opacity-100");
+          layerClimax.classList.replace("opacity-100", "opacity-0");
+          layerStory.style.transform = data.transform;
+          vortexRing1.setAttribute("opacity", "0");
+          vortexRing2.setAttribute("opacity", "0");
+        }
+
+        // Speedlines toggle
+        if (data.speedlines) {
+          speedlines.style.opacity = "0.75";
+        } else {
+          speedlines.style.opacity = "0";
+        }
+
+        // Screen Shake and Vortex Climax
+        if (data.shake) {
+          viewportShell.classList.add("screenshake-active");
+        } else {
+          viewportShell.classList.remove("screenshake-active");
+        }
+
+        if (data.vortex) {
+          layerClimax.classList.add("vortex-active");
+        } else {
+          layerClimax.classList.remove("vortex-active");
+        }
+
+        // Subtitles & Telemetry Readouts
+        subJp.textContent = data.subJp;
+        subEs.textContent = data.subEs;
+        tcDisplay.textContent = "TC " + data.tc;
+        fluxVal.textContent = data.flux;
+        frameLabel.textContent = "FRAME " + data.idx + " / 05";
+        framePct.textContent = data.pct;
+        scrubberFill.style.width = data.pct;
+        skewDisplay.textContent = data.skew;
+        telemetryRpm.textContent = data.rpm;
+        telemetryVoltage.textContent = data.voltage;
+
+        // Dynamic progress bar width
+        const pctNum = parseInt(data.pct, 10);
+        telemetryRpmBar.style.width = Math.min(100, pctNum * 1.05) + "%";
+        telemetryVoltageBar.style.width = Math.min(100, pctNum * 0.95 + 10) + "%";
+
+        // Timeline styling
+        timelineCards.forEach((card, i) => {
+          if (i === index) {
+            card.classList.add("ring-2", "ring-[#ffc400]", "bg-surface-container-high");
+            card.querySelector(".font-headline-sm").classList.add("text-primary");
+          } else {
+            card.classList.remove("ring-2", "ring-[#ffc400]", "bg-surface-container-high");
+            card.querySelector(".font-headline-sm").classList.remove("text-primary");
+          }
+        });
+      }
+
+      // Timeline card clicks
+      timelineCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const frameIndex = parseInt(card.getAttribute("data-frame"), 10);
+          updateUI(frameIndex);
+        });
+      });
+
+      // Controls
+      document.getElementById("btn-next-frame").addEventListener("click", () => {
+        const next = (currentFrame + 1) % frames.length;
+        updateUI(next);
+      });
+
+      document.getElementById("btn-prev-frame").addEventListener("click", () => {
+        const prev = (currentFrame - 1 + frames.length) % frames.length;
+        updateUI(prev);
+      });
+
+      // Frame Step: 12 FPS Anime Timing step
+      document.getElementById("btn-burst").addEventListener("click", () => {
+        const next = (currentFrame + 1) % frames.length;
+        updateUI(next);
+      });
+
+      // Test Glitch FX button
+      document.getElementById("btn-glitch-test").addEventListener("click", () => {
+        triggerGlitchFX();
+      });
+
+      // Vortex quick-trigger button
+      document.getElementById("btn-trigger-vortex").addEventListener("click", () => {
+        updateUI(4);
+      });
+
+      // Keyboard [J] shortcut for Vortex Climax
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "j" || e.key === "J") {
+          updateUI(4);
+        }
+      });
+
+      // Scrubber click
+      document.getElementById("scrubber-bar").addEventListener("click", (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = clickX / rect.width;
+        const target = Math.min(Math.floor(ratio * frames.length), frames.length - 1);
+        updateUI(target);
+      });
+
+      // Interactive Dash Charges Buttons
+      const dashBtns = document.querySelectorAll(".dash-btn");
+      dashBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          triggerGlitchFX();
+          btn.classList.toggle("opacity-40");
+          btn.classList.toggle("bg-secondary-container");
+          btn.classList.toggle("bg-surface-container-highest");
+        });
+      });
+
+      // Play / Pause auto playback with 12 FPS anime timing sequence feel
+      btnPlay.addEventListener("click", () => {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+          playIcon.textContent = "pause";
+          playText.textContent = "PAUSA";
+          playTimer = setInterval(() => {
+            const next = (currentFrame + 1) % frames.length;
+            updateUI(next);
+          }, 2800);
+        } else {
+          playIcon.textContent = "play_arrow";
+          playText.textContent = "PLAY OVA";
+          clearInterval(playTimer);
+        }
+      });
+
+      // Initialize default frame 03
+      updateUI(2);
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-variant/30 py-space-sm"><div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-on-surface-variant"><div class="flex items-center gap-space-md"><span class="">NPAD ENGINE v4.2.0-TACTICAL</span><span class="">//</span><span class="text-[#ffc400]">MILITARY CATHODE PROTOCOL</span><span class="">//</span><span class="">TOKYO SECTOR-03</span></div><div class="flex items-center gap-space-lg"><span class="">DEFCON 2 RESTRICTED ACCESS</span><span class="text-[#00f0ff]">© NPAD ARCHIVES ALL RIGHTS RESERVED</span></div></div></footer>
+
+</body></html>

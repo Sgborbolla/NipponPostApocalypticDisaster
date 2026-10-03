@@ -1,0 +1,868 @@
+<!DOCTYPE html><html class="dark" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;family=Space+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+
+    /* Visual FX Animations */
+    @keyframes kenBurns1 {
+      0% { transform: scale(1.02) translate(0%, 0%); }
+      50% { transform: scale(1.08) translate(-1.5%, -1%); }
+      100% { transform: scale(1.02) translate(0%, 0%); }
+    }
+    @keyframes kenBurns2 {
+      0% { transform: scale(1.1) translate(1%, -1%); }
+      50% { transform: scale(1.03) translate(-1%, 1.5%); }
+      100% { transform: scale(1.1) translate(1%, -1%); }
+    }
+    @keyframes kenBurns3 {
+      0% { transform: scale(1.04) translate(0%, 1%); }
+      50% { transform: scale(1.12) translate(1.5%, -0.5%); }
+      100% { transform: scale(1.04) translate(0%, 1%); }
+    }
+    @keyframes kenBurnsClimax {
+      0% { transform: scale(1.0); }
+      40% { transform: scale(1.15) translate(-1%, 0.5%); }
+      80% { transform: scale(1.22) translate(1%, -0.5%); }
+      100% { transform: scale(1.18); }
+    }
+
+    .anim-kenburns-1 { animation: kenBurns1 14s ease-in-out infinite alternate; }
+    .anim-kenburns-2 { animation: kenBurns2 12s ease-in-out infinite alternate; }
+    .anim-kenburns-3 { animation: kenBurns3 16s ease-in-out infinite alternate; }
+    .anim-kenburns-climax { animation: kenBurnsClimax 7s cubic-bezier(0.2, 0.8, 0.2, 1) infinite alternate; }
+
+    /* Speedlines overlay for Climax */
+    @keyframes radialPulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(1.03); }
+    }
+    .speedline-effect {
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(0, 240, 255, 0.12) 0deg 4deg,
+        transparent 4deg 12deg,
+        rgba(255, 45, 111, 0.1) 12deg 14deg,
+        transparent 14deg 22deg
+      );
+      animation: radialPulse 0.18s infinite steps(2);
+    }
+
+    /* Screen Shake */
+    @keyframes impactShake {
+      0% { transform: translate(0, 0); }
+      15% { transform: translate(-3px, 2px); }
+      30% { transform: translate(4px, -3px); }
+      45% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 3px); }
+      75% { transform: translate(-1px, 1px); }
+      100% { transform: translate(0, 0); }
+    }
+    .screen-shake {
+      animation: impactShake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    /* CRT Glitch & Chromatic Aberration Pulse */
+    @keyframes crtFlicker {
+      0% { opacity: 0.98; }
+      50% { opacity: 0.93; }
+      52% { opacity: 0.88; }
+      54% { opacity: 0.97; }
+      80% { opacity: 0.95; }
+      82% { opacity: 0.75; }
+      84% { opacity: 0.98; }
+      100% { opacity: 0.98; }
+    }
+    .crt-flicker {
+      animation: crtFlicker 0.12s infinite;
+    }
+
+    /* Lens Flare Sweep */
+    @keyframes flareSweep {
+      0% { transform: translateX(-120%) skewX(-25deg); opacity: 0; }
+      30% { opacity: 0.65; }
+      70% { opacity: 0.75; }
+      100% { transform: translateX(240%) skewX(-25deg); opacity: 0; }
+    }
+    .lens-flare-bar {
+      animation: flareSweep 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* Falling Rain Canvas effect */
+    .rain-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 25;
+    }
+
+    /* Plasma sparks */
+    @keyframes sparkDrift {
+      0% { transform: translateY(0) scale(0.6); opacity: 0; }
+      50% { opacity: 0.9; }
+      100% { transform: translateY(-40px) translateX(15px) scale(1.2); opacity: 0; }
+    }
+    .plasma-spark {
+      animation: sparkDrift 2.2s ease-out infinite;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#0b0e13",
+            "on-primary-container": "#006970",
+            "tertiary": "#fff4e8",
+            "surface-tint": "#00dbe9",
+            "primary-fixed": "#7df4ff",
+            "surface": "#101319",
+            "surface-container-highest": "#32353b",
+            "secondary-container": "#2ff801",
+            "on-primary-fixed-variant": "#004f54",
+            "surface-variant": "#32353b",
+            "on-primary-fixed": "#002022",
+            "inverse-primary": "#006970",
+            "on-secondary-fixed-variant": "#095300",
+            "outline": "#849495",
+            "secondary-fixed-dim": "#2ae500",
+            "tertiary-container": "#ffd386",
+            "tertiary-fixed": "#ffdea8",
+            "on-surface-variant": "#b9cacb",
+            "background": "#101319",
+            "on-secondary-container": "#0f6d00",
+            "on-secondary": "#053900",
+            "on-tertiary": "#412d00",
+            "primary-fixed-dim": "#00dbe9",
+            "primary-container": "#00f0ff",
+            "inverse-surface": "#e1e2ea",
+            "on-surface": "#e1e2ea",
+            "outline-variant": "#3b494b",
+            "secondary": "#d7ffc5",
+            "inverse-on-surface": "#2d3036",
+            "surface-bright": "#36393f",
+            "on-background": "#e1e2ea",
+            "primary": "#dbfcff",
+            "error": "#ffb4ab",
+            "crimson": "#ff2d6f",
+            "on-tertiary-container": "#7d5800",
+            "surface-container-high": "#272a30",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#ffba20",
+            "on-secondary-fixed": "#022100",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "on-primary": "#00363a",
+            "on-tertiary-fixed": "#271900",
+            "surface-dim": "#101319",
+            "surface-container": "#1d2025",
+            "on-tertiary-fixed-variant": "#5e4200",
+            "surface-container-low": "#191c21",
+            "secondary-fixed": "#79ff5b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "2.5rem",
+            "margin-desktop": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Space Grotesk"],
+            "label-md": ["JetBrains Mono"],
+            "body-md": ["Space Mono"],
+            "headline-sm": ["Space Grotesk"],
+            "body-lg": ["Space Mono"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-md": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "body-sm": ["Space Mono"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "label-lg": ["JetBrains Mono"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.4)] border-b border-outline-variant/40">
+<div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md">
+<!-- Logo + Telemetry status -->
+<div class="flex items-center gap-space-md shrink-0">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse shadow-[0_0_8px_#2ff801]"></span>
+<span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary font-bold">NPAD</span>
+<span class="font-label-sm text-label-sm px-space-xs bg-surface-container text-on-surface-variant rounded border border-outline-variant/30">ARCHIVES</span>
+</div>
+<div class="hidden xl:flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-outline">FEED:</span>
+<span class="text-primary-fixed font-mono font-semibold">MIL_SAT_TOK-09 // TSUKIMI_COMBAT</span>
+</div>
+</div>
+<!-- Navigation Tabs: 4 Individual Hero Cutscenes + Extra links -->
+<nav class="hidden lg:flex items-center gap-1 font-label-md text-label-md uppercase bg-surface-container-lowest p-1 rounded border border-outline-variant/40">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors px-3 py-1.5 rounded flex items-center gap-1.5" data-path="visualizador-prologo" href="#">
+<span class="material-symbols-outlined text-[14px]">movie</span>
+          Prólogo
+        </a>
+<!-- Hero 1: Rika (Active) -->
+<a aria-current="page" class="transition-all text-on-primary bg-primary-container font-bold px-3 py-1.5 rounded shadow-[0_0_12px_rgba(0,240,255,0.4)] flex items-center gap-1.5" data-path="dossier-rika-tsukimi" href="#">
+<span class="w-2 h-2 rounded-full bg-[#00363a] animate-ping"></span>
+          Rika Tsukimi
+        </a>
+<!-- Hero 2: Goro -->
+<a class="text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container-high transition-colors px-3 py-1.5 rounded flex items-center gap-1.5" data-path="dossier-goro-arashi" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+          Goro Arashi
+        </a>
+<!-- Hero 3: Ren -->
+<a class="text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container-high transition-colors px-3 py-1.5 rounded flex items-center gap-1.5" data-path="dossier-ren-hayashi" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+          Ren Hayashi
+        </a>
+<!-- Hero 4: Yui -->
+<a class="text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container-high transition-colors px-3 py-1.5 rounded flex items-center gap-1.5" data-path="dossier-yui-nakamura" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+          Yui Nakamura
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors px-3 py-1.5 rounded" data-path="secuencia-telemetria" href="#">
+          Telemetría
+        </a>
+</nav>
+<!-- Tactical Status Pills -->
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="hidden sm:flex items-center gap-space-xs bg-surface-container-high px-space-sm py-space-xs rounded border border-outline-variant/30 font-label-sm text-label-sm">
+<span class="text-outline">AUDIO:</span>
+<span class="text-secondary-fixed font-mono">COMM_ONLINE</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded border border-outline-variant/30 font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container shadow-[0_0_6px_#2ff801]"></span>
+<span class="text-secondary font-mono">SYNC_OK</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_10px_rgba(0,240,255,0.4)]">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Viewport Section -->
+<main class="w-full pt-16 bg-surface">
+<div class="flex flex-col w-full">
+<!-- Scanline CRT Ambient Canvas Layer -->
+<div class="relative w-full bg-surface-container-lowest overflow-hidden">
+<!-- CRT Raster Lines Overlay -->
+<div class="pointer-events-none absolute inset-0 z-40 bg-[repeating-linear-gradient(0deg,rgba(0,0,0,0.38)_0px,rgba(0,0,0,0.38)_1px,transparent_1px,transparent_2px)] opacity-60"></div>
+<div class="pointer-events-none absolute inset-0 z-40 shadow-[inset_0_0_120px_rgba(0,0,0,0.9)]"></div>
+<!-- HUD Mission Control Ribbon -->
+<div class="w-full bg-surface-container-low px-gutter-desktop py-space-sm flex flex-wrap items-center justify-between gap-space-sm font-label-sm text-label-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-space-md">
+<span class="px-2 py-0.5 bg-primary-container text-on-primary font-bold rounded shadow-[0_0_8px_rgba(0,240,255,0.5)] tracking-wider">
+              CINEMATIC REPLAY // HERO_INTRO: RIKA TSUKIMI
+            </span>
+<span class="text-on-surface-variant font-mono">
+              REC_ID: <span class="text-primary-fixed font-bold">PROLOGUE_TSUKIMI_001</span>
+</span>
+<span class="hidden md:inline text-outline font-mono">
+              TARGET: <span class="text-on-surface">WARD-09 BLAST PORTAL</span>
+</span>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+<span class="text-secondary-fixed font-mono">CATHODE_RASTER_ACTIVE</span>
+</div>
+<span class="text-on-surface-variant font-mono">ASPECT: 16:9 ANAMORPHIC</span>
+<span class="text-tertiary-fixed-dim bg-surface-container px-2 py-0.5 rounded border border-outline-variant/30 font-mono">TIMING: 12 FPS (ANIME_KEYED)</span>
+</div>
+</div>
+<!-- Main Viewport Section -->
+<div class="w-full px-gutter-desktop py-space-lg">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-md">
+<!-- Frame Viewport Window Frame -->
+<div class="relative w-full bg-surface-container-lowest rounded-lg overflow-hidden shadow-2xl border border-outline-variant/40 transition-transform" id="viewport-frame-wrapper">
+<!-- Multi-tier Top Frame Bar -->
+<div class="w-full bg-surface-container-high px-space-md py-space-xs flex items-center justify-between font-label-md text-label-md border-b border-outline-variant/30">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 bg-primary-container animate-pulse shadow-[0_0_6px_#00f0ff]"></span>
+<span class="text-primary font-bold uppercase tracking-wider">NPAD PROLOGUE ENGINE // "LA HOJA"</span>
+<span class="text-outline">::</span>
+<span class="text-primary-fixed uppercase font-mono font-semibold" id="header-frame-title">FRAME_01: PERÍMETRO EXTERIOR</span>
+</div>
+<div class="flex items-center gap-space-md font-mono text-label-sm">
+<div class="flex items-center gap-1.5 text-outline">
+<span class="">SMPTE:</span>
+<span class="text-primary-fixed font-bold tracking-wider" id="smpte-code">00:39:14:08</span>
+</div>
+<span class="px-2 py-0.5 bg-[#ff2d6f]/20 text-[#ff2d6f] border border-[#ff2d6f]/40 font-bold uppercase rounded text-xs shadow-[0_0_8px_rgba(255,45,111,0.3)]">
+                    WAR_FILE // CONFIDENTIAL
+                  </span>
+</div>
+</div>
+<!-- Cinematographic 16:9 Letterbox Viewport -->
+<div class="relative w-full aspect-[16/9] bg-black flex items-center justify-center overflow-hidden crt-flicker">
+<!-- Anamorphic Top/Bottom Letterbox Bars -->
+<div class="absolute top-0 left-0 right-0 h-10 md:h-12 bg-black/95 z-30 flex items-center justify-between px-space-lg border-b border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-outline-variant tracking-widest uppercase flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary-container rounded-full"></span>
+                    NPAD ANAMORPHIC CATHODE FEED // TSUKIMI_ARCHIVE
+                  </span>
+<span class="font-label-sm text-label-sm text-primary-fixed font-mono tracking-wider">SEC-09 // BREACH_EVENT</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-10 md:h-12 bg-black/95 z-30 flex items-center justify-between px-space-lg border-t border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-outline tracking-wider font-mono">CH-1: ACID_RAIN_STORM_09 // CH-2: PLASMA_KATANA_HUM (400Hz)</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed font-mono flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
+                    REC_STATUS: RETRIEVAL_CLEAR
+                  </span>
+</div>
+<!-- Animated Lens Flare Sweep Beam -->
+<div class="pointer-events-none absolute inset-0 z-28 overflow-hidden">
+<div class="lens-flare-bar w-32 h-full bg-gradient-to-r from-transparent via-[#00f0ff]/20 to-transparent blur-md"></div>
+</div>
+<!-- Particle Acid Rain Canvas -->
+<canvas class="rain-canvas" id="rain-canvas" width="1230" height="692"></canvas>
+<!-- Climax Radial Speedlines Overlay (Active on Frame 5) -->
+<div class="pointer-events-none absolute inset-0 z-26 speedline-effect opacity-0 transition-opacity duration-300" id="climax-speedlines"></div>
+<!-- Plasma Katana Glow & Spark Emitter Overlay -->
+<div class="pointer-events-none absolute inset-0 z-27 overflow-hidden" id="plasma-sparks-container">
+<div class="plasma-spark absolute bottom-24 right-1/4 w-2 h-2 rounded-full bg-[#00f0ff] shadow-[0_0_12px_#00f0ff]"></div>
+<div class="plasma-spark absolute bottom-32 right-1/3 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#00f0ff]" style="animation-delay: 0.7s;"></div>
+<div class="plasma-spark absolute bottom-20 right-1/4 w-2.5 h-2.5 rounded-full bg-[#7df4ff] shadow-[0_0_14px_#00f0ff]" style="animation-delay: 1.4s;"></div>
+</div>
+<!-- White/Cyan Screen Flash Transition Layer -->
+<div class="pointer-events-none absolute inset-0 bg-primary-container z-35 opacity-0 transition-opacity duration-150" id="impact-flash"></div>
+<!-- Frame Visuals Canvas Container with Ken Burns Pans & Cross-fades -->
+<div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+<!-- Frame 01 (Default Active) -->
+<div class="frame-slide absolute inset-0 w-full h-full opacity-100 transition-opacity duration-500 overflow-hidden" id="frame-pane-1">
+<img alt="Tokyo Sector-03 cinematic storyboard panels showing rain, iron gates, and Rika with cyan plasma katana" class="w-full h-full object-cover anim-kenburns-1" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Q8e9OdxEGqzJqrz3V97LqkUCVEg_D3zYubdiQ8Jsab_hk17vpF2JavfyswRU_B8q8TPSLqOC6sAjgWM-vxVBmUDFuWpYctAMGm_J_Bv6HGLiOEW6YRleDBZ_g12J769RZafpStYuKTDQ6r4ph1VsGuXyk8Pq37wkx8Um6I0L9Rpz3T0u7ZxnEtFk0mygewX5qrEHFLDd4n5TaK1MlDFd6tCkkwnE68nm87OgmAQPiynKuTLQEWOkC4U">
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40"></div>
+<div class="absolute top-16 left-6 z-20 bg-surface-container-lowest/90 px-space-sm py-space-xs rounded border border-[#00f0ff]/40 shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+<span class="font-label-sm text-label-sm text-primary-container font-mono font-bold">[TIMELINE: 39 AÑOS ATRÁS // SECTOR NOVENO]</span>
+</div>
+</div>
+<!-- Frame 02 -->
+<div class="frame-slide absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-500 overflow-hidden" id="frame-pane-2">
+<div class="bg-cover bg-center w-full h-full anim-kenburns-2" data-alt="Dark heavy sci-fi anime OVA style interior of a colossal armored titanium blast gate slamming shut with hydraulic pistons, blinding red emergency siren beacons and bright plasma sparks shooting across steel plates in heavy shadows, 1990s anime cinematography aesthetic" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuS059JNtU9zkjsNGAfYS4RHXSJEORS3n7ftBavvuK33r1SMaIZPH-H_XdS-wg9EQX7cb4D9fLWJLlvajCRoRPNDKDvKgYuzYurUJA28cNLSTu55Re7M-rV3RV-CN-6czLo6Ku1Q9RgWd62KN_NYkgYdirtDzhRb5Os7vKL0pITGyquTtvfCQ_4-P_SmJ9Qmqcmy1MnF_ISGfhYcVOdgqWooWUBit6xaOpOQnoC-Xz_3tFVpdnnULYyQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40"></div>
+<div class="absolute top-16 left-6 z-20 bg-surface-container-lowest/90 px-space-sm py-space-xs rounded border border-[#ff2d6f]/40 shadow-[0_0_10px_rgba(255,45,111,0.2)]">
+<span class="font-label-sm text-label-sm text-[#ff2d6f] font-mono font-bold">[SELLO HIDRÁULICO: IMPACTO CRÍTICO]</span>
+</div>
+</div>
+<!-- Frame 03 -->
+<div class="frame-slide absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-500 overflow-hidden" id="frame-pane-3">
+<div class="bg-cover bg-center w-full h-full anim-kenburns-3" data-alt="Distopian neo Tokyo megalopolis blackout scene in 90s cyber-anime style, massive blast doors towering over dark wet asphalt, radio comm static waves, distant storm lightning illuminating skeletal industrial scaffolding and thick toxic fog" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBypfHEcPEkir_Ov0TiHZkbGB-W38c2dn_349bVofXD5TMO_P7hecgTa_f1WTXEg_wnLxDdc9uegNGCLOl2dlTtgpbrFEisJvAr6QuTg7sqmCpKYcgvflBxYc5m-29nxTM9UQmrVZWpO3Y5Ut9qwI_W35HcosFJyJb8tzrJA9EjXhtxWeIkaA8kTPJ1zKTcaC_yNmKA0rrD_jbmQeHJOItTTkhbyblizFv_9ZGMbl_blyArJ_93qiUzmw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40"></div>
+<div class="absolute top-16 left-6 z-20 bg-surface-container-lowest/90 px-space-sm py-space-xs rounded border border-tertiary-fixed-dim/40 shadow-[0_0_10px_rgba(255,186,32,0.2)]">
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim font-mono font-bold">[EL SILENCIO: 14 MINUTOS DE PÉRDIDA DE SEÑAL]</span>
+</div>
+</div>
+<!-- Frame 04 -->
+<div class="frame-slide absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-500 overflow-hidden" id="frame-pane-4">
+<div class="bg-cover bg-center w-full h-full anim-kenburns-1" data-alt="High-contrast 90s cyberpunk anime frame of Rika Tsukimi at age 24, standing tall in a torn white ceremonial hakama haori amidst ashes of Ward Nine, gripping a high-frequency cyan neon glowing plasma katana, wind whipping her dark crimson ponytail, rain streaking down cold brutalist concrete" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNq8Rxd3YnMVMJobrYyQ9Z4yjE7q0ZV7jPBnvMz_7fHQvxG9ikusUad1BiRlgfiZY74h4Cr8sS_YdF158wfRITeTXeFd7Oc-ms1LNJuMJ2PyLMelawBdJ9Vqhj-KuBpi5Luy1Us9Wah3hFUm30-yOZz0PM4slPoCjj_ST_z1a2nihsQkgA5xW2kSvQSAS6UC3U-WPp3sqyqQGwq-jMVxbo0USLRMipkhEIx-Qaorhf3N1M0J30xrgFkQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40"></div>
+<div class="absolute top-16 left-6 z-20 bg-surface-container-lowest/90 px-space-sm py-space-xs rounded border border-[#00f0ff]/40 shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+<span class="font-label-sm text-label-sm text-primary font-mono font-bold">[EL PRESENTE: AÑO 39 // BRECHA ABIERTA]</span>
+</div>
+</div>
+<!-- Frame 05: Climax Cut-in with Dramatic Radial Zoom -->
+<div class="frame-slide absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-500 overflow-hidden" id="frame-pane-5">
+<img alt="Dramatic high impact anime cut-in of Rika Tsukimi executing RUPTURA attack with shattered mech fragments and neon cyan speedlines" class="w-full h-full object-cover anim-kenburns-climax" src="https://lh3.googleusercontent.com/aida/AEtjO1XZsTwA6Og56MaKm43n-k0BtaJ9RX1j1PaXhDBcMYRSER_t_IchegiuNFolDK0bO34eWFOkM5eVnVjxC01xVLADqWpEmFRoZPpmXtZ2nCPZsDFqsVgWCV6OUYGDcP8DY7RaiQPd_uM5kMRuCpGg0Qw5VUrkgQdhhheq9cW8tuu-I6ewpNmK0lM85etp3Upzyivs2FxfOSJq8zguaMU0mgPmZBuPNGFsn6oqdN0cnJ7v05gEM9MEjHywlglv">
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30"></div>
+<div class="absolute top-16 left-6 z-20 bg-surface-container-lowest/90 px-space-sm py-space-xs rounded border border-[#ff2d6f]/50 shadow-[0_0_14px_rgba(255,45,111,0.4)]">
+<span class="font-label-sm text-label-sm text-[#ff2d6f] font-mono font-bold">[CLÍMAX DE CORTE: PROTOCOLO RUPTURA // IMPACTO MÁXIMO]</span>
+</div>
+</div>
+</div>
+<!-- Tactical Screen Reticle Corner Overlay -->
+<div class="absolute top-14 right-6 z-30 pointer-events-none hidden md:flex flex-col items-end gap-1 font-label-sm text-label-sm font-mono text-outline">
+<div class="flex items-center gap-1.5 text-primary-fixed">
+<span class="w-1.5 h-1.5 bg-[#00f0ff] rounded-full animate-ping"></span>
+<span class="">FOV: 35.8° TACTICAL</span>
+</div>
+<span class="">MAG: 1.84X GAIN</span>
+<div class="w-20 h-1.5 bg-surface-container-highest flex rounded overflow-hidden mt-1">
+<div class="w-4/5 h-full bg-[#00f0ff] shadow-[0_0_6px_#00f0ff]"></div>
+</div>
+</div>
+<!-- In-Game Subtitle & Teletype Box Overlay (Enhanced with Typewriter effect) -->
+<div class="absolute bottom-14 left-4 right-4 md:left-12 md:right-12 z-30">
+<div class="relative bg-surface-container-lowest/95 backdrop-blur-md px-space-md md:px-space-lg py-space-sm rounded-lg border border-[#00f0ff]/30 shadow-[0_4px_30px_rgba(0,0,0,0.8)] flex flex-col gap-1.5 max-w-4xl mx-auto">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline pb-1 border-b border-outline-variant/30">
+<span class="flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-primary-container rounded-full animate-pulse shadow-[0_0_6px_#00f0ff]"></span>
+<span class="text-primary-fixed font-bold uppercase tracking-widest font-mono">RIKA TSUKIMI [月見 里香]</span>
+<span class="px-1.5 py-0.2 text-[10px] bg-surface-container text-[#00f0ff] rounded border border-[#00f0ff]/30">VOX SYNC</span>
+</span>
+<span class="text-outline-variant font-mono text-xs" id="subtitle-voice-id">VOX_TK9_003.WAV</span>
+</div>
+<!-- Japanese Telemetry Dialog with Typewriter Output -->
+<p class="font-headline-sm text-headline-sm text-primary tracking-wide leading-tight min-h-[28px]" id="sub-japanese">「39年前、妹が閉じ込められるのを見た...」</p>
+<!-- Spanish Localized Subtitle with Typewriter Output -->
+<p class="font-body-md text-body-md text-on-surface text-opacity-95 font-mono min-h-[22px] flex items-center" id="sub-spanish">“Hace 39 años vi cerrarse la compuerta con mi hermana menor dentro...”</p>
+</div>
+</div>
+</div>
+<!-- Playback, Timeline Bar and Scrubbing Controls Bar -->
+<div class="w-full bg-surface-container-low px-space-md py-space-sm flex flex-col gap-space-sm border-t border-outline-variant/30">
+<!-- Anime Timing 12 FPS Animated Timeline Scrubbing Progress Bar -->
+<div class="w-full flex items-center gap-3 font-mono text-xs">
+<span class="text-primary-fixed font-bold tracking-wider" id="timeline-time-display">00:00:00</span>
+<div class="relative flex-1 h-2 bg-surface-container-highest rounded overflow-hidden cursor-pointer" id="timeline-track">
+<div class="h-full bg-gradient-to-r from-[#006970] via-[#00f0ff] to-[#ff2d6f] transition-all duration-200" id="timeline-progress-bar" style="width: 20%;"></div>
+</div>
+<span class="text-outline">12 FPS ANIME KEY</span>
+</div>
+<!-- Step Controls -->
+<div class="w-full flex flex-col md:flex-row items-center justify-between gap-space-md pt-1">
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-xs bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md uppercase tracking-wider rounded transition-colors flex items-center gap-space-xs active:translate-y-0.5 border border-outline-variant/30" id="btn-prev">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="">Frame Ant [←]</span>
+</button>
+<button class="px-space-md py-space-xs bg-primary-container hover:bg-primary-fixed text-on-primary font-label-md text-label-md uppercase font-bold rounded transition-all flex items-center gap-space-xs shadow-[0_0_12px_rgba(0,240,255,0.4)] active:scale-95" id="btn-play">
+<span class="material-symbols-outlined text-[16px]" id="btn-play-icon">play_arrow</span>
+<span id="btn-play-text" class="">Auto-Step (12 FPS)</span>
+</button>
+<button class="px-space-md py-space-xs bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md uppercase tracking-wider rounded transition-colors flex items-center gap-space-xs active:translate-y-0.5 border border-outline-variant/30" id="btn-next">
+<span class="">Frame Sig [→]</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Frame Step Indicator Track -->
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline mr-space-xs font-mono">CUE:</span>
+<button class="frame-tab-btn px- space-sm py-space-xs px-3 bg-primary-container text-on-primary font-label-md text-label-md rounded font-bold shadow-[0_0_8px_rgba(0,240,255,0.4)]" data-frame="1">F-01</button>
+<button class="frame-tab-btn px- space-sm py-space-xs px-3 bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md rounded" data-frame="2">F-02</button>
+<button class="frame-tab-btn px- space-sm py-space-xs px-3 bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md rounded" data-frame="3">F-03</button>
+<button class="frame-tab-btn px- space-sm py-space-xs px-3 bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md rounded" data-frame="4">F-04</button>
+<button class="frame-tab-btn px- space-sm py-space-xs px-3 bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md rounded" data-frame="5">F-05</button>
+</div>
+<!-- Telemetry Indicator -->
+<div class="hidden lg:flex items-center gap-space-md font-label-sm text-label-sm font-mono text-outline">
+<span class="">SYNC_LATENCY: <strong class="text-secondary-fixed">0.4ms</strong></span>
+<span class="text-outline-variant">|</span>
+<span class="">BUFFER: <strong class="text-primary-fixed">100%</strong></span>
+</div>
+</div>
+</div>
+</div>
+<!-- 5 Keyframe Sequence Strip (Interactive Thumbs) -->
+<div class="w-full grid grid-cols-2 md:grid-cols-5 gap-space-sm">
+<!-- Keyframe 1 Card -->
+<button class="filmstrip-card group text-left bg-surface-container-low hover:bg-surface-container p-space-sm rounded-lg transition-all shadow-md relative overflow-hidden ring-2 ring-primary-container border border-outline-variant/40" data-frame="1">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-primary-fixed font-bold font-mono">F-01</span>
+<span class="text-outline font-mono text-[10px]">00:39:14:08</span>
+</div>
+<div class="relative w-full aspect-video bg-black rounded overflow-hidden mb-2">
+<img alt="Thumbnail 01 - Rika in the rain" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Q8e9OdxEGqzJqrz3V97LqkUCVEg_D3zYubdiQ8Jsab_hk17vpF2JavfyswRU_B8q8TPSLqOC6sAjgWM-vxVBmUDFuWpYctAMGm_J_Bv6HGLiOEW6YRleDBZ_g12J769RZafpStYuKTDQ6r4ph1VsGuXyk8Pq37wkx8Um6I0L9Rpz3T0u7ZxnEtFk0mygewX5qrEHFLDd4n5TaK1MlDFd6tCkkwnE68nm87OgmAQPiynKuTLQEWOkC4U">
+<div class="absolute inset-0 bg-primary-container/10"></div>
+</div>
+<div class="font-headline-sm text-[13px] leading-tight text-on-surface font-semibold truncate">39 Años Atrás</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Perímetro exterior bajo tormenta torrencial.</div>
+</button>
+<!-- Keyframe 2 Card -->
+<button class="filmstrip-card group text-left bg-surface-container-low hover:bg-surface-container p-space-sm rounded-lg transition-all shadow-md relative overflow-hidden border border-outline-variant/40" data-frame="2">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold font-mono">F-02</span>
+<span class="text-outline font-mono text-[10px]">00:39:14:20</span>
+</div>
+<div class="relative w-full aspect-video bg-surface-container-highest rounded overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="Close thumbnail of hydraulic iron gate with red alarm lamps" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeZpFOHXvFeQqpQ_ulPcwVViusjo8Tynoqcg5ZgPSoSAGvYLhdNa1IMfEBEih5Ove3zXekkwtX4rQESOaPoUWbbWz1o5_DFwNcp0Dr3u39A8NM2VNyT-NTvyVZFCe4WvTyWV2gZ6LoOkKjVmiXFOcuDmHlNCDprSf3Rd7s1YTcTmwYHJodDCpjlr67aQ8EQKDZGcvUWC9pmrovALft_fKfZkAu3IduvWcvFmC0sJVR5q8O-HF394T5DA')"></div>
+</div>
+<div class="font-headline-sm text-[13px] leading-tight text-on-surface font-semibold truncate">El Cierre Hidráulico</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Compuerta de titanio sellando el ascensor.</div>
+</button>
+<!-- Keyframe 3 Card -->
+<button class="filmstrip-card group text-left bg-surface-container-low hover:bg-surface-container p-space-sm rounded-lg transition-all shadow-md relative overflow-hidden border border-outline-variant/40" data-frame="3">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold font-mono">F-03</span>
+<span class="text-outline font-mono text-[10px]">00:39:28:12</span>
+</div>
+<div class="relative w-full aspect-video bg-surface-container-highest rounded overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="Dark empty industrial corridor with static terminal light" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB32cf2TIcuDHH_OsoBGWxzigvek7Nmxu9lc6A9mXiRT7E6D9_Z3dnl0upxVjNWkvUG4cGX_Ym-p9lYFwT5bSsDZn_ukkx5R4LIPFucQj07Y7ebAGvYOQ4_Ett1R-bIvDCrtdUuXBeBtKV12KD_ha7oD8ZQK-q7LUl_ErQYi7_i9199Ir_PdBGA7-GbeBJteQFeYwrPvdi2wNnETE7FEPEwcOvlkcx9EACHjLqZk1zhR58T1qaZTW0rtg')"></div>
+</div>
+<div class="font-headline-sm text-[13px] leading-tight text-on-surface font-semibold truncate">El Silencio (14 Min)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Apagón sectorial y estática de comunicaciones.</div>
+</button>
+<!-- Keyframe 4 Card -->
+<button class="filmstrip-card group text-left bg-surface-container-low hover:bg-surface-container p-space-sm rounded-lg transition-all shadow-md relative overflow-hidden border border-outline-variant/40" data-frame="4">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold font-mono">F-04</span>
+<span class="text-outline font-mono text-[10px]">00:39:52:00</span>
+</div>
+<div class="relative w-full aspect-video bg-surface-container-highest rounded overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="Rika adult standing with cyan plasma blade" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBeBBZtrOxRPDJ1pyszRwxqXfNxGp9Yz221-UgrlwYCAkaVieG5JgPNRsNaIc0hk4oF9Na0JXDQwdzWx1EYK5vdciLpAQTt-hUiP4C4-JIW9LAlYhx7jIAEmXPcEwmuWwtaxzYBI11SO5j1JfSoJje6s3CPuvSlH7EF5gfSkS6CS2rVfIccZnnzv7TOl_WWfwfHJpWoBk5xRVYixq_xSqFkzuHFZEcgTh54zlwTo4j79ENfTwM0W0KX_Q')"></div>
+</div>
+<div class="font-headline-sm text-[13px] leading-tight text-on-surface font-semibold truncate">El Presente (Año 39)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Desenvaine de katana de plasma frente al muro.</div>
+</button>
+<!-- Keyframe 5 Card -->
+<button class="filmstrip-card group text-left bg-surface-container-low hover:bg-surface-container p-space-sm rounded-lg transition-all shadow-md relative overflow-hidden border border-outline-variant/40" data-frame="5">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant font-bold font-mono text-[#ff2d6f]">F-05</span>
+<span class="text-outline font-mono text-[10px]">00:40:02:18</span>
+</div>
+<div class="relative w-full aspect-video bg-black rounded overflow-hidden mb-2 border border-[#ff2d6f]/30">
+<img alt="Thumbnail 05 - Ruptura Slash Attack" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1XZsTwA6Og56MaKm43n-k0BtaJ9RX1j1PaXhDBcMYRSER_t_IchegiuNFolDK0bO34eWFOkM5eVnVjxC01xVLADqWpEmFRoZPpmXtZ2nCPZsDFqsVgWCV6OUYGDcP8DY7RaiQPd_uM5kMRuCpGg0Qw5VUrkgQdhhheq9cW8tuu-I6ewpNmK0lM85etp3Upzyivs2FxfOSJq8zguaMU0mgPmZBuPNGFsn6oqdN0cnJ7v05gEM9MEjHywlglv">
+</div>
+<div class="font-headline-sm text-[13px] leading-tight text-[#ff2d6f] font-semibold truncate">Ruptura: Desgarro</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Corte en cruz fulgurante y penetración de compuerta.</div>
+</button>
+</div>
+<!-- Technical Production & Cinematography Dossier Grid -->
+
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Interactive Logic for Real-time Effects, Rain Canvas, Typewriter Dialog, Screen Shake and Playback -->
+<script>
+    (function() {
+      const framesData = [
+        {
+          id: 1,
+          title: "FRAME_01: PERÍMETRO EXTERIOR",
+          smpte: "00:39:14:08",
+          voiceId: "VOX_TK9_001.WAV",
+          japanese: "「39年前、妹が閉じ込められるのを見た...」",
+          spanish: "“Hace 39 años vi cerrarse la compuerta con mi hermana menor dentro...”",
+          progress: "20%"
+        },
+        {
+          id: 2,
+          title: "FRAME_02: IMPACTO HIDRÁULICO",
+          smpte: "00:39:14:20",
+          voiceId: "FX_GATE_SHUT_09.WAV",
+          japanese: "「巨重の装甲扉が落下し、火花が夜を裂いた。」",
+          spanish: "“El portón de titanio macizo cayó con chispas de plasma y luces rojas sellando el perímetro.”",
+          progress: "40%"
+        },
+        {
+          id: 3,
+          title: "FRAME_03: EL SILENCIO",
+          smpte: "00:39:28:12",
+          voiceId: "AMB_STATIC_14MIN.WAV",
+          japanese: "「暗闇が訪れ、無線の向こうからは何も聞こえなくなった。」",
+          spanish: "“La ciudad cayó en penumbra absoluta mientras la señal de radio entró en estática mortal.”",
+          progress: "60%"
+        },
+        {
+          id: 4,
+          title: "FRAME_04: EL PRESENTE (AÑO 39)",
+          smpte: "00:39:52:00",
+          voiceId: "VOX_TK9_002.WAV",
+          japanese: "「今日、力ずくでこじ開ける。」",
+          spanish: "“Hoy la abro por la fuerza.”",
+          progress: "80%"
+        },
+        {
+          id: 5,
+          title: "FRAME_05: CLÍMAX // RUPTURA",
+          smpte: "00:40:02:18",
+          voiceId: "FX_SLASH_BREAK_MAX.WAV",
+          japanese: "「破断：見切り、両断する！」",
+          spanish: "“Ruptura: Desgarro cegador y aniquilación del blindaje.”",
+          progress: "100%"
+        }
+      ];
+
+      let currentFrame = 1;
+      let isPlaying = false;
+      let playInterval = null;
+      let typewriterTimeout = null;
+
+      const titleEl = document.getElementById('header-frame-title');
+      const smpteEl = document.getElementById('smpte-code');
+      const timeDisplayEl = document.getElementById('timeline-time-display');
+      const voxEl = document.getElementById('subtitle-voice-id');
+      const jpEl = document.getElementById('sub-japanese');
+      const esEl = document.getElementById('sub-spanish');
+      const btnPlayIcon = document.getElementById('btn-play-icon');
+      const btnPlayText = document.getElementById('btn-play-text');
+      const progressBar = document.getElementById('timeline-progress-bar');
+      const impactFlash = document.getElementById('impact-flash');
+      const speedlines = document.getElementById('climax-speedlines');
+      const viewportWrapper = document.getElementById('viewport-frame-wrapper');
+
+      // Typewriter Effect for dialog HUD
+      function runTypewriter(targetEl, text, speed = 24, callback = null) {
+        if (!targetEl) return;
+        targetEl.textContent = "";
+        let i = 0;
+        function step() {
+          if (i < text.length) {
+            targetEl.textContent += text.charAt(i);
+            i++;
+            typewriterTimeout = setTimeout(step, speed);
+          } else if (callback) {
+            callback();
+          }
+        }
+        step();
+      }
+
+      function triggerImpactFlash() {
+        if (!impactFlash) return;
+        impactFlash.style.opacity = '0.75';
+        setTimeout(() => {
+          impactFlash.style.opacity = '0';
+        }, 120);
+      }
+
+      function triggerScreenShake() {
+        if (!viewportWrapper) return;
+        viewportWrapper.classList.remove('screen-shake');
+        void viewportWrapper.offsetWidth; // force reflow
+        viewportWrapper.classList.add('screen-shake');
+      }
+
+      function switchFrame(frameIndex) {
+        currentFrame = frameIndex;
+        const data = framesData[frameIndex - 1];
+
+        // Trigger visual flash
+        triggerImpactFlash();
+
+        // Frame 5 special climax effects: radial speedlines & impact screen shake
+        if (frameIndex === 5) {
+          if (speedlines) speedlines.style.opacity = '1';
+          triggerScreenShake();
+        } else {
+          if (speedlines) speedlines.style.opacity = '0';
+        }
+
+        // Update Text & Time
+        if (titleEl) titleEl.textContent = data.title;
+        if (smpteEl) smpteEl.textContent = data.smpte;
+        if (timeDisplayEl) timeDisplayEl.textContent = data.smpte;
+        if (voxEl) voxEl.textContent = data.voiceId;
+        if (progressBar) progressBar.style.width = data.progress;
+
+        // Typewriter dialogue text animation
+        if (typewriterTimeout) clearTimeout(typewriterTimeout);
+        if (jpEl) {
+          runTypewriter(jpEl, data.japanese, 30, () => {
+            if (esEl) runTypewriter(esEl, data.spanish, 18);
+          });
+        }
+
+        // Update Frame Slide Opacity & Visibility
+        document.querySelectorAll('.frame-slide').forEach((slide, idx) => {
+          if (idx === frameIndex - 1) {
+            slide.classList.remove('opacity-0', 'pointer-events-none');
+            slide.classList.add('opacity-100');
+          } else {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0', 'pointer-events-none');
+          }
+        });
+
+        // Update Frame Tab Buttons
+        document.querySelectorAll('.frame-tab-btn').forEach(btn => {
+          const frameNum = parseInt(btn.getAttribute('data-frame'), 10);
+          if (frameNum === frameIndex) {
+            btn.className = "frame-tab-btn px-3 py-space-xs bg-primary-container text-on-primary font-label-md text-label-md rounded font-bold shadow-[0_0_8px_rgba(0,240,255,0.4)]";
+          } else {
+            btn.className = "frame-tab-btn px-3 py-space-xs bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md rounded";
+          }
+        });
+
+        // Update Thumb Cards
+        document.querySelectorAll('.filmstrip-card').forEach(card => {
+          const frameNum = parseInt(card.getAttribute('data-frame'), 10);
+          if (frameNum === frameIndex) {
+            card.classList.add('ring-2', 'ring-primary-container', 'bg-surface-container');
+            card.classList.remove('bg-surface-container-low');
+          } else {
+            card.classList.remove('ring-2', 'ring-primary-container', 'bg-surface-container');
+            card.classList.add('bg-surface-container-low');
+          }
+        });
+      }
+
+      function nextFrame() {
+        let next = currentFrame + 1;
+        if (next > 5) next = 1;
+        switchFrame(next);
+      }
+
+      function prevFrame() {
+        let prev = currentFrame - 1;
+        if (prev < 1) prev = 5;
+        switchFrame(prev);
+      }
+
+      function togglePlay() {
+        if (isPlaying) {
+          clearInterval(playInterval);
+          isPlaying = false;
+          btnPlayIcon.textContent = 'play_arrow';
+          btnPlayText.textContent = 'Auto-Step (12 FPS)';
+        } else {
+          isPlaying = true;
+          btnPlayIcon.textContent = 'pause';
+          btnPlayText.textContent = 'Pausa Secuencia';
+          playInterval = setInterval(() => {
+            nextFrame();
+          }, 3200);
+        }
+      }
+
+      // Event Listeners
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnPlay = document.getElementById('btn-play');
+      const timelineTrack = document.getElementById('timeline-track');
+
+      if (btnPrev) btnPrev.addEventListener('click', () => {
+        if (isPlaying) togglePlay();
+        prevFrame();
+      });
+
+      if (btnNext) btnNext.addEventListener('click', () => {
+        if (isPlaying) togglePlay();
+        nextFrame();
+      });
+
+      if (btnPlay) btnPlay.addEventListener('click', togglePlay);
+
+      if (timelineTrack) {
+        timelineTrack.addEventListener('click', (e) => {
+          const rect = timelineTrack.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const ratio = clickX / rect.width;
+          const targetIndex = Math.min(5, Math.max(1, Math.ceil(ratio * 5)));
+          if (isPlaying) togglePlay();
+          switchFrame(targetIndex);
+        });
+      }
+
+      document.querySelectorAll('.frame-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (isPlaying) togglePlay();
+          switchFrame(parseInt(btn.getAttribute('data-frame'), 10));
+        });
+      });
+
+      document.querySelectorAll('.filmstrip-card').forEach(card => {
+        card.addEventListener('click', () => {
+          if (isPlaying) togglePlay();
+          switchFrame(parseInt(card.getAttribute('data-frame'), 10));
+        });
+      });
+
+      // Keyboard navigation support
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevFrame();
+        if (e.key === 'ArrowRight') nextFrame();
+        if (e.key === ' ' || e.key === 'j' || e.key === 'J') {
+          e.preventDefault();
+          togglePlay();
+        }
+      });
+
+      // Initial typewriter startup
+      runTypewriter(jpEl, framesData[0].japanese, 30, () => {
+        runTypewriter(esEl, framesData[0].spanish, 18);
+      });
+
+      // Atmospheric Acid Rain Canvas Engine
+      const rainCanvas = document.getElementById('rain-canvas');
+      if (rainCanvas) {
+        const ctx = rainCanvas.getContext('2d');
+        let width = (rainCanvas.width = rainCanvas.parentElement.clientWidth);
+        let height = (rainCanvas.height = rainCanvas.parentElement.clientHeight);
+
+        window.addEventListener('resize', () => {
+          if (rainCanvas.parentElement) {
+            width = rainCanvas.width = rainCanvas.parentElement.clientWidth;
+            height = rainCanvas.height = rainCanvas.parentElement.clientHeight;
+          }
+        });
+
+        const drops = [];
+        const dropCount = 65;
+        for (let i = 0; i < dropCount; i++) {
+          drops.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            length: Math.random() * 22 + 12,
+            speed: Math.random() * 8 + 14,
+            opacity: Math.random() * 0.35 + 0.15
+          });
+        }
+
+        function drawRain() {
+          ctx.clearRect(0, 0, width, height);
+          ctx.lineWidth = 1;
+          for (let i = 0; i < dropCount; i++) {
+            const d = drops[i];
+            ctx.strokeStyle = `rgba(0, 240, 255, ${d.opacity})`;
+            ctx.beginPath();
+            ctx.moveTo(d.x, d.y);
+            ctx.lineTo(d.x - 2, d.y + d.length);
+            ctx.stroke();
+
+            d.y += d.speed;
+            d.x -= 1.2;
+
+            if (d.y > height) {
+              d.y = -d.length;
+              d.x = Math.random() * (width + 50);
+            }
+          }
+          requestAnimationFrame(drawRain);
+        }
+        drawRain();
+      }
+    })();
+  </script>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest py-space-lg border-t border-outline-variant/30">
+<div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-md">
+<span class="">NPAD ENGINE v4.2.0-TACTICAL</span>
+<span class="">//</span>
+<span class="">MILITARY CATHODE PROTOCOL</span>
+<span class="">//</span>
+<span class="">TOKYO SECTOR-03</span>
+</div>
+<div class="flex items-center gap-space-lg">
+<span class="text-[#ff2d6f]">DEFCON 2 RESTRICTED ACCESS</span>
+<span class="">© NPAD ARCHIVES ALL RIGHTS RESERVED</span>
+</div>
+</div>
+</footer>
+
+
+</body></html>
