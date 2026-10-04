@@ -1903,3 +1903,14 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 - **Sin VO horneado en vídeo**: separar `vo_ja_*.ogg`, `sfx_*.ogg`. Subtítulos `es/en` independientes (timing table).
 - **Transición inteligente:** Outro jefe **es** transición de piso (§4.6.2). No duplicar.
 - **Gameplay-first:** Si puede resolverse con sprite estático + VO, **no hacer vídeo**. Solo producir vídeo cuando aporte peso/legibilidad.
+
+### 7.9.3 Diálogos de Ruptura (Ultimate) — Cut-in por personaje
+
+| Personaje | Ruptura JA (VO) | Ruptura ES (subt.) | Ruptura EN (subt.) | Notas |
+|---|---|---|---|---|
+| **Rika Tsukimi** | `「一閃…切る！」` | *"¡Un destello... lo corto!"* | *"Flash... I'll cut through!"* | Corto, agudo. Refuerza su identidad de hoja. Cut-in 12 fps (§7.11). |
+| **Goro Arashi** | `「砕けろ…！　押し通る！」` | *"¡Rómpete...! ¡Abro paso!"* | *"Break...! I'm pushing through!"* | Grave, contundente. Refleja peso (yunque). |
+| **Ren Hayashi** | `「突っ込むぞ…！　行くっ！」` | *"¡Voy a romper...! ¡Allá voy!"* | *"I'm going through...! Let's go!"* | Impulsivo, juvenil. Coincide con carácter. |
+| **Yui Nakamura** | `「この音…切り裂いて、終わらせる…！」` | *"Este eco... lo partiré y lo acabaré...!"* | *"This echo... I'll sever it and end it...!"* | Melancólico+resuelto. Encaja con tema del eco. |
+
+**Uso:** Al llenar barra de Ruptura → cut-in 12 fps → VO japonés + subt ES/EN (solo si es primera vez o relevante). Duración 1–2s. Vuelve a gameplay inmediatamente. (§7.4.2, §7.11)
