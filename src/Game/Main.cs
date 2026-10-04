@@ -1,41 +1,57 @@
 using Godot;
+using NPAD.Game.Entities;
 
-namespace NPAD.Game.Entities;
+namespace NPAD.Game;
 
-public partial class Enemy : CharacterBody2D
+public partial class Main : Node2D
 {
-    [Export] public float MoveSpeed { get; set; } = 80f;
-
-    private Node2D _target;
-    private ColorRect _sprite;
-
     public override void _Ready()
     {
-        _target = GetNode<Node2D>("/root/Main/Player");
+        ConfigureInputActions();
 
-        _sprite = new ColorRect
+        var background = new ColorRect
         {
-            Size = new Vector2(18, 18),
-            Position = new Vector2(-9, -9),
-            Color = new Color(0.9f, 0.3f, 0.3f)
+            Name = "Background",
+            Size = new Vector2(1920, 1080),
+            Position = new Vector2(0, 0),
+            Color = new Color(0.08f, 0.09f, 0.12f)
         };
+        AddChild(background);
 
-        AddChild(_sprite);
+        var player = new Player
+        {
+            Name = "Player",
+            Position = new Vector2(480, 270)
+        };
+        AddChild(player);
+
+        var enemy = new Enemy
+        {
+            Name = "Enemy",
+            Position = new Vector2(700, 270),
+            Target = player
+        };
+        AddChild(enemy);
     }
 
-    public override void _PhysicsProcess(double delta)
+    private static void ConfigureInputActions()
     {
-        if (_target == null)
+        EnsureAction("move_left", Key.A);
+        EnsureAction("move_right", Key.D);
+        EnsureAction("move_up", Key.W);
+        EnsureAction("move_down", Key.S);
+        EnsureAction("dash", Key.Shift);
+    }
+
+    private static void EnsureAction(string action, Key key)
+    {
+        if (!InputMap.HasAction(action))
         {
-            return;
+            InputMap.AddAction(action);
         }
 
-        Vector2 toTarget = (_target.GlobalPosition - GlobalPosition);
-        if (toTarget.LengthSquared() > 0.01f)
-        {
-            Vector2 direction = toTarget.Normalized();
-            Velocity = direction * MoveSpeed;
-            MoveAndSlide();
-        }
+        InputMap.ActionEraseEvents(action);
+        var ev = new InputEventKey { Keycode = key, PhysicalKeycode = key };
+        InputMap.ActionAddEvent(action, ev);
     }
 }

@@ -1,24 +1,6 @@
-using Godot;
-using NPAD.Game.Entities;
+[gd_scene load_steps=2 format=3]
 
-namespace NPAD.Game;
+[ext_resource type="Script" path="res://src/Game/Main.cs" id="1"]
 
-public partial class Main : Node2D
-{
-    public override void _Ready()
-    {
-        var player = new Player
-        {
-            Name = "Player",
-            Position = new Vector2(480, 270)
-        };
-        AddChild(player);
-
-        var enemy = new Enemy
-        {
-            Name = "Enemy",
-            Position = new Vector2(700, 270)
-        };
-        AddChild(enemy);
-    }
-}
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
