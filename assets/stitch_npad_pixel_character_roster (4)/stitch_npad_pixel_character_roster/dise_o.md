@@ -2046,3 +2046,22 @@ El tono es **post-apocalipsis institucional** (§2.1). El ambiente debe sentirse
 | **P4 Archivo** | Grises azules, mohoso | Goteo constante (clave rítmica), lluvia muy lejana | Papel, estanterías crujen, ventilación rota, hum | Telas/polvo, luces tenues parpadean, estanterías vibran | 95–115 BPM (tenso) | Claustrofóbico. Goteo marca tensión. |
 | **P5 Clínica** | Blancos sucios + verde apagado | Goteo irregular, golpeteo suave | Fluorescentes zumban, tubos, maquinaria inerte, ambiente húmedo | Luces parpadean erráticas, cortinas, líquidos sutiles | 110–125 BPM (horror admin) | Incómodo. Silencios inquietantes. |
 | **P6 Núcleo** | Negro + cian (#9afaf2) + rojo peligro | Lluvia ácida/lejana, golpeteo distorsionado, reverb grande | Estática, grieta, maquinaria colapsa, eco cavernoso | Luces fallan, grieta pulsa, estructuras tiemblan | 130–140 BPM (progresivo) | Apocalíptico. Silencios pesados + estática. |
+
+
+## 18. Checklist pre-programación
+
+**Core crítico:**
+- [ ] Dash feel: iterar DashDistance/DashDuration/i-frames en PlayerTuning
+- [ ] Hitstop/time-scale único servicio
+- [ ] Bucle matar→recarga dash visible (VFX+SFX)
+- [ ] InputActions centralizado
+- [ ] Menú: SP/Co-op2P/Personajes/Opciones (ES/EN)
+- [ ] HUD CRT + paleta A (no neon B)
+- [ ] Arte Stitch como base (no siluetas) (§7.10)
+- [ ] Rupturas + cut-ins únicos por personaje (§3.6.1, §7.11.1)
+- [ ] Prólogos por personaje con VO JA separado + subt ES/EN (§7.8, §7.12)
+- [ ] Tutorial interactivo + skippable ESC (marcar completado solo al finalizar) (§4.7)
+- [ ] VO JA separado, SFX/BGM CC0, loops seamless 2x/piso (§7.13, §13.1)
+- [ ] Diálogo único (ja/es/en) con timing (§7.4.4)
+- [ ] Save: tutorial_completed, text_lang
+- [ ] Pooling + debug mode para Hito 0
