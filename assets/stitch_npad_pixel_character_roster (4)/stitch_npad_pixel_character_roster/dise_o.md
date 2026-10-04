@@ -1487,6 +1487,10 @@ Decisiones tomadas para cerrar puertas:
 ---
 
 ## 13. Técnica
+### 13.1 Audio: herramientas gratuitas para IA + assets
+
+Ver arriba recomendaciones (0€): VO japonés local (Fish Speech/CosyVoice/Piper), SFX CC0 (Kenney/Pixabay/freesound), BGM CC0 (Pixabay/FMA/OpenGameArt), IA musical local (YuE/Hunyuan/ACE-Step) para loops seamless 2x/piso.
+
 
 **Motor: Godot 4 + C#**
 
