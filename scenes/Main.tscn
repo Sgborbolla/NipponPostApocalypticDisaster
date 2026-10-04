@@ -1,0 +1,24 @@
+using Godot;
+using NPAD.Game.Entities;
+
+namespace NPAD.Game;
+
+public partial class Main : Node2D
+{
+    public override void _Ready()
+    {
+        var player = new Player
+        {
+            Name = "Player",
+            Position = new Vector2(480, 270)
+        };
+        AddChild(player);
+
+        var enemy = new Enemy
+        {
+            Name = "Enemy",
+            Position = new Vector2(700, 270)
+        };
+        AddChild(enemy);
+    }
+}
