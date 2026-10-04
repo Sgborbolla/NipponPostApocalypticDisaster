@@ -1983,3 +1983,40 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 2. Generar clip 1–3s con prompt corto (encuadre, cámara sutil, sin over-animation)
 3. Exportar sin audio (.mp4) — implementar reproducción + skip + VO separado en Godot
 4. Render 12 fps para cut-ins, 24–30 fps para prólogos
+
+### 7.7.1 Barks y SFX por personaje/enemigos
+
+#### Barks de combate (VO japonés corto)
+| Contexto | Rika | Goro | Ren | Yui |
+|---|---|---|---|---|
+| **Ataque 1-3** | `「っ」「せっ」「やっ」` tipo esfuerzo | `「ぐっ」「ふっ」` grave | `「っ」「はっ」「いっ」` ágil | `「っ」「ふっ」「んっ」` contenido |
+| **Dash** | `「ひゅっ」` o `「っ」` | `「おらっ」` corto | `「いくっ」` | `「っ」` suave |
+| **Recibir daño** | `「くっ」「あっ」` contenido | `「ぐっ」「うっ」` grave | `「っ」「うぐっ」` agudo | `「くっ」「んっ」` ahogado |
+| **Ruptura** | Ver §7.9.3 (`一閃…切る！`) | `砕けろ…！ 押し通る！` | `突っ込むぞ…！ 行くっ！` | `この音…切り裂いて、終わらせる…！` |
+| **Muerte/run fallida** | `「まだ…」` susurrado (breve) | `「ちっ…」` entre dientes | `「くそっ…」` contenido | `「…ダメか」` tenue |
+
+**Reglas barks:** Máx 2 voces simultáneas, cooldown por tipo (§7.4.3). **Sin subtítulos** en combate salvo poder/habilidad nueva (§7.4.2).
+
+#### SFX de ataques (héroes)
+| Acción | SFX sugerido | Notas |
+|---|---|---|
+| **Golpe cuerpo (espada)** | Slash corto, afilado (metal+aire) | Crisp, sin echo |
+| **Golpe contundente (mazo Goro)** | Thud pesado + wood/metal | Más bajo, mayor peso |
+| **Pinchazos rápidos (daga-like/Ren)** | Stab múltiple rápido | Seco, agudo |
+| **Golpes radiales (Yui)** | Whoosh + impacto tenue | Más etéreo |
+| **Dash** | Air whoosh corto | Feedback inmediato |
+| **Dash-hit** | Whoosh + hit fundido | Refuerza atraviesa horda |
+| **Hit enemigo** | Flesh+impact | Legible, no ensordecedor |
+| **Muerte enemigo** | Drop + thud | Ritmo |
+| **Hitstop feedback** | Click micro (opcional) | Sutil |
+
+#### SFX enemigos
+| Arquetipo | Ataque | Movimiento | Muerte |
+|---|---|---|---|
+| **Carrilero** | Swipe corto | Pasos pesados | Caída seca |
+| **Embestidor** | Rush whoosh + impacto | Arrastre metálico | Golpe cuerpo |
+| **Lanzador** | Proyectil spawn + vuelo | Pasos ligeros | Caída |
+| **Blindado** | Embestida pesada | Metal arrastre | Thud metálico |
+| **Resucitado** | Rasgueo hueco | Chirrido óseo | Grito ahogado corto |
+| **Subjefe** | Robótico (click+servo) | Pesado mecánico | Explosión contenida |
+| **Jefe** | Personalizado (más orgánico+mecánico) | Pesado distintivo | Dramático contenido |
