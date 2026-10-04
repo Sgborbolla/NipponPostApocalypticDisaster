@@ -1879,3 +1879,27 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 - **Sin simplificar a siluetas.** Lo definido gráficamente por Stitch se mantiene (personajes, enemigos, ambientes). El test de legibilidad se hace con el arte final, no reduciendo a negro.
 - **Consistencia entre sets.** Personajes, enemigos, HUD, ambientes y cinemáticas deben ceñirse a los renders de Stitch para evitar drift visual.
 - **Exportación/implementación:** En Godot 4 se usarán spritesheets/atlas basados en los assets de Stitch (ajustando tileado/frames, sin reestilizar a otro look).
+
+### 7.11 Cinemáticas: momento, duración, formato
+
+> **Principio:** VO 100% japonés + subtítulos ES/EN. Vídeos **sin audio horneado** (VO + SFX fuera) para permitir re-temporizar subtítulos (§7.4.4). Formato: 2D pre-render (cel-shaded anime) siguiendo renders de Stitch. Skip disponible tras primera visualización (§4.6.3). Máx 12 fps en cut-in, 24–30 fps en cinemáticas largas.
+
+| Momento | Cantidad | Duración | Formato | Notas |
+|---|---|---|---|---|
+| **Micro-prólogo por personaje (selección)** | 4 | 5–8s | Sprite animado + VO | Se muestra al seleccionar héroe. Skip tras 1ª vez. Contexto emocional. |
+| **Intro subjefe (pre-combate)** | 6 | 2–3s | Cinemática breve | Entra en sala, dice línea (§7.9.1). Puede solaparse con gameplay (jugador puede moverse tras 1–1.5s) para evitar fricción. |
+| **Outro subjefe (post-combate)** | 6 | 1–2s | Breve | Caída + última línea. Suele fundirse con transición hacia jefe/siguiente tramo. |
+| **Intro jefe** | 6 | 3–4s | Cinemática | Setup mecánica. **Nunca < 3s** (§4.6.3). Peso dramático. |
+| **Outro jefe + transición piso** | 6 | 6–10s | Cinemática unificada | Jefe muere → VO → cruza puerta → revela siguiente piso → título piso. **Una sola pieza** (§4.6.2). |
+| **Ruptura (Ultimate) - Cut-in por personaje** | 4 | 1–2s | **Cut-in** (12 fps) | Barrera llena → cut-in 2D (pose + efecto) → diálogo corto en ja → vuelve a gameplay. Subtitular solo si "habilidad nueva"/nombre relevante (§7.4.2). |
+| **Inicio de piso (entry)** | 6 | 2–4s | Cinemática breve | Breve vista ambiente (basado en AMBIENTES_STITCH.md), título piso, atmos. Skip tras 1ª vez. |
+| **Fin de nivel / transición general** | Según caso | 1–3s | Breve | Fundido, evita doble cinemática con outro jefe. |
+| **Epílogo (tras Núcleo)** | 1 | 20–30s | Cinemática larga | Resolución, cierre. **No skipeable** en primera run? O skipeable con aviso. Preferible **no skipeable** para dar peso. |
+| **Post-run summary** | 1 | <1s | UI | No cinemática. |
+
+**Reglas cinematográficas:**
+- **Ruptura:** 12 fps, composición centrada, énfasis en silueta/efecto, sin cámara lenta global (usa hitstop/cut-in). VO corto japonés.
+- **Intros/outros subjefe-jefe:** siguen estilo OVA (encuadres dramáticos, iluminación acorde a piso). Usa renders de Stitch como keyframes.
+- **Sin VO horneado en vídeo**: separar `vo_ja_*.ogg`, `sfx_*.ogg`. Subtítulos `es/en` independientes (timing table).
+- **Transición inteligente:** Outro jefe **es** transición de piso (§4.6.2). No duplicar.
+- **Gameplay-first:** Si puede resolverse con sprite estático + VO, **no hacer vídeo**. Solo producir vídeo cuando aporte peso/legibilidad.
