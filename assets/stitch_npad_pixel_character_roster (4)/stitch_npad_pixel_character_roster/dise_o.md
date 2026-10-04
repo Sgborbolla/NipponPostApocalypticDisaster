@@ -2065,3 +2065,16 @@ El tono es **post-apocalipsis institucional** (§2.1). El ambiente debe sentirse
 - [ ] Diálogo único (ja/es/en) con timing (§7.4.4)
 - [ ] Save: tutorial_completed, text_lang
 - [ ] Pooling + debug mode para Hito 0
+
+### 18.1 Veredicto pre-programación
+
+**Voto: SÍ — empezar Hito 0.**
+
+Faltan solo 4 ajustes rápidos (1–2h) que pueden ir en paralelo con iteración de dash feel:
+
+1. **SaveManager (C#)** — `res://game/Core/SaveManager.cs` con `SaveData { bool tutorial_completed, string text_lang, bool first_run }` guardado en `user://npad.save` (JSON)
+2. **Dialogue table** — `res://data/dialogue.json` con estructura: `{"entries":[{"id":"","type":"","character":"","ja":"","es":"","en":"","duration_ms":0,"skippable":true,"priority":0}]}`
+3. **TimeService** — asegurar `SetTimeScale(float scale, float duration)` (único punto para hitstop). Prohibido usar `Engine.TimeScale` fuera.
+4. **HUD CRT** — basar en `npad_tactical_hud_system/DESIGN.md` (biselados duros, sin blur/shadow/rounded)
+
+**Acción inmediata:** Probar `Main.tscn` (arena Hito 0) → iterar `PlayerTuning` (DashDistance/DashDuration/i-frames) hasta que "se sienta bien". No generar cinemáticas aún.
