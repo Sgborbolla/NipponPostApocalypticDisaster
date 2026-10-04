@@ -1792,3 +1792,49 @@ Lo propio de NPAD, y donde tiene que estar la diferencia:
 - Prototipo HTML (index.html) es temporal (Hito 0). En Godot 4 se migrará a UI Theme con paleta de `game/Core/Palette.cs` (sin neon Stitch B, solo colores A).
 - Música título: Japanese Drift Phonk atmosférico (§7.5.1), fade-out 0.5s al iniciar.
 - El diseño gráfico de la referencia tiene movimiento/atmósfera (cinemático). Para menú interactivo se simplifica: fondo estático con parallax ligero, UI CRT con biseles duros (sin blur/shadows), legible.
+
+### 7.7 Audio: voces, SFX y diálogos
+
+#### Voces (personajes y enemigos)
+| Tipo | Voz | Notas |
+|---|---|---|
+| **Héroes (Rika, Goro, Ren, Yui)** | Japonés, femenino/masculino acorde a personaje. Actuación sobria para barks (combate). | Solo japonés (§7.4). Barks cortos (0.3–0.8s). Evitar "shouts heroicos" excesivos. Enfatizar esfuerzo (dash, recibir daño). |
+| **Subjefes / Jefes** | Japonés, tono administrativo/amenazante, contenido. | Más pausado en intros/outros de cinemáticas (§4.6). Menor cantidad de palabras, mayor peso. |
+| **Enemigos base** | Sin voces largas. Solo gritos cortos (0.2–0.4s). | Se prioriza legibilidad sobre personalidad. Evitar crowd barks simultáneos. |
+
+#### Efectos especiales (SFX)
+| Efecto | Recomendado | Uso |
+|---|---|---|
+| **Dash** | Whoosh corto, aire/velocidad | Feedback inmediato. Sin reverbero |
+| **Ataque (hit)** | Impacto cuerpo-acero, crisp | Diferenciar según arma (opcional) |
+| **Parry/block feel** | Click metálico sutil | Legibilidad |
+| **Daño recibido** | Impacto seco + cloth | No ensordecer |
+| **Muerte enemigo** | Caída + impacto | Sirve para ritmo |
+| **Dash-hit / Dash-attack** | Whoosh + hit combinado | Refuerza "atraviesa horda" (§3.2) |
+| **Ruptura (Ultimate)** | Swell + impacto + corte | Cinemático breve (§11.5) |
+| **Puerta/nivel up** | Click/servo + UI | Transiciones |
+| **Hitstop feedback** | Percusión micro (silencio relativo) | Refuerza peso (§11.1) |
+
+#### Diálogos (ja/es/en) — estructura propuesta
+Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos: `id, type(scene|boss_intro|boss_outro|subboss_intro|subboss_outro|epilogue|first_time), character, ja, es, en, duration_ms, skippable, priority`.
+
+**Primeros bloques a escribir:**
+- Prólogo (4 personajes) — intros minimalistas
+- Intros/outros 6 subjefes + 6 jefes (12+12=24) + epílogo (1) = 25 (§4.6)
+- "First time" hints (barks de habilidad nueva) — solo subtitulados cuando aplica (§7.4.2)
+- Ruptura barks — nombre corto en ja + subt ES/EN opcional según timing
+
+**Notas:** VO solo ja. Subtítulos ES/EN elegibles en título (§7.6). En combate **no** subtitular barks de ataque/daño/dash. Subtitular solo *poder* y *habilidad nueva* (§7.4.2). Máx 2 líneas, 42 chars. Katakana/romaji para nombres propios.
+
+### 7.8 Historias por personaje (prólogo corto)
+
+> **Idea:** al seleccionar personaje, se ve un **micro-prólogo** (sprite estático + VO) mostrando su motivo para subir el Ward. Esto da identidad sin inflar cinemáticas por run.
+
+| Personaje | Título | Idea breve (ES) | Voz (ja) sugerida | Subt ES/EN |
+|---|---|---|---|---|
+| **Rika Tsukimi** — *La Hoja* | "Lo que aún queda" | Quedó atrapada buscando a alguien. Sube para cortar el bucle antes de olvidar quién era. | Femenina, contenida, resuelta | Rika: "Aún recuerdo su nombre. No dejaré que esto me lo quite." / "I still remember their name. I won't let this erase it." |
+| **Goro Arashi** — *El Yunque* | "Puerta cerrada" | Guardia del Ward. Juró que nadie más entraría. Ahora es el único que puede salir cerrando el núcleo. | Masculina, grave, áspera | "Yo puse estas puertas. Yo las cerraré por última vez." / "I put these doors up. I'll close them one last time." |
+| **Ren Hayashi** — *El Relámpago* | "Interés propio" | Entró por curiosidad. Se dio cuenta que si nadie sube, nadie saldrá. Le basta con ser el que lo intente. | Masculina, juvenil, impulsivo | "Si nadie va... iré yo." / "If no one goes... I will." |
+| **Yui Nakamura** — *El Eco* | "Los que repiten" | Oyó a los atrapados repetir lo mismo durante años. No quiere ser otro eco. Quiere cortar la repetición. | Femenina, calmada, melancólica | "No quiero convertirme en otro eco." / "I don't want to become another echo." |
+
+**Aplicación:** al elegir personaje → 5–8s micro-cinemática (puede ser **skip** desde run 2). Usa mismo sistema VO+subtítulos (§7.4). No alarga run, añade contexto.
