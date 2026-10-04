@@ -1840,22 +1840,24 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 **Aplicación:** al elegir personaje → 5–8s micro-cinemática (puede ser **skip** desde run 2). Usa mismo sistema VO+subtítulos (§7.4). No alarga run, añade contexto.
 
 
+
 ### 7.9 Diálogos: Subjefes y Jefes (japonés VO + subtítulos ES/EN)
 
 > **Principio:** Todo diálogo va en **japonés** para VO. Los subtítulos se muestran en **español** o **inglés** según selección en título (§7.6). En combate solo se subtitulan *poder* y *habilidad nueva* (§7.4.2). En **intros/outros** de subjefes/jefes **sí** se subtitulan.
 
-**Casting sugerido:** voces japonesas con tono institucional/distópico. Subjefes: fríos, burocráticos (eco de sistema). Jefes: más personales, con peso.
+**Casting sugerido:** voces japonesas con tono institucional/distópico. Subjefes: fríos, burocráticos (eco de sistema). Jefes: más personales, con peso. **Importante:** los subjefes son "fragmentos" / réplicas de los jefes (los "hijos" de los jefes), por eso comparten misma línea emocional pero más robóticos.
 
 #### 7.9.1 Subjefes (6 pisos)
 
-| Piso | Subjefe (según enemigos.md) | Voz (ja) | Intro JA | Intro ES | Intro EN | Outro JA | Outro ES | Outro EN |
+| Piso | Subjefe (canon) | Voz (ja) | Intro JA | Intro ES | Intro EN | Outro JA | Outro ES | Outro EN |
 |---|---|---|---|---|---|---|---|---|
-| **P1 Vestíbulo** | **EL PORTERO ENCABEZADO** | Masculino, grave, mecánico | `「立入は、ここまでだ。」` | *"Hasta aquí llega el paso."* | *"This is as far as you go."* | `「規程通り…排除する。」` | *"Según reglamento... debo eliminarte."* | *"By regulation... I must remove you."* |
-| **P2 Market Roto** | **LOS GEMELOS** | Femenino/dual, monocorde | `「在庫照合…完了。」` | *"Conciliación de inventario... completada."* | *"Inventory reconciliation... complete."* | `「重複登録…処分。」` | *"Registro duplicado... a eliminar."* | *"Duplicate entry... marked for disposal."* |
-| **P3 Refinería** | **LA CALDERA** | Masculino, ronco, contenido | `「圧力、限界を超える。」` | *"La presión supera el límite."* | *"Pressure exceeds critical limit."* | `「排気系…破損確認。」` | *"Sistema de ventilación... dañado."* | *"Exhaust system... compromised."* |
-| **P4 Archivo** | **EL ESCRIBANO** | Masculino, susurrante, clínico | `「記録は、訂正されねばならない。」` | *"El registro debe corregirse."* | *"The record must be corrected."* | `「原本には、君は存在しない。」` | *"En el original... no existes."* | *"In the master record... you do not exist."* |
-| **P5 Clínica** | **LA CIRUJANA** | Femenino, frío, desapegado | `「検体を…一度、観察する。」` | *"Procederé a... examinar la muestra."* | *"I shall... examine the specimen."* | `「観察終了。不要。」` | *"Examen finalizado. Prescindible."* | *"Examination complete. Discardable."* |
-| **P6 Núcleo** | **EL ECO** | Andrógino, metálico, distorsionado | `「反復を…継続する。」` | *"Debo... perpetuar la repetición."* | *"I must... continue the cycle."* | `「ループ…断ち切られた。」` | *"El bucle... ha sido cortado."* | *"The loop... has been severed."* |
+| **P1 Vestíbulo** | **EL PORTERO ENCABEZADO** | Masculino, mecánico, frío | `「受付業務…対象を排除する。」` | *"Procedimiento de recepción... eliminando objetivo."* | *"Reception protocol... removing target."* | `「定員外。退去処分。」` | *"Fuera de cupo. Procedo a retirar."* | *"Over capacity. Removal in progress."* |
+| **P2 Market Roto** | **LOS GEMELOS** | Femenino dual, monótono | `「二重登録を確認。矯正開始。」` | *"Registro duplicado detectado. Iniciando corrección."* | *"Duplicate registration detected. Correction initiated."* | `「一方を廃棄。処分完了。」` | *"Uno eliminado. Corrección aplicada."* | *"One discarded. Correction complete."* |
+| **P3 Refinería** | **LA CALDERA** | Masculino, metálico, contenido | `「過圧警告。自動制御解除。」` | *"Alerta de sobrepresión. Control automático liberado."* | *"Overpressure warning. Auto-control disengaged."* | `「冷却経路…破断。」` | *"Ruta de refrigeración... rota."* | *"Cooling line... severed."* |
+| **P4 Archivo** | **EL ESCRIBANO** | Masculino, susurrante, robótico | `「ファイル照合。矛盾を検出。」` | *"Comparando archivos. Contradicción detectada."* | *"File comparison. Contradiction detected."* | `「矛盾項目…削除する。」` | *"Elemento contradictorio... eliminado."* | *"Contradictory entry... deleting."* |
+| **P5 Clínica** | **LA CIRUJANA** | Femenino, clínico, frío | `「未登録検体。隔離手続き開始。」` | *"Muestra no registrada. Iniciando aislamiento."* | *"Unregistered specimen. Quarantine initiated."* | `「不要検体。廃棄。」` | *"Muestra prescindible. A desecho."* | *"Redundant specimen. Discarded."* |
+| **P6 Núcleo** | **EL ECO** | Andrógino, distorsionado, repetitivo | `「ループ・サブユニット起動。」` | *"Unidad sub-bucle activada."* | *"Sub-loop unit activated."* | `「サブユニット…機能停止。」` | *"Unidad sub-bucle... fuera de servicio."* | *"Sub-loop unit... deactivated."* |
+
 
 #### 7.9.2 Jefes (6 pisos)
 
