@@ -1839,6 +1839,14 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 
 **Aplicación:** al elegir personaje → 5–8s micro-cinemática (puede ser **skip** desde run 2). Usa mismo sistema VO+subtítulos (§7.4). No alarga run, añade contexto.
 
+**Cinemática asociada (Stitch):**
+- Rika Tsukimi → `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_rika_tsukimi_origin/screen.png`
+- Goro Arashi → `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_goro_arashi_origin/screen.png`
+- Ren Hayashi → `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_ren_hayashi_origin/screen.png`
+- Yui Nakamura → `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_yui_nakamura_origin/screen.png`
+
+**Assets requeridos por personaje:** `prologue_{char}_ja.ogg` (VO), `prologue_{char}_sub_es.json` / `prologue_{char}_sub_en.json` (timing + texto).
+
 
 
 ### 7.9 Diálogos: Subjefes y Jefes (japonés VO + subtítulos ES/EN)
@@ -1927,3 +1935,13 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 - **Juego no se pausa totalmente:** Usa **cut-in + hitstop ligero** (time-scale localizado) para mantener sensación de peso sin romper el ritmo. Evitar freeze total.
 - **One-per-character:** Cada personaje tiene su cut-in único (basado en sus renders de Stitch). **Nunca reutilizar el genérico "ruptura" para todos** — usar el específico por personaje.
 - **Trigger:** Se reproduce **al activar Ruptura** (barra llena). Al terminar vuelve a gameplay inmediatamente (sin black fade largo).
+
+### 7.12 Cinemáticas de prólogo por personaje (basado en refs Stitch)
+
+**Referencias existentes:**
+- `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_rika_tsukimi_origin` (screen.png)
+- `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_goro_arashi_origin` (screen.png)
+- `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_ren_hayashi_origin` (screen.png)
+- `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_yui_nakamura_origin` (screen.png)
+
+**Uso:** Al seleccionar personaje en menú → reproducir micro-prólogo 5–8s con VO japonés + subt ES/EN (§7.8). Formato cinematográfico 2D cel-shaded, sin audio horneado. Skip disponible tras primera visualización. Usar estos renders como keyframes/base.
