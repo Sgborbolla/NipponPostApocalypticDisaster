@@ -1763,6 +1763,8 @@ Lo propio de NPAD, y donde tiene que estar la diferencia:
 | **Rainfall Phonk** | Kordhell (versión atmosférica) | Dark Phonk Chill | Idle en hub (run summary, opciones) |
 
 **Recomendación para inicio:** *Japanese Drift Phonk - Slow Edit / Tokyo Underground vibe*. Ritmo medio-lento (70–90 BPM), con pads nebulosos y chops japoneses. Transmite "torre cerrada desde hace 39 años" sin romper la energía que promete el juego.
+**Aplicación al prototipo HTML/JS:** en `index.html` el menú de inicio (messageBox) debe tener música ambiente. Propuesta: cargar pista "Japanese Drift Phonk - Tokyo Underground" (instrumental, 70–90 BPM, loop seamless). Al pulsar Enter (iniciar), hacer fade-out de 0.5s y crossfade a BGM del primer piso (P1 BGM1). Esto respeta el tono híbrido cyberpunk + OVA y crea continuidad narrativa.
+
 
 
 #### Notas de implementación (con game feel)
