@@ -255,6 +255,24 @@ El arma decide la forma de la cadena. Aquí es donde vive la build:
 > El retroceso de la escopeta es un rasgo, no un efecto secundario: convierte la
 > distancia en un recurso. Cerca es cómodo, lejos tiene coste.
 
+
+### 3.6.1 Rupturas por personaje (Especial único)
+
+La **Ruptura** es el superpoder de cada héroe (§11.5). Consume **1 carga completa de dash**. No es genérica: cada personaje tiene su Ruptura única, acorde a su identidad (reflejada en sus cut-ins de Stitch).
+
+| Personaje | Nombre de Ruptura | Descripción (mecánica) | Visual (basado en Stitch cut-in) |
+|---|---|---|---|
+| **Rika Tsukimi — *La Hoja*** | *"Corte de Un Destello"* (一閃斬 / Issen-zan) | Corte horizontal cruzado en área frontal amplia. Limpia línea recta, empuja enemigos atrás. Alta velocidad, daño concentrado. | Pose con katana trazando corte en X/cruz, estela blanca (#f4f0ff). Cut-in: `2d_anime_video_game_cinematic_ultimate_special_attack_cut_in_for_npad_ruptura`/variante Rika (usar cut-in específico por personaje). |
+| **Goro Arashi — *El Yunque*** | *"Golpe de Yunque"* (鉄槌 / Tettsui) | Golpe descendente con maza en área circular grande. Genera **knockdown** + hitstop medio. Rompe líneas de enemigos, ideal para control de horda. | Maza levantada, impacto contra suelo, ondas de choque. Cut-in: `2d_anime_video_game_cinematic_ultimate_special_attack_cut_in_for_npad_goro`. |
+| **Ren Hayashi — *El Relámpago*** | *"Carga Relámpago"* (疾雷 / Shirei) | Dash-ataque múltiple en ráfagas: avanza atravesando horda (mantiene i-frames durante parte de la Ruptura). Barrido en zigzag, limpia espacio. | Cuerpo en estela eléctrica, movimiento borroso, pose dinámica. Cut-in: `2d_anime_video_game_cinematic_ultimate_special_attack_cut_in_for_npad_ren`. |
+| **Yui Nakamura — *El Eco*** | *"Reverberación"* (残響 / Zankyō) | Ataque en ondas concéntricas (aros). Golpea varias veces en área radial alrededor de Yui, empujando hacia fuera. Control de zona + limpieza radial. | Ondas de energía, pose abierta, efecto de ecos/duplicados. Cut-in: `2d_anime_video_game_cinematic_ultimate_special_attack_cut_in_for_npad_yui`. |
+
+**Notas de diseño:**
+- Consume **1 carga completa de dash**. Solo usable si agresivo antes (§3.2).
+- **Cut-in único por personaje** (12 fps), VO japonés + subt ES/EN (§7.9.3, §7.11.1).
+- Sin tercer botón: se activa con el recurso de dash (interpretado como "liberar poder acumulado"). Compatible con bucle `matar → recargar dash → Ruptura`.
+
+
 ### 3.6 Poderes — no hay tercer botón
 
 > **La barra de dash ES la barra de poder.** Un solo recurso, dos funciones.
