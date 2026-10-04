@@ -1776,3 +1776,19 @@ Lo propio de NPAD, y donde tiene que estar la diferencia:
 - **Energy curve**: subir BPM/intensidad con racha (no con HP enemigo). Encaja con "la agresividad recarga" (§3.2).
 
 > **Recomendación práctica:** priorizar **instrumentales** (dark phonk/cyberphonk) para evitar líos de subtítulos/VO. Buscar referencias en YouTube/AudioLibrary/Envato Elements, Uppbeat, Soundraw o Epidemic Sound con tags: `dark phonk`, `cyberphonk`, `japanese phonk`, `phonk loop`, `dystopian industrial`.
+
+### 7.6 Pantalla de título — Diseño gráfico (referencia)
+
+**Referencia de arte:** `assets/title-reference.png` (screen.png de "2d_anime_action_video_game_cinematic_title_splash_screen_for_npad_nippon_post") — 1376x768. **Solo referencia visual (layout)**. El prototipo actual usa `assets/title-screen.png` y un HUD minimalista en HTML/Canvas.
+
+**Estructura del menú (decidido):**
+- Título NPAD (logo)
+- MENÚ PRINCIPAL: [INICIAR JUEGO] / [SELECCIONAR PERSONAJES] / [MODO DE JUEGO] / [OPCIONES] / [SALIR]
+  - MODO DE JUEGO: [SINGLE PLAYER] / [CO-OP 2P] (pantalla compartida, vertical) — §12.1
+- SELECCIONAR PERSONAJES: 4 héroes (Rika, Goro, Ren, Yui), siluetas distinguibles, preview animado
+- OPCIONES: [IDIOMA DE TEXTO: Español · English] (§7.4), Volumen (BGM/SFX/VO), Pantalla, Controles (rebind opcional), [Saltar cinemáticas: Sí/No] (§4.6.3)
+
+**Notas de implementación:**
+- Prototipo HTML (index.html) es temporal (Hito 0). En Godot 4 se migrará a UI Theme con paleta de `game/Core/Palette.cs` (sin neon Stitch B, solo colores A).
+- Música título: Japanese Drift Phonk atmosférico (§7.5.1), fade-out 0.5s al iniciar.
+- El diseño gráfico de la referencia tiene movimiento/atmósfera (cinemático). Para menú interactivo se simplifica: fondo estático con parallax ligero, UI CRT con biseles duros (sin blur/shadows), legible.
