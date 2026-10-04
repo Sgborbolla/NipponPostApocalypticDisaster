@@ -1914,3 +1914,16 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 | **Yui Nakamura** | `「この音…切り裂いて、終わらせる…！」` | *"Este eco... lo partiré y lo acabaré...!"* | *"This echo... I'll sever it and end it...!"* | Melancólico+resuelto. Encaja con tema del eco. |
 
 **Uso:** Al llenar barra de Ruptura → cut-in 12 fps → VO japonés + subt ES/EN (solo si es primera vez o relevante). Duración 1–2s. Vuelve a gameplay inmediatamente. (§7.4.2, §7.11)
+
+### 7.11.1 Notas sobre cut-ins de Ruptura (basado en refs Stitch)
+
+**Referencias existentes (Stitch):**
+- `2d_anime_video_game_cinematic_ultimate_special_attack_cut_in_for_npad_goro` / `ren` / `yui` / `ruptura` (screen.png)
+- Cada cut-in es **cinemático por personaje** (no genérico). Debe mostrarse **únicamente** con el héroe seleccionado (diferenciado gráficamente por pose/efecto/color).
+
+**Directrices de animación:**
+- **Formato:** Cut-in 2D, composición cinematográfica centrada, 12 fps (§7.11). Duración 1–2s.
+- **Sin audio horneado:** VO JA + SFX por separado. Subt ES/EN opcionales (solo primera vez o según regla §7.4.2).
+- **Juego no se pausa totalmente:** Usa **cut-in + hitstop ligero** (time-scale localizado) para mantener sensación de peso sin romper el ritmo. Evitar freeze total.
+- **One-per-character:** Cada personaje tiene su cut-in único (basado en sus renders de Stitch). **Nunca reutilizar el genérico "ruptura" para todos** — usar el específico por personaje.
+- **Trigger:** Se reproduce **al activar Ruptura** (barra llena). Al terminar vuelve a gameplay inmediatamente (sin black fade largo).
