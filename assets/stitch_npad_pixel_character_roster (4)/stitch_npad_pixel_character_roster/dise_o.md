@@ -1967,3 +1967,19 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 - `cinematic_2d_anime_prologue_cutscene_sequence_for_npad_yui_nakamura_origin` (screen.png)
 
 **Uso:** Al seleccionar personaje en menú → reproducir micro-prólogo 5–8s con VO japonés + subt ES/EN (§7.8). Formato cinematográfico 2D cel-shaded, sin audio horneado. Skip disponible tras primera visualización. Usar estos renders como keyframes/base.
+
+### 13.2 Generación de cinemáticas (gratis)
+
+**Opciones gratuitas:**
+- **Pika Labs** / **HunyuanVideo** / **Wan 2.1/2.2** (local o web con créditos) — 2D cel-shaded anime, puede seguir renders de Stitch como referencia
+- **Kling AI** (créditos), **PixAI** (créditos), **Hailuo** limitado
+- **Wan Video (local GGUF)** — recomendado si tienes GPU/CPU suficiente
+- **AI video local**: Wan, HunyuanVideo, CogVideoX (gratis)
+
+**Recomendado para este proyecto:** **HunyuanVideo/Wan local** — usa las imágenes `screen.png` de Stitch (prólogos/cut-ins) como **image-to-video** para animar siguiendo el estilo exacto. Genera sin audio, luego añade VO JA + subt ES/EN.
+
+**Flujo práctico:**
+1. Tomar `screen.png` de cada cinemática Stitch (4 prólogos + 4 cut-ins Ruptura) como referencia
+2. Generar clip 1–3s con prompt corto (encuadre, cámara sutil, sin over-animation)
+3. Exportar sin audio (.mp4) — implementar reproducción + skip + VO separado en Godot
+4. Render 12 fps para cut-ins, 24–30 fps para prólogos
