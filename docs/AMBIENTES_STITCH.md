@@ -7,7 +7,7 @@
 > Las 5 instancias de cada piso son los cinco tiempos de §4.1.2, no elegidas al
 > azar: ascenso, umbral, subjefe, ascenso alto, jefe.
 >
-> Referencia de diseño: `dise_o.md` §4.2 (pisos), §4.2.1 (ambientes por piso),
+> Referencia de diseño: `diseño.md` §4.2 (pisos), §4.2.1 (ambientes por piso),
 > §4.1.2 (los cinco tiempos), §7.1 (paleta), §6.3 (jerarquía visual), §14.1
 > (el mundo es japonés de verdad).
 

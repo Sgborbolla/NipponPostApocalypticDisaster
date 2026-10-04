@@ -10,7 +10,7 @@
 //      #1a1420 #2e2838 #4a4258 #7a7290 #c8c0d8 #f4f0ff
 //      #ff2d6f (peligro) #ffc400 (alerta) #ff8a3d (suelo) #9afaf2 (revivir)
 //
-//   B) npad_tactical_hud_system/DESIGN.md -> 50 hex, neon CRT.
+//   B) docs/npad_tactical_hud_system/DESIGN.md -> 50 hex, neon CRT.
 //      #00f0ff #39ff14 #ff1744 #ffb800 #bd00ff
 //
 //  Los mockups HTML de Stitch (npad_in_game_combat_2_button_hud/code.html y
@@ -134,7 +134,7 @@ public static class Palette
 
     // -------------------------------------------------------------------- HUD
     // El HUD de Stitch aporta la ESTRUCTURA y la TIPOGRAFIA; los colores salen
-    // de la lista de arriba. Ver npad_tactical_hud_system/DESIGN.md.
+    // de la lista de arriba. Ver docs/npad_tactical_hud_system/DESIGN.md.
 
     /// <summary>Fondo de panel. El "Cathode Pitch" de DESIGN.md, oscurecido.</summary>
     public static readonly Color HudPanel = new("16121c");
