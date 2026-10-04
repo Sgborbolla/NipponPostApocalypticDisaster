@@ -1,0 +1,27 @@
+Revisa lo que has generado y corrige SOLO estos cinco puntos. No cambies el
+concepto, la distribucion ni los ambientes, que estan bien.
+
+1. ETIQUETAS MAL PUESTAS. Has etiquetado las 5 instancias como "PISO 1" a
+   "PISO 5". No son cinco pisos: son cinco ETAPAS dentro del mismo Piso 1.
+   Renombra a: INSTANCIA 1 - ATRIO DE RECEPCION, INSTANCIA 2 - TORNIQUETES,
+   INSTANCIA 3 - ESCALERA MONUMENTAL, INSTANCIA 4 - MEZZANINE, INSTANCIA 5 -
+   CELOSIA DE TECHO. El contador de altura se queda.
+
+2. TOKENS DE COLOR. Has llamado "alert" al rojo #ff2d6f, pero ese es PELIGRO.
+   Reorganiza los tokens: danger = #ff2d6f, hazard = #ff8a3d, reward = #ffc400,
+   y el resto renombrados por su valor de gris, de mas oscuro a mas claro. Que
+   ningun token de color de riesgo se llame "alert".
+
+3. ELIMINA rounded, shadow y backdrop-blur. No quiero esquinas redondeadas,
+   ni sombras difusas, ni desenfoques de fondo. La profundidad se consigue con
+   biseles, con bordes duros de 1 px y con valor tonal, no con box-shadow.
+
+4. QUITA las imagenes externas. Van 10 URLs de googleusercontent. Todo debe ser
+   CSS: formas, gradientes planos y poligonos. Sin degradados suaves.
+
+5. La palabra "Tokyo" no aparece en ningun sitio. La ubicacion es la costa de
+   Kanto, Japon. Corrige los textos que la mencionen.
+
+Ademas: las guias de repisas superpuestas usan amarillo #ffc400, que en este
+juego esta reservado a recompensas. Cambialas a un gris claro y marcalas
+claramente como capa de desarrollo, no como parte de la escena.

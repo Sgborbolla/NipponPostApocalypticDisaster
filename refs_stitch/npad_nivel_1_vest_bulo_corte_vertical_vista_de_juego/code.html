@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPAD // Nivel 1: VESTÍBULO - Corte Vertical & Vista de Juego</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"Share Tech Mono"', 'monospace'],
+            code: ['"JetBrains Mono"', 'monospace'],
+            jp: ['"Noto Sans JP"', 'sans-serif'],
+          },
+          colors: {
+            arcology: {
+              900: '#0e1114',
+              850: '#14181d',
+              800: '#1b2027',
+              700: '#272f38',
+              600: '#38434f',
+              steel: '#4d5d6d',
+              concrete: '#8b8e8f',
+              ochre: '#a08967',
+              paper: '#cfc9b8',
+              alert: '#ff2d6f',
+              hazard: '#ff8a3d',
+              reward: '#ffc400',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e1114;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272f38;
+      border: 1px solid #38434f;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4d5d6d;
+    }
+
+    .crt-grid {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    .platform-guide {
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 196, 0, 0.15),
+        rgba(255, 196, 0, 0.15) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+    }
+  </style>
+</head>
+<body class="bg-arcology-900 text-arcology-paper font-mono min-h-screen flex flex-col selection:bg-arcology-ochre selection:text-black crt-grid">
+
+  <!-- TOP GAME SYSTEM HEADER (Rev. 3 Rules Compliance) -->
+  <header class="border-b border-arcology-700 bg-arcology-850 sticky top-0 z-50 px-5 py-3 flex flex-wrap items-center justify-between gap-4 shadow-xl">
+    <div class="flex items-center space-x-4">
+      <div class="border border-arcology-steel px-2 py-1 bg-black text-xs font-bold tracking-widest text-arcology-paper flex items-center gap-2">
+        <span class="inline-block w-2 h-2 bg-arcology-concrete animate-pulse"></span>
+        NPAD ARCHIVE // DEV_KIT
+      </div>
+      <div>
+        <h1 class="text-sm font-bold tracking-tight text-white flex items-center gap-2">
+          NIVEL 1: VESTÍBULO 
+          <span class="text-xs px-2 py-0.5 border border-arcology-700 bg-arcology-800 text-arcology-ochre font-jp">第1層 受領ロビー</span>
+        </h1>
+        <p class="text-[11px] text-arcology-concrete">ARCOLOGÍA DE INVESTIGACIÓN (TOKYO WARD 9) • CORTE VERTICAL MONUMENTAL • HACE 39 AÑOS</p>
+      </div>
+    </div>
+
+    <!-- Telemetry / Palette verification tags -->
+    <div class="flex items-center gap-4 text-xs">
+      <div class="hidden md:flex items-center gap-2 border border-arcology-700 bg-arcology-900 px-3 py-1.5 rounded-sm">
+        <span class="text-[10px] text-arcology-concrete uppercase tracking-wider">Norma Paleta Rev. 3:</span>
+        <div class="flex items-center gap-1.5 font-code text-[10px]">
+          <span class="px-1.5 py-0.5 bg-arcology-700 text-arcology-paper border border-arcology-steel" title="Fondo Acero/Hormigón">#272F38 ARCH</span>
+          <span class="px-1.5 py-0.5 bg-[#ff2d6f]/20 text-[#ff2d6f] border border-[#ff2d6f]/40 font-bold" title="Peligro Activo">#FF2D6F DANGER</span>
+          <span class="px-1.5 py-0.5 bg-[#ffc400]/20 text-[#ffc400] border border-[#ffc400]/40 font-bold" title="Recompensa">#FFC400 LOOT</span>
+          <span class="text-green-500 font-bold ml-1">✓ CERO CYAN/PINK NEON</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center gap-2">
+        <button id="toggleLedgesBtn" class="px-3 py-1.5 bg-arcology-800 border border-arcology-steel hover:bg-arcology-700 hover:text-white text-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-arcology-ochre" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <span>REPISAS Y COLISIONES (24px)</span>
+        </button>
+        <button id="viewCodeBtn" class="px-3 py-1.5 bg-arcology-ochre text-black font-bold hover:bg-white text-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <span>VER CÓDIGO HTML</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN DUAL-PANE WORKSPACE: Vertical Slice View + Stage Details -->
+  <main class="flex-1 max-w-[1720px] w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    
+    <!-- LEFT COLUMN: Vertical Stack Game Cut (The 5 Instances stacked with vertical flow & parallax depth) -->
+    <div class="lg:col-span-8 flex flex-col items-center">
+      
+      <!-- Tower Meta Badge -->
+      <div class="w-full flex items-center justify-between py-2 px-4 bg-arcology-850 border border-arcology-700 text-xs mb-3 text-arcology-concrete">
+        <div class="flex items-center gap-2">
+          <span class="text-arcology-ochre font-bold">ASCENSO DEL VESTÍBULO</span>
+          <span>• ALTURA TOTAL DE SALA: +64.0m</span>
+          <span>• 5 INSTANCIAS CONCATENADAS</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[10px] bg-black px-2 py-0.5 border border-arcology-700 font-jp">上層換気・退避ルート</span>
+          <span class="font-code text-arcology-ochre text-[11px]">SCROLL ↕ DESCENDER / SUBIR</span>
+        </div>
+      </div>
+
+      <!-- THE VERTICAL STACK CONTAINER (Simulating the in-game 2D vertical camera viewport) -->
+      <div id="verticalShaft" class="relative w-full max-w-[960px] bg-black border-2 border-arcology-steel shadow-2xl rounded-sm overflow-hidden">
+        
+        <!-- Depth Grid Lines overlay on the shaft -->
+        <div class="absolute inset-0 pointer-events-none z-30 opacity-15" style="background-image: repeating-linear-gradient(0deg, #8b8e8f 0px, transparent 1px, transparent 40px);"></div>
+        
+        <!-- Vertical Altimeter Ruler Indicator on left margin -->
+        <div class="absolute left-2 top-0 bottom-0 z-40 flex flex-col justify-between py-4 text-[10px] font-code text-arcology-ochre select-none pointer-events-none border-l border-arcology-steel/60 pl-1.5">
+          <div>▲ +64.0m [CELOSÍA SUPERIOR]</div>
+          <div>| +48.0m [INSTANCIA 4: MEZZANINE ARCHIVO]</div>
+          <div>| +32.0m [INSTANCIA 3: ESCALERA MONUMENTAL]</div>
+          <div>| +16.0m [INSTANCIA 2: TORNIQUETES BIOMÉTRICOS]</div>
+          <div>▼ +00.0m [INSTANCIA 1: ATRIO DE RECEPCIÓN]</div>
+        </div>
+
+        <!-- STACK OF 5 INSTANCES (From Top Ceiling Instance 5 down to Ground Floor Instance 1) -->
+        <div class="flex flex-col w-full relative">
+
+          <!-- ================= INSTANCE 5: TOP ATRIUM CEILING & VENTILATION ================= -->
+          <section id="inst-5" class="relative group border-b-2 border-dashed border-arcology-steel/40 bg-arcology-900 overflow-hidden">
+            <!-- Stage Header Overlay -->
+            <div class="absolute top-3 right-3 z-30 bg-black/85 backdrop-blur-sm border border-arcology-700 px-3 py-1 text-right">
+              <span class="text-[10px] text-arcology-concrete block">PISO 5 • +48.0m a +64.0m</span>
+              <span class="text-xs font-bold text-arcology-paper">CELOSÍA DE TECHO Y HUECO DE ASCENSORES</span>
+              <span class="font-jp text-[11px] text-arcology-ochre block">ウォード第九 // 立入禁止</span>
+            </div>
+
+            <!-- In-game Scene Image -->
+            <div class="relative overflow-hidden aspect-[16/9] w-full">
+              <img 
+                src="https://lh3.googleusercontent.com/aida/AEtjO1Xwjv36Fon6Xp452nFflye-7Ro4ccDHKxGKbe5Y9q-ZdSj2k-rHANrPVNea_Tg18MKXg6ODMrMgW1qBtFlIE8-ZaB1ZN6gPaLcrbixoXmiWDgQnE4b5YsQW-ONNoWgYPJLUU7WE6Sj-LS5ZkgNforCf32PogBDGRn_gG1U5gtJIAygidEIwxVncg_wdNiN7Z4fWndR_N4AQR-r_3OpvLJQJHE5msEf-JBcxoYOQ4zx6lnGj7t756x3dCA" 
+                alt="NPAD Nivel 1 - Instancia 5: Celosía de Techo" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] filter contrast-[1.05]"
+              />
+              <!-- Simulated Platform Hitboxes / Walkable Ledges (Rev 3 game readable) -->
+              <div class="ledge-overlay absolute inset-0 z-20 pointer-events-none hidden">
+                <div class="absolute top-[42%] left-[12%] right-[12%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[68%] left-[8%] w-[38%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[68%] right-[8%] w-[38%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute bottom-4 left-6 bg-black/90 border border-arcology-reward text-arcology-reward text-[10px] px-2 py-0.5 font-code">
+                  PLATFORM READABILITY: 24px Hard Inked Catwalks
+                </div>
+              </div>
+            </div>
+
+            <!-- Vertical Transition Gateway Notch -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 translate-y-1/2 bg-arcology-850 border border-arcology-steel px-3 py-0.5 text-[9px] text-arcology-ochre tracking-widest uppercase">
+              ▲ TRANSICIÓN DE EJE VERTICAL (HUECO ASCENSOR #3) ▲
+            </div>
+          </section>
+
+
+          <!-- ================= INSTANCE 4: HIGH MEZZANINE ARCHIVE & SECURITY VAULT ================= -->
+          <section id="inst-4" class="relative group border-b-2 border-dashed border-arcology-steel/40 bg-arcology-900 overflow-hidden">
+            <div class="absolute top-3 right-3 z-30 bg-black/85 backdrop-blur-sm border border-arcology-700 px-3 py-1 text-right">
+              <span class="text-[10px] text-arcology-concrete block">PISO 4 • +36.0m a +48.0m</span>
+              <span class="text-xs font-bold text-arcology-paper">MEZZANINE DE ARCHIVO E INSPECCIÓN</span>
+              <span class="font-jp text-[11px] text-arcology-ochre block">閉鎖 // 受領カウンター</span>
+            </div>
+
+            <div class="relative overflow-hidden aspect-[16/9] w-full">
+              <img 
+                src="https://lh3.googleusercontent.com/aida/AEtjO1WF8nBDBVfjZHACHTnZEhdXv6vOPYiJIKepX_PASutwfg93zzswdf-IvO811tVOiDd2YtabT94WCgi7eGWgpw4Ie1hiOK6HZd0MibZc84Vxtv0cV6iD7tA1F4uFsJjPPi1JrHqQKzXxL839JawgpHwvEC6wplrYNaKOU0VROF3QWIdBJBjngvDvl80WJXop_ouhwLC8nl4XP6NKxzuzcdpyerK7dlXm0cMlkgVnpa-qL6QPqpqQPg6rCLs" 
+                alt="NPAD Nivel 1 - Instancia 4: Mezzanine de Archivo" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] filter contrast-[1.05]"
+              />
+              <div class="ledge-overlay absolute inset-0 z-20 pointer-events-none hidden">
+                <div class="absolute bottom-[24%] left-[10%] right-[10%] h-2.5 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[22%] left-[4%] w-[32%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[22%] right-[4%] w-[32%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-1/2 left-[44%] w-6 h-36 border-2 border-dashed border-arcology-reward/80 text-[8px] text-center text-arcology-reward flex items-center justify-center">LADDER</div>
+              </div>
+            </div>
+
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 translate-y-1/2 bg-arcology-850 border border-arcology-steel px-3 py-0.5 text-[9px] text-arcology-ochre tracking-widest uppercase">
+              ▲ PASARELA SUSPENDIDA NIVEL MEZZANINE ▲
+            </div>
+          </section>
+
+
+          <!-- ================= INSTANCE 3: GRAND VERTICAL STAIRCASE ASCENT ================= -->
+          <section id="inst-3" class="relative group border-b-2 border-dashed border-arcology-steel/40 bg-arcology-900 overflow-hidden">
+            <div class="absolute top-3 right-3 z-30 bg-black/85 backdrop-blur-sm border border-arcology-700 px-3 py-1 text-right">
+              <span class="text-[10px] text-arcology-concrete block">PISO 3 • +24.0m a +36.0m</span>
+              <span class="text-xs font-bold text-arcology-paper">ASCENSO POR ESCALERA MONUMENTAL</span>
+              <span class="font-jp text-[11px] text-arcology-ochre block">非常口 // ウォード第九</span>
+            </div>
+
+            <div class="relative overflow-hidden aspect-[16/9] w-full">
+              <img 
+                src="https://lh3.googleusercontent.com/aida/AEtjO1UU_Ji87NX-4dN3RfcPz72dDT9w2lWZarLbMxSfA21gW_7AmjJH4Ub_bvAp2Gn848zFHVTdQpnDKlfc6WDAZJlMDMllm3sI7FRlUJSgOcZNrpuTKcNNdQbH3pti--Pg9i1BznG9d4WN7fSkrhLPNc3EefzClfP_dqI3QGUPh7PaFQk8hIwSuShrEGL2OuhBTAxNw6nLMi3sE0iSCSOSb7t7ZrVgQwjrUMbVMYi8jln8ZS9AVF_Gmn8HpQ" 
+                alt="NPAD Nivel 1 - Instancia 3: Escalera Monumental" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] filter contrast-[1.05]"
+              />
+              <div class="ledge-overlay absolute inset-0 z-20 pointer-events-none hidden">
+                <div class="absolute bottom-[8%] left-[10%] w-[30%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[44%] left-[32%] w-[36%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[18%] left-[5%] w-[30%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[32%] right-[8%] w-[34%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+              </div>
+            </div>
+
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 translate-y-1/2 bg-arcology-850 border border-arcology-steel px-3 py-0.5 text-[9px] text-arcology-ochre tracking-widest uppercase">
+              ▲ CONEXIÓN TIER INFERIOR & ESCALINATA ▲
+            </div>
+          </section>
+
+
+          <!-- ================= INSTANCE 2: BIOMETRIC TURNSTILES & SECURITY CHECKPOINT ================= -->
+          <section id="inst-2" class="relative group border-b-2 border-dashed border-arcology-steel/40 bg-arcology-900 overflow-hidden">
+            <div class="absolute top-3 right-3 z-30 bg-black/85 backdrop-blur-sm border border-arcology-700 px-3 py-1 text-right">
+              <span class="text-[10px] text-arcology-concrete block">PISO 2 • +12.0m a +24.0m</span>
+              <span class="text-xs font-bold text-arcology-paper">CORREDOR DE TORNIQUETES Y ACCESO BIOMÉTRICO</span>
+              <span class="font-jp text-[11px] text-arcology-ochre block">入場証 // 閉鎖 // 受領</span>
+            </div>
+
+            <div class="relative overflow-hidden aspect-[16/9] w-full">
+              <img 
+                src="https://lh3.googleusercontent.com/aida/AEtjO1UmF2h5wHAAiAFTxYpJoDomrczUng1ccczHW12y7Kr4G2AXc2Fb2-GW4fjaDFSkuXRV6QrIwdAzsm5d9xq0ruUWVP8f_4s76QdsqLUbD6No9ytJnnFWBnFGzLYb4OWCIMma9QQEMMkeww96nxRzX4OGQxoOSNrNKZKa8m5lVFMZ4fCdY4Tx28TB8KqJ5bmwnc_4aaH3HOralV01e0vK3qHFgYWJw7COA0PkQXUW_UssMCTuK4tDWECSfME" 
+                alt="NPAD Nivel 1 - Instancia 2: Torniquetes y Acceso Biométrico" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] filter contrast-[1.05]"
+              />
+              <div class="ledge-overlay absolute inset-0 z-20 pointer-events-none hidden">
+                <div class="absolute bottom-[5%] left-0 right-0 h-4 bg-arcology-reward/20 border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[36%] left-[34%] w-[32%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[26%] left-0 right-0 h-2 border-t-2 border-arcology-reward/50"></div>
+              </div>
+            </div>
+
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 translate-y-1/2 bg-arcology-850 border border-arcology-steel px-3 py-0.5 text-[9px] text-arcology-ochre tracking-widest uppercase">
+              ▲ ATRIO PRINCIPAL DE ENTRADA (PLANTA BAJA) ▲
+            </div>
+          </section>
+
+
+          <!-- ================= INSTANCE 1: GROUND FLOOR RECEPTION & SECURITY ENTRANCE ================= -->
+          <section id="inst-1" class="relative group bg-arcology-900 overflow-hidden">
+            <div class="absolute top-3 right-3 z-30 bg-black/85 backdrop-blur-sm border border-arcology-700 px-3 py-1 text-right">
+              <span class="text-[10px] text-arcology-concrete block">PISO 1 • +00.0m a +12.0m</span>
+              <span class="text-xs font-bold text-arcology-paper">ATRIO DE ENTRADA Y MOSTRADOR DE RECEPCIÓN</span>
+              <span class="font-jp text-[11px] text-arcology-ochre block">受領 // 立入禁止 // ウォード第九</span>
+            </div>
+
+            <div class="relative overflow-hidden aspect-[16/9] w-full">
+              <img 
+                src="https://lh3.googleusercontent.com/aida/AEtjO1UqKxWHSfnML6oBXN3seJKyhPFJx2e3xWDAtMpFFUc8iozo_Yg-PWIS6NVEdSLTlbiDL5OgVL33H5vt7rmkrZJjwv2031exEJz25xEcTr7QWvcJ1iqhePIreQGCIpy698ZQdkiBs60jeQw_y2MXA6oJSObh4c-QrXTsZOgHVVO_i6Oub7hDPdhjx_RfDmoTI7sW8En5MHASmL8EvRvH2J0V9edGOaqBG4G9YRb41i4Vyo1-9Nf6GFb5xBk" 
+                alt="NPAD Nivel 1 - Instancia 1: Entrada Principal y Mostrador" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] filter contrast-[1.05]"
+              />
+              <div class="ledge-overlay absolute inset-0 z-20 pointer-events-none hidden">
+                <div class="absolute bottom-[6%] left-0 right-0 h-4 bg-arcology-reward/20 border-t-2 border-arcology-reward"></div>
+                <div class="absolute bottom-[30%] left-[2%] w-[48%] h-2.5 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[48%] left-[2%] w-[58%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+                <div class="absolute top-[34%] right-[10%] w-[38%] h-2 platform-guide border-t-2 border-arcology-reward"></div>
+              </div>
+            </div>
+
+            <div class="absolute bottom-3 left-4 z-30 bg-black/90 border border-arcology-steel px-3 py-1 flex items-center gap-3">
+              <span class="w-2 h-2 bg-[#ff2d6f] rounded-full animate-ping"></span>
+              <span class="text-[11px] text-arcology-paper font-code">PUNTO DE DESPLIEGUE INICIAL (SPAWN PISO 1)</span>
+            </div>
+          </section>
+
+        </div>
+      </div>
+      
+      <!-- Footer Note under vertical stack -->
+      <div class="w-full mt-3 text-center text-xs text-arcology-concrete flex justify-between items-center px-4">
+        <span>© NPAD PROTOCOL // WARD 9 RESEARCH ARCOLOGY</span>
+        <span class="font-code text-arcology-ochre">RESOLUCIÓN DE ENTORNO: 16:9 NATIVO / 1920×1080</span>
+      </div>
+    </div>
+
+
+    <!-- RIGHT COLUMN: Architecture Breakdown, Interactive Navigator, and Code Inspector -->
+    <div class="lg:col-span-4 flex flex-col gap-5">
+
+      <!-- QUICK NAVIGATOR: Jump to instance -->
+      <div class="bg-arcology-850 border border-arcology-700 p-4 shadow-lg">
+        <div class="flex items-center justify-between border-b border-arcology-700 pb-2 mb-3">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+            <span class="text-arcology-ochre">◈</span> NAVEGADOR DE EJE VERTICAL
+          </h2>
+          <span class="text-[10px] text-arcology-concrete font-code">5 SECCIONES</span>
+        </div>
+
+        <div class="space-y-2">
+          <button onclick="scrollToInstance('inst-5')" class="w-full text-left p-2.5 bg-arcology-900 border border-arcology-700 hover:border-arcology-ochre hover:bg-arcology-800 transition flex items-center justify-between group">
+            <div>
+              <div class="text-xs font-bold text-arcology-paper group-hover:text-white">PISO 5: Celosía y Transfer Gate</div>
+              <div class="text-[10px] text-arcology-concrete font-jp">ウォード第九 // 非常口</div>
+            </div>
+            <span class="font-code text-xs text-arcology-ochre">+48m-64m</span>
+          </button>
+
+          <button onclick="scrollToInstance('inst-4')" class="w-full text-left p-2.5 bg-arcology-900 border border-arcology-700 hover:border-arcology-ochre hover:bg-arcology-800 transition flex items-center justify-between group">
+            <div>
+              <div class="text-xs font-bold text-arcology-paper group-hover:text-white">PISO 4: Mezzanine de Archivo</div>
+              <div class="text-[10px] text-arcology-concrete font-jp">閉鎖 // 受領カウンター</div>
+            </div>
+            <span class="font-code text-xs text-arcology-ochre">+36m-48m</span>
+          </button>
+
+          <button onclick="scrollToInstance('inst-3')" class="w-full text-left p-2.5 bg-arcology-900 border border-arcology-700 hover:border-arcology-ochre hover:bg-arcology-800 transition flex items-center justify-between group">
+            <div>
+              <div class="text-xs font-bold text-arcology-paper group-hover:text-white">PISO 3: Gran Escalera Monumental</div>
+              <div class="text-[10px] text-arcology-concrete font-jp">非常口 // 立入禁止</div>
+            </div>
+            <span class="font-code text-xs text-arcology-ochre">+24m-36m</span>
+          </button>
+
+          <button onclick="scrollToInstance('inst-2')" class="w-full text-left p-2.5 bg-arcology-900 border border-arcology-700 hover:border-arcology-ochre hover:bg-arcology-800 transition flex items-center justify-between group">
+            <div>
+              <div class="text-xs font-bold text-arcology-paper group-hover:text-white">PISO 2: Torniquetes Biométricos</div>
+              <div class="text-[10px] text-arcology-concrete font-jp">入場証 // 閉鎖</div>
+            </div>
+            <span class="font-code text-xs text-arcology-ochre">+12m-24m</span>
+          </button>
+
+          <button onclick="scrollToInstance('inst-1')" class="w-full text-left p-2.5 bg-arcology-900 border border-arcology-700 hover:border-arcology-ochre hover:bg-arcology-800 transition flex items-center justify-between group">
+            <div>
+              <div class="text-xs font-bold text-arcology-paper group-hover:text-white">PISO 1: Atrio Principal y Recepción</div>
+              <div class="text-[10px] text-arcology-concrete font-jp">受領 // 立入禁止 (SPAWN)</div>
+            </div>
+            <span class="font-code text-xs text-arcology-ochre">+00m-12m</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DESIGN SPECIFICATION ACCORDION -->
+      <div class="bg-arcology-850 border border-arcology-700 p-4 shadow-lg text-xs">
+        <h3 class="font-bold text-white uppercase tracking-wider mb-2.5 flex items-center gap-2">
+          <span class="w-2 h-2 bg-arcology-ochre"></span>
+          FICHA TÉCNICA DEL AMBIENTE (REV. 3)
+        </h3>
+
+        <div class="space-y-3 text-arcology-concrete font-code text-[11px] leading-relaxed">
+          <div class="border-l-2 border-arcology-steel pl-2.5">
+            <span class="text-white block font-bold">1. Verticalidad y Apilamiento (Ref. 02):</span>
+            Eje de cámara vertical puro. El jugador sube desde el nivel del suelo a través de los descansillos y pasarelas de hormigón. Cada tramo tiene suficiente "aire" superior para dobles saltos y wall-jump en columnas.
+          </div>
+
+          <div class="border-l-2 border-arcology-steel pl-2.5">
+            <span class="text-white block font-bold">2. Contorno y Silueta a 24px (Ref. 04):</span>
+            Entintado duro con trazo negro continuo. Sin aerografía suave. Las repisas transitables mantienen bordes rectos contrastados para lectura instantánea durante combate frenético.
+          </div>
+
+          <div class="border-l-2 border-arcology-steel pl-2.5">
+            <span class="text-white block font-bold">3. Tono Burocrático Institucional (Ref. 07):</span>
+            No es un campo de batalla devastado por proyectiles ni base militar; es el vestíbulo de control civil de una megainstalación donde pasaron 40.000 personas antes del cierre definitivo hace 39 años. Relojes detenidos, bandejas vacías y planos de evacuación.
+          </div>
+
+          <div class="border-l-2 border-arcology-ochre pl-2.5">
+            <span class="text-arcology-reward block font-bold">4. Regla Estricta de Paleta Rev. 3:</span>
+            Arquitectura neutra (gris hormigón, sepia apagado, azul acero). Cero cian neón decorativo. El color saturado solo se activa ante Peligro (#ff2d6f / #ff8a3d) o Recompensas clave (#ffc400).
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE HTML / CSS SNIPPET EXPORTER MODAL / CONTAINER -->
+      <div id="codePanel" class="bg-arcology-850 border border-arcology-700 p-4 shadow-lg">
+        <div class="flex items-center justify-between border-b border-arcology-700 pb-2 mb-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-white uppercase tracking-wider">CÓDIGO FUENTE DEL ENTORNO</span>
+            <span class="text-[10px] bg-arcology-800 text-arcology-ochre px-1.5 py-0.5 border border-arcology-700 font-code">HTML5 / CSS</span>
+          </div>
+          <button id="copySnippetBtn" class="text-[11px] px-2 py-0.5 border border-arcology-steel bg-arcology-900 text-arcology-paper hover:bg-white hover:text-black transition">
+            COPIAR HTML
+          </button>
+        </div>
+
+        <p class="text-[11px] text-arcology-concrete mb-2">
+          Estructura para integrar este corte vertical directamente en tu motor web o canvas de pruebas:
+        </p>
+
+        <div class="relative bg-black border border-arcology-700 p-3 rounded font-code text-[10px] text-gray-300 max-h-56 overflow-y-auto leading-relaxed">
+<pre id="codeSnippetText">&lt;!-- NPAD Nivel 1: Vestíbulo - Contenedor de Ascenso Vertical --&gt;
+&lt;div class="npad-vertical-shaft" style="display:flex; flex-direction:column; width:100%; max-width:1920px; background:#0e1114;"&gt;
+  
+  &lt;!-- Instancia 5: Celosía Superior (+48m a +64m) --&gt;
+  &lt;section id="stage-5" class="stage-instance" data-elevation="64m"&gt;
+    &lt;img src="https://lh3.googleusercontent.com/aida/AEtjO1Xwjv36Fon6Xp452nFflye-7Ro4ccDHKxGKbe5Y9q-ZdSj2k-rHANrPVNea_Tg18MKXg6ODMrMgW1qBtFlIE8-ZaB1ZN6gPaLcrbixoXmiWDgQnE4b5YsQW-ONNoWgYPJLUU7WE6Sj-LS5ZkgNforCf32PogBDGRn_gG1U5gtJIAygidEIwxVncg_wdNiN7Z4fWndR_N4AQR-r_3OpvLJQJHE5msEf-JBcxoYOQ4zx6lnGj7t756x3dCA" alt="Instancia 5: Celosía Superior" style="width:100%; aspect-ratio:16/9; display:block;" /&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Instancia 4: Mezzanine Archivo (+36m a +48m) --&gt;
+  &lt;section id="stage-4" class="stage-instance" data-elevation="48m"&gt;
+    &lt;img src="https://lh3.googleusercontent.com/aida/AEtjO1WF8nBDBVfjZHACHTnZEhdXv6vOPYiJIKepX_PASutwfg93zzswdf-IvO811tVOiDd2YtabT94WCgi7eGWgpw4Ie1hiOK6HZd0MibZc84Vxtv0cV6iD7tA1F4uFsJjPPi1JrHqQKzXxL839JawgpHwvEC6wplrYNaKOU0VROF3QWIdBJBjngvDvl80WJXop_ouhwLC8nl4XP6NKxzuzcdpyerK7dlXm0cMlkgVnpa-qL6QPqpqQPg6rCLs" alt="Instancia 4: Mezzanine Archivo" style="width:100%; aspect-ratio:16/9; display:block;" /&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Instancia 3: Escalera Monumental (+24m a +36m) --&gt;
+  &lt;section id="stage-3" class="stage-instance" data-elevation="36m"&gt;
+    &lt;img src="https://lh3.googleusercontent.com/aida/AEtjO1UU_Ji87NX-4dN3RfcPz72dDT9w2lWZarLbMxSfA21gW_7AmjJH4Ub_bvAp2Gn848zFHVTdQpnDKlfc6WDAZJlMDMllm3sI7FRlUJSgOcZNrpuTKcNNdQbH3pti--Pg9i1BznG9d4WN7fSkrhLPNc3EefzClfP_dqI3QGUPh7PaFQk8hIwSuShrEGL2OuhBTAxNw6nLMi3sE0iSCSOSb7t7ZrVgQwjrUMbVMYi8jln8ZS9AVF_Gmn8HpQ" alt="Instancia 3: Escalera Monumental" style="width:100%; aspect-ratio:16/9; display:block;" /&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Instancia 2: Torniquetes Biométricos (+12m a +24m) --&gt;
+  &lt;section id="stage-2" class="stage-instance" data-elevation="24m"&gt;
+    &lt;img src="https://lh3.googleusercontent.com/aida/AEtjO1UmF2h5wHAAiAFTxYpJoDomrczUng1ccczHW12y7Kr4G2AXc2Fb2-GW4fjaDFSkuXRV6QrIwdAzsm5d9xq0ruUWVP8f_4s76QdsqLUbD6No9ytJnnFWBnFGzLYb4OWCIMma9QQEMMkeww96nxRzX4OGQxoOSNrNKZKa8m5lVFMZ4fCdY4Tx28TB8KqJ5bmwnc_4aaH3HOralV01e0vK3qHFgYWJw7COA0PkQXUW_UssMCTuK4tDWECSfME" alt="Instancia 2: Torniquetes Biométricos" style="width:100%; aspect-ratio:16/9; display:block;" /&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Instancia 1: Atrio Principal Planta Baja (0m a +12m) --&gt;
+  &lt;section id="stage-1" class="stage-instance" data-elevation="00m"&gt;
+    &lt;img src="https://lh3.googleusercontent.com/aida/AEtjO1UqKxWHSfnML6oBXN3seJKyhPFJx2e3xWDAtMpFFUc8iozo_Yg-PWIS6NVEdSLTlbiDL5OgVL33H5vt7rmkrZJjwv2031exEJz25xEcTr7QWvcJ1iqhePIreQGCIpy698ZQdkiBs60jeQw_y2MXA6oJSObh4c-QrXTsZOgHVVO_i6Oub7hDPdhjx_RfDmoTI7sW8En5MHASmL8EvRvH2J0V9edGOaqBG4G9YRb41i4Vyo1-9Nf6GFb5xBk" alt="Instancia 1: Entrada Principal" style="width:100%; aspect-ratio:16/9; display:block;" /&gt;
+  &lt;/section&gt;
+
+&lt;/div&gt;</pre>
+        </div>
+        <div id="copyFeedback" class="text-[10px] text-green-400 mt-1 hidden font-code">✓ ¡Código copiado al portapapeles!</div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    // Smooth scroll to individual game instance inside the stack
+    function scrollToInstance(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ring-2', 'ring-arcology-ochre');
+        setTimeout(() => {
+          el.classList.remove('ring-2', 'ring-arcology-ochre');
+        }, 1800);
+      }
+    }
+
+    // Toggle playable ledges / platforms guide overlay
+    const toggleBtn = document.getElementById('toggleLedgesBtn');
+    let ledgesActive = false;
+    toggleBtn.addEventListener('click', () => {
+      ledgesActive = !ledgesActive;
+      document.querySelectorAll('.ledge-overlay').forEach(overlay => {
+        if (ledgesActive) {
+          overlay.classList.remove('hidden');
+        } else {
+          overlay.classList.add('hidden');
+        }
+      });
+      toggleBtn.classList.toggle('bg-arcology-ochre', ledgesActive);
+      toggleBtn.classList.toggle('text-black', ledgesActive);
+      toggleBtn.classList.toggle('bg-arcology-800', !ledgesActive);
+      toggleBtn.classList.toggle('text-white', !ledgesActive);
+    });
+
+    // Copy HTML Code Snippet
+    const copyBtn = document.getElementById('copySnippetBtn');
+    const feedback = document.getElementById('copyFeedback');
+    copyBtn.addEventListener('click', () => {
+      const text = document.getElementById('codeSnippetText').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        feedback.classList.remove('hidden');
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 2500);
+      });
+    });
+
+    // Code scroll button in header
+    document.getElementById('viewCodeBtn').addEventListener('click', () => {
+      document.getElementById('codePanel').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
