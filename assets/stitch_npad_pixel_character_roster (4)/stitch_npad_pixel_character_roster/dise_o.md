@@ -1869,3 +1869,13 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 | **P4 Archivo** | **EL ESCRIBANO** | Masculino, gélido, resentido | `「歴史は、消されるべきじゃねぇ。」` | *"La historia no debería borrarse."* | *"History was never meant to be erased."* | `「書き直せ…お前なら。」` | *"Reescríbela... tú puedes."* | *"Rewrite it... you can."* |
 | **P5 Clínica** | **LA CIRUJANA** | Femenino, serena, rota | `「延命は…もう、終わらせよう。」` | *"Este prolongamiento... debe terminar."* | *"This extension... must end."* | `「ありがとう…もう眠らせて。」` | *"Gracias... déjame dormir."* | *"Thank you... let me rest."* |
 | **P6 Núcleo** | **EL NÚCLEO** | Andrógino, cavernoso, fragmentado | `「時は、一つであったはずだ。」` | *"El tiempo debió haber sido uno solo."* | *"Time was meant to be whole."* | `「裂け目を…閉じろ。」` | *"Cierra... la grieta."* | *"Close... the rift."* |
+
+### 7.10 Arte final: usar renders de Stitch como base gráfica
+
+> **Decisión de arte:** El juego usará los diseños generados con **Stitch** tal cual como base gráfica (no siluetas). Los renders en `assets/stitch_npad_pixel_character_roster (4)/stitch_npad_pixel_character_roster/` y referencias (`refs_stitch/`, `assets/refs_stitch/`) son la referencia canónica de look&feel.
+
+**Directrices:**
+- **Pixel art 2D con look definido.** Tomar los sprites/renders de Stitch como línea base de proporciones, paleta, iluminación y formas (§7.1).
+- **Sin simplificar a siluetas.** Lo definido gráficamente por Stitch se mantiene (personajes, enemigos, ambientes). El test de legibilidad se hace con el arte final, no reduciendo a negro.
+- **Consistencia entre sets.** Personajes, enemigos, HUD, ambientes y cinemáticas deben ceñirse a los renders de Stitch para evitar drift visual.
+- **Exportación/implementación:** En Godot 4 se usarán spritesheets/atlas basados en los assets de Stitch (ajustando tileado/frames, sin reestilizar a otro look).
