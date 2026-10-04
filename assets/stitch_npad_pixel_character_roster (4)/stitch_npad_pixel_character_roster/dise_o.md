@@ -1752,6 +1752,19 @@ Lo propio de NPAD, y donde tiene que estar la diferencia:
 | **P5. Clínica** | Horror administrativo | Nightmare (distorsionado) | Glory (clímax) |
 | **P6. Núcleo** | Apocalíptico | Backbone (progresivo) | Glory (fase 2 jefe, ruptura) |
 
+
+
+#### 7.5.1 BGM de Menú/Título
+
+| Título sugerido | Autor | Género | Uso |
+|---|---|---|---|
+| **Tokyo Underground** / estilo Japanese Phonk chill | Tima Belorusskih (estilo atmosférico) | Japanese Drift Phonk / Lo-fi Phonk | Pantalla de título, menú principal (loop suave, sin presión) |
+| **Nocturne** / cyberphonk atmosférico | SXMPRA | Phonkwave / Cyberphonk | Menú/selección de personaje (tensión latente, encaja con tono administrativo) |
+| **Rainfall Phonk** | Kordhell (versión atmosférica) | Dark Phonk Chill | Idle en hub (run summary, opciones) |
+
+**Recomendación para inicio:** *Japanese Drift Phonk - Slow Edit / Tokyo Underground vibe*. Ritmo medio-lento (70–90 BPM), con pads nebulosos y chops japoneses. Transmite "torre cerrada desde hace 39 años" sin romper la energía que promete el juego.
+
+
 #### Notas de implementación (con game feel)
 
 - **Loop seamless**: todas deben poder loopearse sin corte (combate sostenido).
