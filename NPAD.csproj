@@ -1,0 +1,18 @@
+<Project Sdk="Godot.NET.Sdk/4.4.1">
+  <!--
+    NPAD.csproj — Hito 0.
+
+    Version del SDK verificada contra NuGet (api.nuget.org/v3-flatcontainer/
+    godot.net.sdk/index.json) y emparejada con el editor usado para compilar:
+    Godot 4.4.1-stable mono. AGENTS.md §1.5 pide explicitamente comprobar la
+    version vigente en vez de asumirla. Si el PC del usuario usa otro 4.x,
+    cambiar aqui y en config/features de project.godot a la par.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>NPAD</RootNamespace>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+</Project>

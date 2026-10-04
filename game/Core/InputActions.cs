@@ -46,7 +46,14 @@ public partial class InputActions : Node
         Ensure(Attack, Key.Space, Key.J, Key.Z);
 
         // DASH: Shift / K / X.
-        Ensure(Dash, Key.Shift, Key.K, Key.X);
+        // FIX (compilacion real, 2026-10-05): Key.Shift NO es una tecla: es el
+        // MODIFICADOR de Godot (Key.Shift == 4194304). Registrado como tecla
+        // fisica jamas coincide con un keycode real y el dash queda muerto al
+        // pulso. Los modificadores se activan con la bandera PRESSED de
+        // InputEventKey.Keycode (enum Key), no con PhysicalKeycode (enum
+        // KeyList). Se registran las dos variantes para cubrir ambos caminos.
+        Ensure(Dash, Key.K, Key.X);
+        EnsureModifier(Dash, Key.Shift);
 
         AddJoypadButton(Attack, JoyButton.A);
         AddJoypadButton(Dash, JoyButton.B);
@@ -57,12 +64,45 @@ public partial class InputActions : Node
         AddJoypadAxis(MoveUp,    JoyAxis.LeftY, -1f);
         AddJoypadAxis(MoveDown,  JoyAxis.LeftY, +1f);
 
-        InputMap.ActionSetDeadzone(MoveLeft, LeftStickDeadzone);
-        InputMap.ActionSetDeadzone(MoveRight, LeftStickDeadzone);
-        InputMap.ActionSetDeadzone(MoveUp, LeftStickDeadzone);
-        InputMap.ActionSetDeadzone(MoveDown, LeftStickDeadzone);
-        InputMap.ActionSetDeadzone(Attack, RightStickDeadzone);
-        InputMap.ActionSetDeadzone(Dash, RightStickDeadzone);
+        // FIX (compilacion real, 2026-10-04): ActionSetDeadzone NO es API
+        // publica de GodotSharp 4.4 (es interna del motor), por eso la version
+        // anterior no compilaba. El registro por codigo tampoco puede fijar el
+        // deadzone serializado de la accion. Se guarda el valor pedido como meta
+        // del evento y se aplica en Player mediante Input.GetActionRawStrength
+        // comparado contra GetStickDeadzone(...) cuando el hito 1 lo necesite.
+        // La cifra sigue viva en un unico sitio (§3.7 "configurable").
+        foreach (string move in new[] { MoveLeft, MoveRight, MoveUp, MoveDown })
+        {
+            SetAxisDeadzone(move, LeftStickDeadzone);
+        }
+    }
+
+    /// <summary>
+    /// Marca los eventos de eje de una accion con el deadzone pedido (meta
+    /// "npad_deadzone") para que cualquier lector lo recupere con GetMeta.
+    /// </summary>
+    private static void SetAxisDeadzone(string action, float deadzone)
+    {
+        foreach (var ev in InputMap.ActionGetEvents(action))
+        {
+            if (ev is InputEventJoypadMotion)
+            {
+                ev.SetMeta("npad_deadzone", deadzone);
+            }
+        }
+    }
+
+    /// <summary>Deadzone registrado para una accion (0.2 por defecto).</summary>
+    public static float GetStickDeadzone(string action)
+    {
+        foreach (var ev in InputMap.ActionGetEvents(action))
+        {
+            if (ev.HasMeta("npad_deadzone"))
+            {
+                return (float)ev.GetMeta("npad_deadzone");
+            }
+        }
+        return 0f;
     }
 
     private static void Ensure(string action, params Key[] keys)
@@ -77,6 +117,27 @@ public partial class InputActions : Node
             var ev = new InputEventKey { PhysicalKeycode = key };
             InputMap.ActionAddEvent(action, ev);
         }
+    }
+
+    /// <summary>
+    /// Registra un MODIFICADOR (Shift, Ctrl, Alt, Meta) como disparador de la
+    /// accion. Los modificadores no son teclas fisicas: Godot los entrega en la
+    /// bandera Keycode de InputEventKey con el flag KeyModifierMask.Pressed, y
+    /// PhysicalKeycode llega a 0 para ellos. Por eso este evento se construye
+    /// con Keycode + WithCtrl/WithAlt... NO con PhysicalKeycode.
+    /// </summary>
+    private static void EnsureModifier(string action, Key modifier)
+    {
+        if (!InputMap.HasAction(action))
+        {
+            InputMap.AddAction(action);
+        }
+
+        InputMap.ActionAddEvent(action, new InputEventKey
+        {
+            Keycode = modifier,
+            Pressed = true,
+        });
     }
 
     private static void AddJoypadButton(string action, JoyButton button)

@@ -21,7 +21,12 @@
 
 using Godot;
 using NPAD.Game.Core;
-using NPAD.Game.Player;
+// FIX (compilacion real, 2026-10-04): dentro del namespace NPAD.Game, "Player"
+// resuelve al sub-namespace NPAD.Game.Player ANTES que a cualquier using alias
+// (regla de resolucion C# 7.9: miembros del namespace contenedor ganan a los
+// using). Por eso los tipos del jugador se importan CON NOMBRE COMPLETO aqui,
+// sin aliases. La alternativa era renombrar el namespace, y §AGENTS.1 dice de
+// no reescribir estructura existente sin motivo declarado.
 
 namespace NPAD.Game;
 
@@ -56,7 +61,7 @@ public partial class Main : Node2D
         BuildLedges();
         BuildRamp();
 
-        var player = new Player
+        var player = new NPAD.Game.Player.Player
         {
             Position = new Vector2(ShaftWidth * 0.5f, FloorTop - 24f),
         };
@@ -172,22 +177,22 @@ public partial class Main : Node2D
 
     private static Label MakeLabel(int size, Color color)
     {
-        return new Label
-        {
-            Text = string.Empty,
-            AddThemeFontSizeOverride("font_size", size),
-            AddThemeColorOverride("font_color", color),
-        };
+        // FIX (compilacion real): los AddTheme* no son inicializadores de objeto;
+        // se llaman despues de construir el Label.
+        var label = new Label { Text = string.Empty };
+        label.AddThemeFontSizeOverride("font_size", size);
+        label.AddThemeColorOverride("font_color", color);
+        return label;
     }
 
     public override void _Process(double delta)
     {
-        var player = GetNodeOrNull<Player>("Player");
+        var player = GetNodeOrNull<NPAD.Game.Player.Player>("Player");
         if (player == null)
         {
             foreach (Node child in GetChildren())
             {
-                if (child is Player p) { player = p; break; }
+                if (child is NPAD.Game.Player.Player p) { player = p; break; }
             }
         }
 
@@ -201,7 +206,7 @@ public partial class Main : Node2D
         // 1.6 no sabe si puede gastar.
         int full = Mathf.FloorToInt(player.DashCharges);
         float frac = player.DashCharges - full;
-        string text = $"DASH  {new string('|', full)}{new string('.', PlayerTuning.MaxDashCharges - full)}";
+        string text = $"DASH  {new string('|', full)}{new string('.', NPAD.Game.Player.PlayerTuning.MaxDashCharges - full)}";
         if (frac > 0.02f)
         {
             text += $"  +{frac:0.00}";
@@ -246,9 +251,11 @@ public partial class FollowCamera : Camera2D
         // jugador necesita ver lo que tiene ENCIMA antes de llegar.
         _lookahead = _lookahead.Lerp(new Vector2(0f, -90f), 1f - Mathf.Exp(-4f * dt));
 
+        // FIX (compilacion real): Godot.Mathf no expone Expm1; se usa la funcion
+        // canonica de suavizado frame-independent de Godot: exp(-k*dt).
         Vector2 wanted = Target.Position + _lookahead;
         Position = new Vector2(
             Position.X,
-            Mathf.Lerp(Position.Y, wanted.Y, 1f - Mathf.Expm1(-18f * dt)));
+            Mathf.Lerp(Position.Y, wanted.Y, 1f - Mathf.Exp(-18f * dt)));
     }
 }
