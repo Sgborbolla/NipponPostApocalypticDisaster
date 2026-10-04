@@ -1838,3 +1838,33 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 | **Yui Nakamura** — *El Eco* | "Los que repiten" | Oyó a los atrapados repetir lo mismo durante años. No quiere ser otro eco. Quiere cortar la repetición. | Femenina, calmada, melancólica (japonés nativo) | `ja: "もう、誰かの残響にはなりたくない。"` · `es: "Ya no quiero ser el eco de nadie más."` · `en: "I don't want to be someone else's echo anymore."` |
 
 **Aplicación:** al elegir personaje → 5–8s micro-cinemática (puede ser **skip** desde run 2). Usa mismo sistema VO+subtítulos (§7.4). No alarga run, añade contexto.
+
+### 7.9 Diálogos: Subjefes y Jefes (japonés VO + subtítulos ES/EN)
+
+> **Principio:** Todo diálogo va en **japonés** para VO. Los subtítulos se muestran en **español** o **inglés** según selección en título (§7.6). En combate solo se subtitulan *poder* y *habilidad nueva* (§7.4.2). En **intros/outros** de subjefes/jefes **sí** se subtitulan.
+
+**Casting sugerido:** voces japonesas con tono institucional/distópico. Subjefes: fríos, burocráticos (eco de sistema). Jefes: más personales, con peso.
+
+#### 7.9.1 Subjefes (6 pisos)
+
+| Piso | Subjefe | Voz (ja) | Intro JA | Intro ES | Intro EN | Outro JA | Outro ES | Outro EN |
+|---|---|---|---|---|---|---|---|---|
+| **P1 Vestíbulo** | *RECAUDADOR* (burocracia) | Masculino, neutro, mecánico | `「受付は、既に終了しております。」` | *"La recepción ya ha finalizado."* | *"Reception has already closed."* | `「定員超過。対象を排除します。」` | *"Límite excedido. Procedo a eliminar objetivo."* | *"Capacity exceeded. Removing target."* |
+| **P2 Market Roto** | *INVENTARIANTE* | Femenino, frío, monótono | `「棚卸しは、予定より延長されます。」` | *"El inventario se alargará más de lo previsto."* | *"Inventory count extended beyond schedule."* | `「欠損品、確認。処分。」` | *"Artículo dañado confirmado. Eliminación."* | *"Damaged item confirmed. Disposal."* |
+| **P3 Refinería** | *SOBRECARGA* | Masculino, gutural contenido | `「圧力、許容値を超過。」` | *"Presión por encima del umbral permitido."* | *"Pressure exceeding safety threshold."* | `「緊急遮断…失敗。」` | *"Corte de emergencia... fallido."* | *"Emergency cutoff... failed."* |
+| **P4 Archivo** | *ARCHIVISTA* | Femenino, susurrante, clínico | `「あなたの記録は、既に破棄候補です。」` | *"Tu expediente ya figura para su eliminación."* | *"Your file is already marked for deletion."* | `「アクセス権、剥奪。」` | *"Privilegios de acceso revocados."* | *"Access privileges revoked."* |
+| **P5 Clínica** | *AUTOPSISTA* | Masculino, desapegado | `「患者番号：不明。処置を開始。」` | *"Nº de paciente: desconocido. Inicio de procedimiento."* | *"Patient ID: unknown. Commencing procedure."* | `「異常検体、廃棄対象。」` | *"Muestra anómala. Clasificada para desecho."* | *"Anomalous specimen marked for disposal."* |
+| **P6 Núcleo** | *GUARDIÁN* | Masculino, grave, metálico | `「立入禁止区域。侵入者を排除。」` | *"Zona prohibida. Eliminando intruso."* | *"Restricted zone. Removing intruder."* | `「封鎖維持…不能。」` | *"Imposible mantener el sellado."* | *"Seal cannot be maintained."* |
+
+#### 7.9.2 Jefes (6 pisos)
+
+| Piso | Jefe | Voz (ja) | Intro JA | Intro ES | Intro EN | Outro JA | Outro ES | Outro EN |
+|---|---|---|---|---|---|---|---|---|
+| **P1 Vestíbulo** | *CONSERJE* | Masculino, cansado, irónico | `「誰かがまだ、上へ行くのか。」` | *"¿Todavía queda alguien que suba?"* | *"Is there still someone trying to climb?"* | `「行け。もう、俺はここで十分だ。」` | *"Ve. Yo ya he cumplido aquí."* | *"Go. I've done enough here."* |
+| **P2 Market Roto** | *CAJERO* | Masculino, histérico contenido | `「値引きなんか、もうねえ。」` | *"Ya no quedan rebajas."* | *"No more discounts left."* | `「金は要らねえ…ただ眠らせてくれ。」` | *"Ya no quiero dinero... solo dormir."* | *"I don't want money anymore... just let me sleep."* |
+| **P3 Refinería** | *FUNDIDOR* | Masculino, ronco, furioso contenido | `「火は、まだ燃えている。」` | *"El fuego aún arde."* | *"The fire still burns."* | `「やっと…消せる。」` | *"Por fin... puedo apagarlo."* | *"At last... I can put it out."* |
+| **P4 Archivo** | *CENSORA* | Femenino, gélida, vengativa | `「歴史から消される覚悟はあるか。」` | *"¿Tienes valor para ser borrado de la historia?"* | *"Are you prepared to be erased from history?"* | `「記録の中で、自由になれ。」` | *"Sé libre, al menos en los registros."* | *"Be free, at least in the records."* |
+| **P5 Clínica** | *DIRECTORA* | Femenino, serena, triste | `「私達は、延命していただけだった。」` | *"Solo prolongábamos lo inevitable."* | *"We were only delaying the inevitable."* | `「子どもたちを…頼む。」` | *"Cuida... de los que aún quedan."* | *"Please... look after those who remain."* |
+| **P6 Núcleo** | *FRACTURA* | Andrógino/distorsionado (doble capa) | `「時は一つになるべきだった。」` | *"El tiempo debió ser uno solo."* | *"Time was meant to be one."* | `「裂け目を…閉じろ。」` | *"Cierra... la grieta."* | *"Close... the rift."* |
+
+**Reglas aplicadas:** VO **100% japonés**. Subtítulos ES/EN elegibles en menú título. En combate: **solo** *poder* y *habilidad nueva* se subtitulan (§7.4.2). Intros/outros sí. Máx 2 líneas, 42 caracteres. Nombres propios no traducidos. Timing manda (§7.4.4).
