@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnpadmainhito0"]
+
+; ============================================================================
+;  Main.tscn — Escena del Hito 0 (§15, §18.1 "Probar Main.tscn").
+;
+;  Los nombres de los nodos NO son cosméticos:
+;    - "Player": Main.cs lo busca con GetNodeOrNull<Player>("Player") en _Process.
+;      Si se renombra, el HUD de cargas queda ciego (bug senalado en la revision).
+;    - InputActions/TimeService/SaveManager van aqui explicitamente para que el
+;      orden de _Ready sea determinista: las acciones de input quedan registradas
+;      ANTES de que Player lea Input.GetVector en su primer frame fisico.
+;
+;  Todo lo demas (arena, repisas, rampa, HUD) se construye por codigo en
+;  Main._Ready(): formas planas, sin assets (§15 Hito 0).
+; ============================================================================
+
+[ext_resource type="Script" path="res://game/Main.cs" id="1_main"]
+[ext_resource type="Script" path="res://game/Player/Player.cs" id="2_player"]
+[ext_resource type="Script" path="res://game/Core/InputActions.cs" id="3_input"]
+[ext_resource type="Script" path="res://game/Core/TimeService.cs" id="4_time"]
+[ext_resource type="Script" path="res://game/Core/SaveManager.cs" id="5_save"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="InputActions" type="Node" parent="."]
+script = ExtResource("3_input")
+
+[node name="TimeService" type="Node" parent="."]
+script = ExtResource("4_time")
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("5_save")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_player")

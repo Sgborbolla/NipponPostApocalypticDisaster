@@ -1,0 +1,17 @@
+/workspace/.godot/mono/temp/obj/Debug/NPAD.csproj.AssemblyReference.cache
+/workspace/.godot/mono/temp/obj/Debug/NPAD.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/.godot/mono/temp/obj/Debug/NPAD.AssemblyInfoInputs.cache
+/workspace/.godot/mono/temp/obj/Debug/NPAD.AssemblyInfo.cs
+/workspace/.godot/mono/temp/obj/Debug/NPAD.csproj.CoreCompileInputs.cache
+/workspace/.godot/mono/temp/bin/Debug/NPAD.deps.json
+/workspace/.godot/mono/temp/bin/Debug/NPAD.runtimeconfig.json
+/workspace/.godot/mono/temp/bin/Debug/NPAD.dll
+/workspace/.godot/mono/temp/bin/Debug/NPAD.pdb
+/workspace/.godot/mono/temp/bin/Debug/GodotSharp.dll
+/workspace/.godot/mono/temp/bin/Debug/GodotSharpEditor.dll
+/workspace/.godot/mono/temp/obj/Debug/NPAD.csproj.Up2Date
+/workspace/.godot/mono/temp/obj/Debug/NPAD.dll
+/workspace/.godot/mono/temp/obj/Debug/refint/NPAD.dll
+/workspace/.godot/mono/temp/obj/Debug/NPAD.pdb
+/workspace/.godot/mono/temp/obj/Debug/NPAD.genruntimeconfig.cache
+/workspace/.godot/mono/temp/obj/Debug/ref/NPAD.dll

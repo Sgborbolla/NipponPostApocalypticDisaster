@@ -1,0 +1,38 @@
+; Engine configuration file.
+; NPAD — Nippon Post-Apocalyptic Disaster
+;
+; Hito 0 (§15): validacion del dash. Configuracion minima conforme a:
+;   - §13  : resolucion de render 1920x1080, target 60 fps (480x270 DESCARTADO).
+;   - AGENTS.md §1 paso 4: [dotnet] project/assembly_name="NPAD".
+;   - §3.7 : el mapa de controles se registra por codigo en game/Core/InputActions.cs
+;            (decision deliberada, ver la cabecera de ese archivo), por eso aqui no
+;            hay bloque [input].
+;   - §13  : sin motor fisico para la jugabilidad, pero el mundo usa StaticBody2D +
+;            CharacterBody2D (movimiento cinematico propio), igual que el HTML de
+;            referencia. DiosPhysics no interviene en el feel del dash.
+
+config_version=5
+
+[application]
+
+config/name="NPAD"
+config/description="Action roguelite de dos botones: atacar + dash. Hito 0."
+run/main_scene="res://game/Main.tscn"
+config/features=PackedStringArray("4.4", "C#", "Mobile")
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[dotnet]
+
+project/assembly_name="NPAD"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+texture_canvas/general/anti_aliasing_2d=0
+environment/defaults/default_clear_color=Color(0.051, 0.039, 0.071, 1)
