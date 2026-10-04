@@ -145,24 +145,24 @@ This design system channels the gritty, dense, cathode-ray terminal aesthetics o
 ### Aesthetic Direction
 A deliberate union of **Industrial Brutalism** and **Tactile Retro-Futurism**. The visual language rejects soft modern minimalism in favor of structured data ribbons, faceted chamfer borders, high-contrast segmented readouts, and monospace terminal feeds.
 
-## Colors
+## NPAD Tactical HUD - Paleta Corregida (Alineada a §7.1)
 
-The palette is engineered around luminous CRT phosphors over an ultra-deep charcoal vacuum. Colors indicate system criticality, weapon states, and bio-threat levels.
+Este HUD sigue la estética "Horror Administrativo / CRT Institucional". 
+REGLA DE ORO: Cero neones decorativos. La saturación es un recurso de supervivencia, no de interfaz.
 
-### Accent Applications
-- **Neon Cyan (`#00F0FF`):** Primary UI state, targeted telemetry, system headers, active conduits, and functional controls.
-- **Radioactive Green (`#39FF14`):** Secondary bio-vital status, network verification, sensor stability, and nominal readouts.
-- **Toxic Amber (`#FFB800`):** Caution states, fuel/radiation metrics, active alerts, and auxiliary system subheads.
-- **Bloody Crimson (`#FF1744`):** Critical hull damage, fatal diagnostics, emergency overrides, and armed ordnance warnings.
-- **Laser Purple (`#BD00FF`):** Psychic/EMP interference, synthetic intelligence overlays, and cyberware sync channels.
+### Matriz de Colores
+- **Base CRT (Fondo):** `#0d0a12` a `#1a1420`. Negro absoluto con sesgo púrpura-grisáceo.
+- **Texto Primario:** `#c8c0d8` (Hueso apagado).
+- **Texto Secundario / Bordes Inactivos:** `#4a4258` (Gris burocrático).
+- **Contorno de Paneles:** 1px sólido en `#2e2838`. Bordes biselados duros (45 grados, sin border-radius).
+- **ESTADO DE ALERTA / PELIGRO (UI Crítica):** `#ff2d6f` (Rojo sangre telegrafiado) y `#ff8a3d` (Naranja brasa). ÚNICO uso de alta saturación.
+- **RECOMPENSA / CARGA DE DASH:** `#ffc400` (Amarillo oro de la Ruptura).
+- **REANIMACIÓN (Piso 5):** `#9afaf2` (Cian pálido). Exclusivo para grietas de resurrección.
 
-### Neutral & Surface Matrix
-- **Cathode Pitch (`#080B10`):** Base terminal canvas; absorbs all non-illuminated pixels.
-- **Hard Shell (`#101622`):** Primary panel containment background.
-- **Sub-Terminal Surface (`#172033`):** Elevated inner wells, stat gutters, and card containers.
-- **Grid Trace Line (`#22324D`):** Low-light boundary wires, inactive graticules, and calibration ticks.
-- **Glitch Text Neutral (`#8FA3BF`):** Standard data body, sub-labels, and non-critical metrics.
-- **Phosphor White (`#E6F7FF`):** Overdrive highlights, maximized stat values, and focused button text.
+### Restricciones Estrictas
+- **PROHIBIDO:** `#00f0ff`, `#39ff14`, `#bd00ff` (Neones de cyberpunk genérico).
+- **PROHIBIDO:** Bordes redondeados (`border-radius: 0`).
+- **PROHIBIDO:** Sombras difusas o desenfoques (`blur`). Toda profundidad se logra con líneas de 1px y escaneo CRT.
 
 ## Typography
 

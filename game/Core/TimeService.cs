@@ -33,6 +33,15 @@ public partial class TimeService : Node
     private float _scaleTimer;
     private float _targetScale = 1.0f;
 
+    // --- Estado del efecto manual de §18.1 (hitstop / slowmo explicito) ---
+    // Vive aqui, y no en un segundo servicio, porque §13 exige que la escala
+    // del frame se decida en UN punto. Dos servicios escribiendo
+    // Engine.TimeScale es exactamente el fallo que §13 describe.
+    private float _defaultTimeScale = 1.0f;
+    private float _duration;
+    private float _elapsed;
+    private bool _isEffectActive;
+
     /// <summary>
     /// Peticiones de camara lenta pendientes. §11.3 define duraciones por
     /// escalon; el hito 0 no las dispara todavia (no hay impacto todavia),
@@ -50,7 +59,39 @@ public partial class TimeService : Node
     public override void _ExitTree()
     {
         GameEvents.OnKill -= HandleKill;
-        Engine.TimeScale = 1.0f;
+        ResetTimeScale();
+    }
+
+    /// <summary>
+    /// §18.1, punto 3: "asegurar SetTimeScale(float scale, float duration)
+    /// (unico punto para hitstop). Prohibido usar Engine.TimeScale fuera."
+    ///
+    /// Hitstop y slowmo EXPLICITOS (un golpe concreto, un dash, una muerte de
+    /// jefe) entran por aqui. La racha de §11.3 NO pasa por aqui: la decide el
+    /// servicio solo, porque §11.3 quiere que el tiempo se ralentice al SUBIR la
+    /// racha y nunca por impacto. Una peticion manual puede pisar la racha
+    /// durante su duracion; al expirar, la racha se reevalua.
+    /// </summary>
+    public void SetTimeScale(float scale, float duration)
+    {
+        _duration = duration;
+        _elapsed = 0f;
+        _isEffectActive = true;
+        _targetScale = scale;
+        _scaleTimer = duration;
+    }
+
+    /// <summary>
+    /// Devuelve el reloj a 1.0 y cancela tanto el efecto manual como la racha.
+    /// Se llama al cambiar de run, y en _ExitTree.
+    /// </summary>
+    public void ResetTimeScale()
+    {
+        _isEffectActive = false;
+        _streak = 0;
+        _staleTimer = 0f;
+        _targetScale = _defaultTimeScale;
+        _scaleTimer = 0f;
     }
 
     public override void _Process(double delta)
@@ -66,12 +107,25 @@ public partial class TimeService : Node
             }
         }
 
-        if (_scaleTimer > 0f)
+        // §18.1: el efecto manual (hitstop/slowmo) manda sobre la racha mientras
+        // dure. Al expirar, el servicio vuelve a derivar de la racha, que es el
+        // unico estado que sobrevive entre peticiones.
+        if (_isEffectActive)
+        {
+            _elapsed += dt;
+            if (_elapsed >= _duration)
+            {
+                _isEffectActive = false;
+                _targetScale = ScaleForStreak(_streak);
+                _scaleTimer = 0f;
+            }
+        }
+        else if (_scaleTimer > 0f)
         {
             _scaleTimer -= dt;
             if (_scaleTimer <= 0f)
             {
-                _targetScale = 1.0f;
+                _targetScale = ScaleForStreak(_streak);
             }
         }
 
@@ -92,7 +146,21 @@ public partial class TimeService : Node
     /// </summary>
     private void ApplyStreakScale(int streak)
     {
-        float scale = streak switch
+        // §11.3 da tambien una duracion por escalon. El hito 0 no la usa
+        // todavia; se deja el hook listo.
+        _targetScale = ScaleForStreak(streak);
+        _scaleTimer = 0f;
+    }
+
+    /// <summary>
+    /// La tabla de §11.3, en un solo sitio. La comparten la racha y la
+    /// expiracion de un efecto manual de §18.1: cuando un hitstop termina, el
+    /// reloj tiene que volver al valor que le corresponde a la racha actual, no
+    /// a 1.0, o el efecto se comeria la recompensa.
+    /// </summary>
+    private static float ScaleForStreak(int streak)
+    {
+        return streak switch
         {
             >= 70 => ScaleRacha70Plus,
             >= 40 => ScaleRacha40_69,
@@ -100,10 +168,5 @@ public partial class TimeService : Node
             >= 10 => ScaleRacha10_19,
             _ => ScaleRacha0_9,
         };
-
-        // §11.3 da tambien una duracion por escalon. El hito 0 no la usa
-        // todavia; se deja el hook listo.
-        _targetScale = scale;
-        _scaleTimer = 0f;
     }
 }
