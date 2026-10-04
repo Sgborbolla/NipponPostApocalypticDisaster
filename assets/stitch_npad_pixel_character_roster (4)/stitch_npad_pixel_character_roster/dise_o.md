@@ -2020,3 +2020,29 @@ Crear tabla única `dialogue_table.csv` / `res://data/dialogue.json` con campos:
 | **Resucitado** | Rasgueo hueco | Chirrido óseo | Grito ahogado corto |
 | **Subjefe** | Robótico (click+servo) | Pesado mecánico | Explosión contenida |
 | **Jefe** | Personalizado (más orgánico+mecánico) | Pesado distintivo | Dramático contenido |
+
+### 7.7.2 Ambiente, atmosférico y diegético
+
+El tono es **post-apocalipsis institucional** (§2.1). El ambiente debe sentirse vacío, húmedo, con maquinaria que sigue funcionando aunque no haya nadie.
+
+| Piso | Ambiente | SFX ambientales | Notas |
+|---|---|---|---|
+| **P1 Vestíbulo** | Frío, vacío, eco | Humedad, respiraderos muertos, eco de pasos, luces parpadeantes (buzz) | Silencio entre hordas. Eco importante (sala grande). |
+| **P2 Market Roto** | Caótico, húmedo | Lluvia que entra por grietas, toldos rotos, plástico, agua en charcos, ratas (sutil) | Sonido sucio, no orgánico. Refuerza abandono. |
+| **P3 Refinería** | Industrial, caliente | Caldera, vapor, tuberías, metal expandiéndose, charcos burbujeando | Mezcla mecánico + térmico. Ambiente pesado. |
+| **P4 Archivo** | Claustrofóbico, húmedo | Pasillos mohosos, papel arrugado, ventilación rota, goteo constante | Silencio tenso, goteo marca ritmo. |
+| **P5 Clínica** | Horror administrativo | Fluorescentes zumbando, tuberías con agua, goteos, maquinaria inactiva, respiración ambiente tenue | Más incómodo que terror. "Horror administrativo". |
+| **P6 Núcleo** | Apocalíptico, gélido + húmedo | Ruido de estática, maquinarias colapsando, lluvia ácida/lejana, eco metálico, grieta (hum/reverb) | Mezcla estática + lluvia lejana + reverberación grande. Silencios pesados. |
+| **Global (Exterior/Torre)** | Distópico | **Lluvia constante (lejana/media)**, **golpeteo de lluvia contra metal/vidrio/estructuras**, truenos distantes (low rumble), viento entre estructuras, ambiente urbano muerto, gotas resbalando | Fondo atmosférico suave. Truenos **espaciados** (no cada 2s). Golpeteos variables (no loop monótono) — usar capas: lluvia fina + salpicaduras + gotas aisladas. Usar **rumble** grave, nunca estridente. Silencios entre truenos para dar peso. |
+| **Menú/Título** | Atmosférico | Lluvia tenue + viento + estática baja | Refuerza tono (§7.5.1). Loop suave. |
+
+### 7.13 Guía de audio+animación por nivel (ambiente + efectos + ritmo)
+
+| Piso | Color/Atmósfera | Lluvia/Golpeteos | Efectos ambientales | Animación ambiente | Ritmo BGM | Notas |
+|---|---|---|---|---|---|---|
+| **P1 Vestíbulo** | Grises fríos (#0d0a12–#4a4258) | Lluvia muy lejana, goteos aislados (eco) | Fluorescentes muertos (buzz sutil), eco pasos, respiraderos | Luces parpadeantes lentas, hojas papel flotando, polvo | 70–90 BPM (phonk atmos) | Silencios largos. Peso burocrático. |
+| **P2 Market Roto** | Ocre sucio + gris | Lluvia media, golpeteo fuerte sobre lonas/plástico, charcos salpican | Toldos rotos crujen, plástico, agua corre, ratas muy sutiles | Lonas ondeando, cajas inestables, agua en charcos con movimiento | 100–120 BPM (agresivo) | Caos controlado. Sonido sucio. |
+| **P3 Refinería** | Azul acero + brasa (#ff8a3d) | Lluvia interior/lejana, golpeteo metálico | Vapor sibilante, tuberías vibran, caldera burbujea, metal expande | Vapores ascendentes, luces cálidas parpadean, tuberías oscilan | 120–130 BPM (industrial) | Pesado, claustro-térmico. |
+| **P4 Archivo** | Grises azules, mohoso | Goteo constante (clave rítmica), lluvia muy lejana | Papel, estanterías crujen, ventilación rota, hum | Telas/polvo, luces tenues parpadean, estanterías vibran | 95–115 BPM (tenso) | Claustrofóbico. Goteo marca tensión. |
+| **P5 Clínica** | Blancos sucios + verde apagado | Goteo irregular, golpeteo suave | Fluorescentes zumban, tubos, maquinaria inerte, ambiente húmedo | Luces parpadean erráticas, cortinas, líquidos sutiles | 110–125 BPM (horror admin) | Incómodo. Silencios inquietantes. |
+| **P6 Núcleo** | Negro + cian (#9afaf2) + rojo peligro | Lluvia ácida/lejana, golpeteo distorsionado, reverb grande | Estática, grieta, maquinaria colapsa, eco cavernoso | Luces fallan, grieta pulsa, estructuras tiemblan | 130–140 BPM (progresivo) | Apocalíptico. Silencios pesados + estática. |
