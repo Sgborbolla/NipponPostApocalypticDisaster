@@ -1718,3 +1718,46 @@ Lo propio de NPAD, y donde tiene que estar la diferencia:
 - [ ] **Proveedor de VO japonés** (§7.4.4) — dependencia externa
 - [ ] **Canvas 2D vs GPU** para el hito 2 (§13)
 - [ ] **Si la Ruptura sigue siendo `KeyE` o pasa a la cadena de ataque** (ver nota arriba)
+
+
+### 7.5 Dirección musical — Cyberphunk/Phonk japonés (propuesta)
+
+> Decisión abierta: ayer definimos **2 temas por piso** (12 temas totales) con estética **cyberphunk/phonk** con toques japoneses. Tonalidad: callejero, distópico-administrativo, con peso para hordas.
+
+#### Referencias recomendadas (estilo objetivo)
+
+| Canción | Artista/Referencia | Uso sugerido | Por qué |
+|---|---|---|---|
+| "Metamorphosis" / tipo phonk oscuro | Kordhell, Scarlxrd | General combate (oleadas densas) | Ritmo agresivo, secciona bien con hordas |
+| "Murder in My Mind" estilo | Kordhell / Playaphonk | Subjefes | Build-up tenso, golpea en drops |
+| "Tokyo Drift" phonk remix | DJ Smokey / SHADXWBXRN | Pisos 1-2 (Vestíbulo/Market) | Influencia japonesa/callejera |
+| "Rave" / cyberphonk | Ghostface Playa, ONIMXRU | Combate sostenido | Energía alta, sin perder legibilidad |
+| "NEON BLADE" | Ghostmane / WARGASM | Jefes | Industrial + distorsión, encaja con tono administrativo |
+| "SCOPOLAMINE" / phonkwave | SXMPRA | Transiciones/subjefe | Atmosférico y tenso |
+| "After Dark" phonk | Mr.Kitty vibes + phonk | Piso 4-5 (Archivo/Clínica) | Más claustrofóbico, creepy-institucional |
+| "Devil Eyes" | ZODIVK | Oleadas finales | Intenso, buen loop |
+| "Backbone" cyberphonk | Ken Carson tipo o phonkcore | Jefe final (Núcleo) | Picos brutales, cierre épico |
+| "JAPANESE DRIFT PHONK" | Tima Belorusskih / varios | Introducciones/pisos | Tinte nipón directo |
+| "Nightmare" phonk | Sxmpra, KUTE | Clímax | Pesado, administra energía |
+| "Glory" / distorted phonk | RAIZHELL | Ruptura (Ultimate) | Ideal para el momento de corte/cinética |
+
+#### Uso por piso (propuesta 2 canciones/piso)
+
+| Piso | Ambiente | BGM 1 (Combate/oleadas) | BGM 2 (Subjefe/Jefe o tensión) |
+|---|---|---|---|
+| **P1. Vestíbulo** | Administrativo, frío | Japanese Drift Phonk (ritmo medio) | After Dark Phonk (tensión) |
+| **P2. Market Roto** | Caótico, denso | Devil Eyes (loop agresivo) | Scopolamine (build-up) |
+| **P3. Refinería** | Industrial, calor | Neon Blade (pesado) | Murder in My Mind (subjefe) |
+| **P4. Archivo** | Claustrofóbico | Rave/Cyberphonk (sostenido) | Backbone (tenso) |
+| **P5. Clínica** | Horror administrativo | Nightmare (distorsionado) | Glory (clímax) |
+| **P6. Núcleo** | Apocalíptico | Backbone (progresivo) | Glory (fase 2 jefe, ruptura) |
+
+#### Notas de implementación (con game feel)
+
+- **Loop seamless**: todas deben poder loopearse sin corte (combate sostenido).
+- **Stems opcionales** (ideal): percusión + bass + atmos para poder **subir intensidad con la racha** (§11.3) — layering dinámico.
+- **Menor prioridad en voz/lyrics**: preferir instrumentales o loops con chops japoneses/vocal chops. En combate BGM sin voces largas para no competir con barks japoneses (§7.4.2).
+- **Transiciones**: crossfade suave entre oleada → subjefe (0.5–0.8s) y corte seco controlado en cinemáticas (para dar peso).
+- **Energy curve**: subir BPM/intensidad con racha (no con HP enemigo). Encaja con "la agresividad recarga" (§3.2).
+
+> **Recomendación práctica:** priorizar **instrumentales** (dark phonk/cyberphonk) para evitar líos de subtítulos/VO. Buscar referencias en YouTube/AudioLibrary/Envato Elements, Uppbeat, Soundraw o Epidemic Sound con tags: `dark phonk`, `cyberphonk`, `japanese phonk`, `phonk loop`, `dystopian industrial`.
